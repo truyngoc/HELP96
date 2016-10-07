@@ -1,0 +1,320 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="BIT.WebUI.SiteMaster" %>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BitQuick24.org</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="Mosaddek" />
+    <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina" />
+    <link rel="shortcut icon" href="img/favicon.png" />
+    <meta name="csrf-token" content="AvJsvFUkFTxZxtYHOn19V6YN6zqQExtwl6k0WVSd" />
+
+    <script type="text/javascript" src="../Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery.validate.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery.validate.unobtrusive.js"></script>
+    <script type="text/javascript" src="../Scripts/myjs.js"></script>
+    <script type="text/javascript" src="../Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="../Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../Scripts/transition.js"></script>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="Content/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-reset.css" rel="stylesheet" />
+    <!--external css-->
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Content/owl.carousel.css" type="text/css" />
+    <link rel="stylesheet" href="Content/Site.css" type="text/css" />
+    <!--right slidebar-->
+    <link href="Content/slidebars.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="Content/AdminStyle.css" rel="stylesheet" />
+    <link href="Content/style-responsive.css" rel="stylesheet" />
+    <!-- Start Alexa Certify Javascript -->
+    <script type="text/javascript">
+        _atrk_opts = { atrk_acct: "1ArLn1QolK1052", domain: "bitquick24.org", dynamic: true };
+        (function () { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(as, s); })();
+    </script>
+    <noscript>
+        <img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=1ArLn1QolK1052" style="display: none" height="1" width="1" alt="" /></noscript>
+    <!-- End Alexa Certify Javascript -->
+</head>
+
+<body>
+    <!-- Navigation -->
+    <div id="menu-navigation">
+        <nav class="navbar navbar-inverse" role="navigation" style="background-color: #E6E7E8 !important; border-bottom: 10px solid #F6921E;">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header ">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!---Logo--->
+                <a class="navbar-brand" href="/">
+                    <img src="images/logo_BitQuick.png" />
+                </a>
+                <!---end of Logo--->
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="mnvav" href="/">HOME</a>
+                    </li>
+                    <li>
+                        <a class="mnvav" href="#about"><strong>ABOUT</strong></a>
+                    </li>
+                    <li>
+                        <a class="mnvav" href="#vision"><strong>VISION</strong></a>
+                    </li>
+                    <li>
+                        <a class="mnvav" href="/Admin/login.aspx">LOGIN</a>
+                    </li>
+                    <li>
+                        <div id="google_translate_element"></div>
+                        <script type="text/javascript">
+                            function googleTranslateElementInit() {
+                                new google.translate.TranslateElement({ pageLanguage: 'vi', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, multilanguagePage: true }, 'google_translate_element');
+                            }
+                        </script>
+                        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+    </div>
+    <!-- end header -->
+
+    <!-- Full Page Image Background Carousel Header -->
+    <header class="carousel slide" id="myCarousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li class="" data-slide-to="0" data-target="#myCarousel"></li>
+            <li data-slide-to="1" data-target="#myCarousel" class=""></li>
+            <li data-slide-to="2" data-target="#myCarousel" class="active"></li>
+        </ol>
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+            <div class="item next left">
+                <!-- Set the third background image using inline CSS below. -->
+                <div style="background-image: url('images/slide-2.jpg');" class="fill">
+                    <img src="images/slide-2.jpg" style="height:408px;" />
+                </div>
+                <div class="carousel-caption">
+                </div>
+                <div class="grid"></div>
+            </div>
+            <div class="item">
+                <!-- Set the first background image using inline CSS below. -->
+                <div style="background-image: url('images/slide-3.jpg');" class="fill">
+                    <img src="images/slide-3.jpg" style="height:408px;"/>
+                </div>
+                <div class="carousel-caption">
+                </div>
+                <div class="grid"></div>
+            </div>
+            <div class="item active left">
+                <!-- Set the second background image using inline CSS below. -->
+                <div style="background-image: url('images/slide-1.jpg');" class="fill">
+                    <img src="images/slide-1.jpg" style="height:408px;"/>
+                </div>
+                <div class="carousel-caption">
+                </div>
+                <div class="grid"></div>
+            </div>
+        </div>
+        <!-- Controls -->
+        <a data-slide="prev" href="#myCarousel" class="left carousel-control">
+            <span class="icon-prev"></span>
+        </a>
+        <a data-slide="next" href="#myCarousel" class="right carousel-control">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+
+    <!-- ABOUT US -->
+    <div id="about" style="padding: 30px 0;">
+        <div class="container">
+            <!-- ABOUT US -->
+            <div style="padding: 30px 0;" class="col-lg-12">
+                <div class="col-lg-6">
+                    <img style="border: 5px solid #404041;" src="images/pic_aboutus.jpg" />
+                </div>
+                <div class="col-lg-6 txtpadding">
+                    <h2 class="aboutus title_lg" style="color: #F6921E;">ABOUT <span>US</span></h2>
+                    <p>BitQuick 24 is a community of people who provide financial helping on the principle of reciprocity of mercy. We use infrastructure of Bitcoin in our transactions. In BITQUICK24, people don’t have to make any contracts of property. In BitQuick 24, where is no lender and no debtors. Everything is very simple: one participant asks for help &ndash; another one helps. The only thing that BitQuick 24 demands from its participants is to be honest and kind to each other. People ask for financial helping when they need it, and then people also need to give financial helping to the others when they are able to do it. With BitQuick 24 everyone has an equal chance to make money and build their wealth and dream and it is unique in the way that it is a community project based on honesty and trust of the members.</p>
+                    <p>BitQuick 24 uses Bitcoin as a currency for trading. It is the best possible way for participants from different countries. As Bitcoin cause a revolution in financial relationship between people and people, this combination of BitQuick 24 and Bitcoin ideas, which is fair and free financial system, make possible for us to create significant changes in modern world.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end ABOUT US -->
+
+    <!-- VISION -->
+    <div id="vision">
+        <div class="container">
+            <div style="padding: 30px 0;" class="col-lg-12">
+                <div class="col-lg-6">
+                    <h2 class="vision title_lg">VISION</h2>
+                    <p style="text-align: justify;">Through BitQuick 24, we want to develop a community where Bitsun uses the trending of 2016 that makes people around the world get closer. They are exalting. According to experts, this trend will last about 5 to 10 years. It is a wave of Providing Help and Getting Help. Like the period of the gold, era of real estate, era of technology, if people know how grasp these opportunities, they may be a millionaire.</p>
+                    <p style="text-align: justify;">However, it is just the past. Nowadays, the developing combined community with technology is a big trend. If people can grasp it now, they can change their life. We want people to join with us going on a boat of new trends and then we are the pioneer leader. Besides, BitQuick 24 increases income for people in a short time, moreover, it develops the community. When this trend explode, your life are in a new progress.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="images/vision.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end VISION -->
+
+    <!--Contact us-->
+    <div id="register">
+        <div class="container">
+            <div class="row">
+                <div class="footer-widget">
+                    <div class="span3">
+                        <ul>
+                            <li class="widget widget_text" id="text-2">
+                                <div class="textwidget">
+                                    <h3>Contact Us</h3>
+                                    <p>
+                                        Athena Bitcoin, Inc.<br>
+                                        Chicago, Saint Louis, Dallas<br>
+                                        <a href="http://www.athenabitcoin.com">AthenaBitcoin.com</a><br>
+                                    </p>
+                                    <p>
+                                        Email: <a href="mailto:orders@bitquick.co">orders@bitquick.co</a><br>
+                                    </p>
+                                    <h3>Business Hours</h3>
+                                    <p>
+                                        Monday - Friday: 8 AM - 10 PM EST<br>
+                                        Saturday - Sunday: 9 AM - 8 PM EST
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-widget">
+                    <div class="span3">
+                        <ul>
+                            <li class="widget widget_text" id="text-2">
+                                <div class="textwidget">
+                                    <h3>The Team</h3>
+                                    <a href="http://www.athenabitcoin.com" target="_blank">
+                                        <img width="" src="images/Athena_Bitcoin_OWL.png"></a>
+                                    <p>Athena Bitcoin, Inc.</p>
+                                    <p>
+                                        The most trusted name in Bitcoin ATM
+                                        <a class="fa fa-twitter" href="http://twitter.com/AthenaBitcoin" target="_blank"></a>
+                                        <a class="fa fa-facebook" href="https://facebook.com/AthenaBitcoin" target="_blank"></a>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-widget">
+                    <div class="span3">
+                        <ul>
+                            <li class="widget widget_text" id="recent-posts-2">
+                                <div class="textwidget">
+                                    <h3>THE LATEST FROM BITQUICK</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/blog/bitquick-launches-new-affiliate-program.php">BitQuick Launches New Affiliate Program</a>
+                                        </li>
+                                        <li>
+                                            <a href="/blog/bitpay-crowdcurity-bitgo-and-clef-speak-on-bitcoin-security-at-bitpanel.php">BitPay, CrowdCurity, BitGo, and Clef speak on Bitcoin Security at BitPanel</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="/blog/save-20-at-starbucks-when-you-turn-your-cash-into-bitcoin-with-bitquick-and-fold.php">Save 20% at Starbucks when you turn your cash into Bitcoin with BitQuick and Fold</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-widget">
+                    <div class="span3">
+                        <ul>
+                            <li class="widget widget_text" id="text-5">
+                                <div class="textwidget">
+                                    <h3 class="widgettitle">TERMS OF SERVICE</h3>
+                                    <div class="textwidget">
+                                        <p>View our <a href="/terms-of-service.php">Terms of Service/Privacy Policy</a> agreement.</p>
+                                        <br>
+                                        <br>
+                                        <a href="https://bitcointalk.org/index.php?topic=262082.0">BitcoinTalk Forums</a>
+                                        <br>
+                                        <h2 class="widgettitle">Recommended Wallets:</h2>
+                                        <a href="https://play.google.com/store/apps/details?id=com.athenabitcoin.wallet&amp;hl=en&amp;utm_source=global_co&amp;utm_medium=prtnr&amp;utm_content=Mar2515&amp;utm_campaign=PartBadge&amp;pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">
+                                            <img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Get it on Google Play"></a>
+                                        <br>
+                                        <br>
+                                        <a href="https://itunes.apple.com/us/app/athena-bitcoin/id1087704508?ls=1&amp;mt=8">
+                                            <img src="images/App_Store_Badge_US-UK_135x40.svg" alt="Download on iTunes"></a>
+                                        <br>
+                                        <br>
+                                        <a href="https://blockchain.info" target="_blank">
+                                            <img src="images/blockchain-logo-vector.svg" alt="Click to blockchain"></a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--End of Contact us-->
+
+    <!-- footer -->
+    <div id="footer">
+        <div class="container">
+            <div class="col-lg-5">
+                <span style="color: #F6921E; font-weight: bold;">support@BitQuick24.com</span>
+            </div>
+            <div class="col-lg-7">
+                <div id="social">
+                    <span><a target="_blank" href="#"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></span>
+                    <span><a target="_blank" href="#"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+        $('.carousel').carousel({
+            interval: 5000 //changes the speed
+        })
+    </script>
+    <!--end of Script to Activate the Carousel -->
+    <div class="container body-content">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+</body>
+</html>

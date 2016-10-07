@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E9A47417-DE4C-4741-B1C7-402B7B84A394}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BIT.Controller</RootNamespace>
+    <AssemblyName>BIT.Controller</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="COMMAND_BC.cs" />
+    <Compile Include="COMMAND_DETAIL_BC.cs" />
+    <Compile Include="COMMISSION_BC.cs" />
+    <Compile Include="GH_BC.cs" />
+    <Compile Include="MEMBERS_BC.cs" />
+    <Compile Include="PIN_BC.cs" />
+    <Compile Include="PH_BC.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SNUOC_BC.cs" />
+    <Compile Include="WALLET_BC.cs" />
+    <Compile Include="WITHDRAW_BC.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BIT.Common\BIT.Common.csproj">
+      <Project>{e8a9c90f-7d50-4bff-80b8-d41d0c07ff6d}</Project>
+      <Name>BIT.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BIT.DataHelper\BIT.DataHelper.csproj">
+      <Project>{216e0369-c30c-4341-a9f9-9d3b4e31c582}</Project>
+      <Name>BIT.DataHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BIT.Objects\BIT.Objects.csproj">
+      <Project>{d386645a-7d07-4041-935d-d73844ce42aa}</Project>
+      <Name>BIT.Objects</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

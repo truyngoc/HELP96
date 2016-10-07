@@ -1,0 +1,258 @@
+﻿/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input[type="text"],
+input[type="password"] {
+    max-width: 280px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        margin-top: 20px;
+    }
+
+    .body-content {
+        padding: 0;
+    }
+}
+
+#register {
+    background-color: #2D3033;
+    padding: 50px 0;
+}
+
+.regis {
+    background-color: #F6921E;
+    color: #ffffff !important;
+    font-family: Lovelo,sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    height: 70px;
+    padding: 20px 100px;
+    text-transform: uppercase;
+    width: 333px;
+}
+
+    .regis:hover {
+        color: #ffffff !important;
+        background-color: #C78A2E;
+    }
+
+#footer {
+    background-color: #E6E7E8;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.navbar-nav {
+    float: right;
+}
+
+.login-submit {
+    /* border: 1px solid #3079ed; */
+    border: 0px;
+    color: #fff;
+    text-shadow: 0 1px rgba(0,0,0,0.1);
+    background-color: #4d90fe;
+    /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+}
+
+    .login-submit:hover {
+        /* border: 1px solid #2f5bb7; */
+        border: 0px;
+        text-shadow: 0 1px rgba(0,0,0,0.3);
+        background-color: #357ae8;
+        /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+    }
+
+.button {
+    width: 100px;
+    background: #3399cc;
+    display: block;
+    margin: 0 auto;
+    margin-top: 1%;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    transition: background .3s;
+    -webkit-transition: background .3s;
+}
+
+    .button:hover {
+        background: #2288bb;
+    }
+
+#login {
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 8px;
+    margin-bottom: 2%;
+    transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+}
+
+#triangle {
+    width: 0;
+    border-top: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 12px solid #3399cc;
+    border-left: 12px solid transparent;
+    margin: 0 auto;
+}
+
+#login h1 {
+    background: #3399cc;
+    padding: 20px 0;
+    font-size: 140%;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+}
+
+
+input[type="email"], input[type="password"] {
+    width: 92%;
+    background: #fff;
+    /*margin-bottom: 4%;*/
+    border: 1px solid #ccc;
+    padding: 4%;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 95%;
+    color: #555;
+}
+
+input[type="submit"] {
+    /*width: 100%;*/
+    background: #3399cc;
+    border: 0;
+    /*padding: 4%;*/
+    font-family: 'Open Sans',sans-serif;
+    font-size: 100%;
+    color: #fff;
+    cursor: pointer;
+    transition: background .3s;
+    -webkit-transition: background .3s;
+}
+
+    input[type="submit"]:hover {
+        background: #2288bb;
+    }
+
+#social {
+    float: right;
+}
+
+.navbar-brand {
+    padding: 0 4px !important;
+}
+
+    .navbar-brand img {
+        float: left;
+        position: relative;
+        top: 0 !important;
+        width: 210px;
+    }
+
+.mid {
+    text-align: center;
+}
+
+.navbar-inverse {
+    border-bottom: 20px solid #F6921E !important;
+    color: #fff !important;
+    margin-bottom: 0;
+    padding: 14px 10px !important;
+    background-color: #E6E7E8 !important;
+}
+
+.mnvav {
+    background-color: #E6E7E8 !important;
+    color: #F6921E !important;
+    font-weight: bolder;
+}
+
+#vision {
+    border-top: 10px solid #F6921E;
+    background: #000000 none repeat scroll 0 0 !important;
+    color: #fff;
+}
+
+.light {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.txt_head {
+    background: #F6921E none repeat scroll 0 0;
+    font-size: 22px;
+    padding: 10px;
+}
+
+.span3 {
+    width: 250px;
+}
+
+[class*="span"] {
+    float: left;
+    margin-left: 30px;
+    min-height: 1px;
+}
+
+.textwidget h3, .widgettitle {
+    color: #f7941d;
+    text-align: center;
+}
+
+.textwidget p {
+    color: #ffffff;
+}
+
+.textwidget a:hover, .textwidget ul li a:hover {
+    color: #ffffff !important;
+}
+
+.goog-te-gadget-simple {
+    background-color: #E6E7E8 !important;
+}
+/*  - dung de thay doi khoang cach giua cac row class trong Search Panel */
+.margin-top-03 {
+    margin-top: 0.3em;
+}
+
+.margin-top-05 {
+    margin-top: 0.5em;
+}
+
+.margin-top-10 {
+    margin-top: 1.0em;
+}
+
+.margin-top-15 {
+    margin-top: 1.5em;
+}
+
+.margin-top-20 {
+    margin-top: 2.0em;
+}
+
+.margin-top-25 {
+    margin-top: 2.5em;
+}
+
+.margin-top-30 {
+    margin-top: 3.0em;
+}

@@ -1,0 +1,67 @@
+﻿* {
+    padding: 0; 
+    margin: 0; 
+}
+body {
+	font: 11px Tahoma;
+	background-color: #F7F7E9;
+}
+h1 {
+    font: bold 32px Times;
+	color: #666;
+	text-align: center;
+	padding: 20px 0;    
+}
+/*#container {
+    width: 700px;
+    margin: 10px auto;
+}*/
+
+    .mGrid { width: 100%; background-color: #fff; margin: 5px 0 10px 0; border: solid 1px #525252; border-collapse:collapse; }
+    .mGrid td { padding: 2px; border: solid 1px #c1c1c1; color: #717171; font-size:12px }
+    /*.mGrid tr td:hover { background-color:#EFEFEF }*/
+    .mGrid th { padding: 20px 5px; color: #fff; background: #424242 url(grd_head.png) repeat-x top; border-left: solid 1px #525252; font-size: 1em; }
+    .mGrid .alt { background: #fcfcfc  }
+    .pgr {background: #424242  }
+    .pgr table { margin: 5px 0; }
+    .pgr td { border-width: 0; padding: 0 6px; border-left: solid 1px #666; font-weight: bold; color: #fff; line-height: 12px; }   
+    .pgr a { color: #666; text-decoration: none; }
+    /*.mGrid .pgr tr:hover{background: #424242}*/
+    .pgr a:hover { color:white; text-decoration: none; }
+
+    .gridview{
+    background-color:#fff;
+   
+   padding:2px;
+   margin:2% auto;
+   
+   
+}
+    .gridview a{
+  margin:auto 1%;
+    border-radius:50%;
+      background-color:#444;
+      padding:5px 10px 5px 10px;
+      color:#fff;
+      text-decoration:none;
+      -o-box-shadow:1px 1px 1px #111;
+      -moz-box-shadow:1px 1px 1px #111;
+      -webkit-box-shadow:1px 1px 1px #111;
+      box-shadow:1px 1px 1px #111;
+     
+}
+    .gridview a:hover{
+    background-color:#1e8d12;
+    color:#fff;
+}
+    .gridview span{
+    background-color:#ae2676;
+    color:#fff;
+     -o-box-shadow:1px 1px 1px #111;
+      -moz-box-shadow:1px 1px 1px #111;
+      -webkit-box-shadow:1px 1px 1px #111;
+      box-shadow:1px 1px 1px #111;
+
+    border-radius:50%;
+    padding:5px 10px 5px 10px;
+}
