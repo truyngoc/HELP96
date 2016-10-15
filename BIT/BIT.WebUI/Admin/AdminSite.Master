@@ -129,7 +129,7 @@
                                 <ul class="dropdown-menu extended logout" style="display: none;">
                                     <li><a href="../Admin/EditAccount.aspx"><span><i class=" fa fa-user"></i></span><span>Profile setting</span></a></li>
                                     <li><a href="../Admin/ChangePassword.aspx"><span><i class="fa fa-cog"></i></span><span>Change password</span></a></li>
-                                    <%--<li><a href="../Admin/ChangePasswordTwo.aspx"><span><i class="fa fa-cog"></i></span><span>Change password 2</span></a></li>--%>
+                                    <li><a href="../Admin/ChangePasswordTwo.aspx"><span><i class="fa fa-cog"></i></span><span>Change password 2</span></a></li>
                                    <%-- <li><a href="../Admin/OrderChangeInfo.aspx"><span><i class="fa fa-cog"></i></span><span>Order Edit Profile</span></a></li>--%>
                                     <li><a href="../Admin/Login.aspx"><span><i class="fa fa-unlock-alt"></i></span><span>Logout</span></a></li>
                                 </ul>
@@ -165,32 +165,30 @@
                             </li>
                             <!--End of Pin-->
 
-                            <li class="sub-menu"  id="liPakage" runat="server">
+<%--                            <li class="sub-menu"  id="liPakage" runat="server">
                                 <a class="" href="../Admin/SelectPackInvest.aspx" style="color: #fff">
                                     <i class="fa fa-toggle-on"></i>
                                     <span>Pin Active</span>
-                                    <%--  <span class="bgslide"></span>--%>
+                                    <%--  <span class="bgslide"></span>
                                 </a>
-                            </li>
+                            </li>--%>
 
                             <!--PH-->
-                            <li class="sub-menu"  id="liPH" runat="server">
+                            <%--<li class="sub-menu"  id="liPH" runat="server">
                                 <a class="" href="../Admin/CreatePHCommunity.aspx" style="color: #fff">
                                     <i class="fa fa-cloud-upload"></i>
                                     <span>Provide Help (PH)</span>
-                                    <%-- <span class="bgslide"></span>--%>
                                 </a>
-                            </li>
+                            </li>--%>
                             <!--end of PH-->
 
                             <!--GH-->
-                            <li class="sub-menu"  id="liGH" runat="server">
+<%--                            <li class="sub-menu"  id="liGH" runat="server">
                                 <a class="" href="../Admin/GHCommunity.aspx" style="color: #fff">
                                     <i class="fa fa-cloud-download"></i>
                                     <span>Get Help (GH)</span>
-                                    <%-- <span class="bgslide"></span>--%>
                                 </a>
-                            </li>
+                            </li>--%>
                             <!--End of GH-->
 
                              <!--tree-->
@@ -207,7 +205,7 @@
                             <li class="sub-menu"  id="liCommission" runat="server">
                                 <a class="" href="../Admin/Commission.aspx" style="color: #fff">
                                     <i class="fa fa-database"></i>
-                                    <span>Sponser Bonus</span>
+                                    <span>Sponsor Bonus</span>
                                     <%--<span class="bgslide"></span>--%>
                                 </a>
                             </li>

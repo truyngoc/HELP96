@@ -13,48 +13,39 @@ namespace BIT.WebUI.Admin {
     public partial class Dashboard {
         
         /// <summary>
-        /// Button1 control.
+        /// lblTotalDownLine control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Label lblTotalDownLine;
         
         /// <summary>
-        /// mp1 control.
+        /// lblDirectDownLine control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.ModalPopupExtender mp1;
+        protected global::System.Web.UI.WebControls.Label lblDirectDownLine;
         
         /// <summary>
-        /// Panl1 control.
+        /// lblPIN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panl1;
+        protected global::System.Web.UI.WebControls.Label lblPIN;
         
         /// <summary>
-        /// irm1 control.
+        /// lblPH control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlIframe irm1;
-        
-        /// <summary>
-        /// Button2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.Label lblPH;
     }
 }

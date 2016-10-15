@@ -32,9 +32,9 @@ namespace BIT.WebUI.Admin
                     liAdministrator.Visible = false;
                     liSignUp.Visible = false;
                     liPin.Visible = false;
-                    liPakage.Visible = false;
-                    liPH.Visible = false;
-                    liGH.Visible = false;
+                    //liPakage.Visible = false;
+                    //liPH.Visible = false;
+                    //liGH.Visible = false;
                     liCommission.Visible = false;
                     liWithdraw.Visible = false;
                 }

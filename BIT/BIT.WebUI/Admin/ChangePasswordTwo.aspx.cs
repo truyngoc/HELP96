@@ -36,11 +36,12 @@ namespace BIT.WebUI.Admin
 
                 Reset();
 
-                ShowMessageError(lblMessage, "Change password PIN successful", true);
+                TNotify.Alerts.Success("Edit account information success.", true);
             }
             else
             {
-                ShowMessageError(lblMessage, "Old password PIN is not valid", true);
+                TNotify.Alerts.Warning("Old password PIN is not valid", true);
+                //ShowMessageError(lblMessage, "Old password PIN is not valid", true);
             }
         }
         public void ShowMessageError(Label lblMsgErr, string sMsgErr = "", bool bVisible = false)
@@ -69,10 +70,12 @@ namespace BIT.WebUI.Admin
                     string newPasswordPIN = txtNewPassword.Text;
 
                     ChangePass(CodeId, oldPasswordPIN, newPasswordPIN);
+                    TNotify.Alerts.Success("Edit account information success.", true);
                 }
                 catch (Exception ex)
                 {
-                    ShowMessageError(lblMessage, ex.ToString(), true);
+                    TNotify.Alerts.Warning("Edit account information error." + ex.ToString(), true);
+                    //ShowMessageError(lblMessage, ex.ToString(), true);
                 }
             }
         }

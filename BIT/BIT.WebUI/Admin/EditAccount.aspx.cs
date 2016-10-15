@@ -36,30 +36,29 @@ namespace BIT.WebUI.Admin
             }
         }
 
-        public void getAdminWallet()
-        {
-            string admWallet = Singleton<MEMBERS_BC>.Inst.SelectRandomAdmin().Wallet;
-            imgAdminWallet.ImageUrl = string.Format("http://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={0}", admWallet.Trim()).Trim();
-            lblAdminWallet.Text = admWallet;
-        }
+        //public void getAdminWallet()
+        //{
+        //    string admWallet = Singleton<MEMBERS_BC>.Inst.SelectRandomAdmin().Wallet;
+        //    imgAdminWallet.ImageUrl = string.Format("http://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={0}", admWallet.Trim()).Trim();
+        //    lblAdminWallet.Text = admWallet;
+        //}
         public void LoadUserInfor()
         {
             int Id;
-            if (Singleton<BITCurrentSession>.Inst.SessionMember.CodeId=="0")
+            if (Singleton<BITCurrentSession>.Inst.SessionMember.CodeId == "0")
             {
-                if (Convert.ToInt32(HttpContext.Current.Session["BIT_MemberID_Edit"]) ==0)
+                if (Convert.ToInt32(HttpContext.Current.Session["BIT_MemberID_Edit"]) == 0)
                 {
                     Id = Singleton<BITCurrentSession>.Inst.SessionMember.ID;
-                    
                 }
                 else
                 {
                     Id = Convert.ToInt32(HttpContext.Current.Session["BIT_MemberID_Edit"]);
                 }
-                    
-                btnUpdateAdmin.Visible = true;
-                btnUpdate.Visible = false;
-                divBlockChain.Visible = false;
+
+                //btnUpdateAdmin.Visible = true;
+                //btnUpdate.Visible = false;
+                //divBlockChain.Visible = false;
                 //txtFullName.Attributes.Remove("readonly");
                 //txtEmail.Attributes.Remove("readonly");
                 //txtPhone.Attributes.Remove("readonly");
@@ -68,7 +67,7 @@ namespace BIT.WebUI.Admin
             else
             {
                 Id = Singleton<BITCurrentSession>.Inst.SessionMember.ID;
-                getAdminWallet();
+                //getAdminWallet();
                 //txtFullName.Attributes.Add("readonly", "readonly");
                 //txtEmail.Attributes.Add("readonly", "readonly");
                 //txtPhone.Attributes.Add("readonly", "readonly");
@@ -91,7 +90,7 @@ namespace BIT.WebUI.Admin
         public MEMBERS GetDataOnForm()
         {
             MEMBERS obj = new MEMBERS();
-
+            obj = Singleton<BITCurrentSession>.Inst.SessionMember;
             obj.Username = txtUserName.Text;
             obj.Fullname = txtFullName.Text.Trim();
             obj.Phone = txtPhone.Text.Trim();
@@ -111,7 +110,7 @@ namespace BIT.WebUI.Admin
             obj.Email = txtEmail.Text.Trim();
             obj.Wallet = txtWallet.Text.Trim();
             //obj.Transaction = txtTransaction.Text;
-            obj.WALLET_ADMIN = lblAdminWallet.Text;
+            //obj.WALLET_ADMIN = lblAdminWallet.Text;
             obj.Upline = Singleton<BITCurrentSession>.Inst.SessionMember.Upline;
             return obj;
         }
@@ -163,15 +162,16 @@ namespace BIT.WebUI.Admin
             {
                 try
                 {
-                    MEMBERS_EDIT obj = GetDataOnFormEdit();
-                    Singleton<MEMBERS_BC>.Inst.InsertEditItem(obj);
-                    TNotify.Alerts.Success("Order edit account information success. Please contact to your upline to confirm.", true);
-                    Response.Redirect("OrderChangeInfo.aspx");
+                    MEMBERS obj = GetDataOnForm();
+                    Singleton<MEMBERS_BC>.Inst.UpdateItem(obj);
+                    //Singleton<MEMBERS_BC>.Inst.InsertEditItem(obj);
+                    TNotify.Alerts.Success("Edit account information success.", true);
+                    //Response.Redirect("OrderChangeInfo.aspx");
                 }
                 catch (Exception ex)
                 {
                     //ShowMessageError(lblMessage, ex.ToString(), true);
-                    TNotify.Alerts.Warning("Order edit account information error." + ex.ToString(), true);
+                    TNotify.Alerts.Warning("Edit account information error." + ex.ToString(), true);
                 }
             }
         }
@@ -185,10 +185,11 @@ namespace BIT.WebUI.Admin
                     MEMBERS obj = GetDataOnForm();
                     MEMBERS_BC ctlMember = new MEMBERS_BC();
                     ctlMember.UpdateItem(obj);
+                    TNotify.Alerts.Success("Edit account information success.", true);
                 }
                 catch (Exception ex)
                 {
-                    ShowMessageError(lblMessage, ex.ToString(), true);
+                    TNotify.Alerts.Warning("Edit account information error." + ex.ToString(), true);
                 }
             }
         }

@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminSite.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="BIT.WebUI.Admin.Dashboard" %>
 
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<%--<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>--%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Button ID="Button1" runat="server" Text="Fill Form in Popup" />
+<%--    <asp:Button ID="Button1" runat="server" Text="Fill Form in Popup" />
     <cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panl1" TargetControlID="Button1"
         CancelControlID="Button2" BackgroundCssClass="Background">
     </cc1:ModalPopupExtender>
@@ -13,7 +13,7 @@
         <iframe style="width: 350px; height: 300px;" id="irm1" src="Promotion.aspx" runat="server"></iframe>
         <br />
         <asp:Button ID="Button2" runat="server" Text="Close" />
-    </asp:Panel>
+    </asp:Panel>--%>
 
     <div style="clear: both;"></div>
     <div class="label_b" style="padding: 25px 0;">
@@ -26,10 +26,10 @@
                 <div class="flip">
                     <section class="panel front divdashboard">
                         <div class="content_show_home" style="">
-                            MEMBERS : <span style="color: red;">2</span>
+                            MEMBERS : <asp:Label runat="server" ID="lblTotalDownLine" style="color:red"></asp:Label>
                             <br />
                             <div style="height: 15px;"></div>
-                            INTRODUCE :  <span style="color: red;">2</span>
+                            INTRODUCE :  <asp:Label runat="server" ID="lblDirectDownLine" style="color:red"></asp:Label>
                         </div>
                     </section>
                 </div>
@@ -39,10 +39,10 @@
                 <div class="flip">
                     <section class="panel front divdashboard">
                         <div class="content_show_home">
-                            PIN TOTAL : <span style="color: red;">2</span>
+                            PIN TOTAL : <asp:Label runat="server" ID="lblPIN" style="color:red"></asp:Label>
                             <br />
                             <div style="height: 15px;"></div>
-                            PIN ACTIVE : <span style="color: red;">1</span>
+                            PH ACTIVE : <asp:Label runat="server" ID="lblPH" style="color:red"></asp:Label>
                         </div>
                     </section>
                 </div>

@@ -7,7 +7,7 @@
         <br />
         <section class="panel">
             <header class="panel-heading">
-                <h3>Chance Password PIN</h3>
+                <h3>Change Password PIN</h3>
             </header>
             <div class="panel-body">
                 <div class="form">
@@ -40,9 +40,9 @@
                     </div>
 
                     <br />
-                    <div class="form-group col-lg-12">
+<%--                    <div class="form-group col-lg-12">
                         <asp:Label runat="server" ID="lblMessage" Visible="false" CssClass="text-warning"></asp:Label>
-                    </div>
+                    </div>--%>
                 </div>
             </div>
         </section>

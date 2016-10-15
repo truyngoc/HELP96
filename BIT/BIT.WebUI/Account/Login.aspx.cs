@@ -154,7 +154,7 @@ namespace BIT.WebUI
 
         public void SendMailToFogotPass(string username, string fullname, string password, string mailto)
         {
-            string sSubject = "BITQUICK24 INFORMATON ACCOUNT";
+            string sSubject = "THÔNG BÁO TỪ HELP96.GLOBAL";
 
             StringBuilder strBuilder = new StringBuilder();
 
@@ -162,14 +162,14 @@ namespace BIT.WebUI
             strBuilder.Append("<head></head>");
             strBuilder.Append("<body>");
             strBuilder.Append("<table>");
-            strBuilder.AppendLine("<tr><td><b>Hello  " + fullname + "</b><br/></td></tr>");
-            strBuilder.AppendLine("<tr><td><b>We received the require to receive password of you</b><br/></td></tr></td></tr>");
-            strBuilder.AppendLine("<tr><td><b>Your username is: " + username + "</b><br/></td></tr>");
-            strBuilder.AppendLine("<tr><td><b>Your password: " + password + " </b><br/></td></tr>");
-            strBuilder.AppendLine("<tr><td><b>Please change password after first login of you to secure your account. </b><br/></td></tr><br/>");
-            strBuilder.AppendLine("<tr><td><b>Please contact to your upline or  BITQUICK24's support to support you everything. </b><br/></td></tr>");
-            strBuilder.AppendLine("<tr><td><b><br/><br/><br/>Thanks & Best regards</b><br/></td></tr>");
-            strBuilder.AppendLine("<tr><td><b><br/>BITQUICK24</b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b>Xin chào bạn  " + fullname + "</b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b>Chúng tôi nhận được yêu cầu lấy lại mật khẩu từ bạn.</b><br/></td></tr></td></tr>");
+            strBuilder.AppendLine("<tr><td><b>Tên đăng nhập của bạn: " + username + "</b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b>Mật khẩu đăng nhập: " + password + " </b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b>Hãy đổi mật khẩu ngay sau khi đăng nhập lại để bảo vệ tài khoản của bạn. </b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b>Trong quá trình sử dụng nếu có vướng mắc, bạn hãy liên hệ với người bảo trợ hoặc ban truyền thông để được hỗ trợ. </b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b><br/><br/><br/>Xin cảm ơn và chúc thành công.</b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b><br/>HELP96.GLOBAL</b><br/></td></tr>");
             strBuilder.Append("</table>");
             strBuilder.Append("</body>");
             strBuilder.Append("</html>");

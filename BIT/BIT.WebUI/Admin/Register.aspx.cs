@@ -178,16 +178,16 @@ namespace BIT.WebUI.Admin
             obj.Username = txtUserName.Text.Trim();
             obj.Password = txtPassword.Text;
 
-            if (newRegist)
-            {
-                obj.CodeId_Sponsor = lblUserNameSponsor.Text;
-                obj.Upline = Singleton<MEMBERS_BC>.Inst.SelectItem(obj.CodeId_Sponsor).Username;
-            }
-            else
-            {
+            //if (newRegist)
+            //{
+            //    obj.CodeId_Sponsor = lblUserNameSponsor.Text;
+            //    obj.Upline = Singleton<MEMBERS_BC>.Inst.SelectItem(obj.CodeId_Sponsor).Username;
+            //}
+            //else
+            //{
                 obj.CodeId_Sponsor = Singleton<BITCurrentSession>.Inst.SessionMember.CodeId;
                 obj.Upline = Singleton<BITCurrentSession>.Inst.SessionMember.Username;
-            }
+            //}
 
 
             obj.Password_PIN = txtPassword_PIN.Text;
@@ -217,62 +217,62 @@ namespace BIT.WebUI.Admin
             {
                 if (Page.IsValid)
                 {
-                        MEMBERS_BC ctlMember = new MEMBERS_BC();
-                        MEMBERS obj = GetDataOnForm();
+                    MEMBERS_BC ctlMember = new MEMBERS_BC();
+                    MEMBERS obj = GetDataOnForm();
 
-                        try
+                    try
+                    {
+                        // check sponsor acc have execute PH success
+                        //DateTime dtExpired;
+                        //bool bSponsorPH = false;
+                        //if (newRegist)
+                        //{
+                        //    dtExpired = Singleton<MEMBERS_BC>.Inst.SelectItem(obj.CodeId_Sponsor).ExpiredDate;
+                        //}
+                        //else
+                        //{
+                        //    dtExpired = Singleton<BITCurrentSession>.Inst.SessionMember.ExpiredDate;
+                        //}
+
+                        //if (dtExpired == null)
+                        //    bSponsorPH = false;
+                        //else if (dtExpired < DateTime.Now)
+                        //    bSponsorPH = false;
+                        //else
+                        //    bSponsorPH = true;
+
+                        bool bExistAcc = ctlMember.IsExistsItem(obj.Username, obj.Wallet, obj.Email);
+
+                        //if (bSponsorPH)
+                        //{
+                        if (!bExistAcc)
                         {
-                            // check sponsor acc have execute PH success
-                            DateTime dtExpired;
-                            bool bSponsorPH = false;
-                            if (newRegist)
-                            {
-                                dtExpired = Singleton<MEMBERS_BC>.Inst.SelectItem(obj.CodeId_Sponsor).ExpiredDate;
-                            }
-                            else
-                            {
-                                dtExpired = Singleton<BITCurrentSession>.Inst.SessionMember.ExpiredDate;
-                            }
-
-                            if (dtExpired == null)
-                                bSponsorPH = false;
-                            else if (dtExpired < DateTime.Now)
-                                bSponsorPH = false;
-                            else
-                                bSponsorPH = true;
-
-                            bool bExistAcc = ctlMember.IsExistsItem(obj.Username, obj.Wallet, obj.Email);
-
-                            if (bSponsorPH)
-                            {
-                                if (!bExistAcc)
-                                {
-                                    ctlMember.InsertItem(obj);
-                                    SendMailToRegisterUser(obj.Username, obj.Fullname, obj.Password, obj.Password_PIN, obj.Email);
-                                    TNotify.Alerts.Information("Register member " + txtUserName.Text + " success.");
-                                    //lblMessage.Text = "Register member " + txtUserName.Text + " success.";
-                                    //Response.Write("<script>alert('" + lblMessage.Text + "');</script>");
-                                    lblMessage.Visible = true;
-                                    //Response.Redirect("../Admin/Dashboard.aspx");
-                                }
-                                else
-                                {
-                                    lblMessage.Text = "Username is already taken";
-                                    lblMessage.Visible = true;
-                                }
-                            }
-                            else
-                            {
-                                lblMessage.Text = "You can't create account member, please execute Active Package Invest transaction!";
-                                lblMessage.Visible = true;
-                            }
+                            ctlMember.InsertItem(obj);
+                            SendMailToRegisterUser(obj.Username, obj.Fullname, obj.Password, obj.Password_PIN, obj.Email);
+                            TNotify.Alerts.Information("Register member " + txtUserName.Text + " success.");
+                            //lblMessage.Text = "Register member " + txtUserName.Text + " success.";
+                            //Response.Write("<script>alert('" + lblMessage.Text + "');</script>");
+                            //lblMessage.Visible = true;
+                            //Response.Redirect("../Admin/Dashboard.aspx");
                         }
-                        catch (Exception ex)
+                        else
                         {
-                            throw new Exception(ex.ToString());
-                            //throw new Exception(ex.ToString);
+                            lblMessage.Text = "Username is already taken";
+                            lblMessage.Visible = true;
                         }
+                        //}
+                        //else
+                        //{
+                        //    lblMessage.Text = "You can't create account member, please execute Active Package Invest transaction!";
+                        //    lblMessage.Visible = true;
+                        //}
                     }
+                    catch (Exception ex)
+                    {
+                        throw new Exception(ex.ToString());
+                        //throw new Exception(ex.ToString);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -287,7 +287,7 @@ namespace BIT.WebUI.Admin
 
         public void SendMailToRegisterUser(string username, string fullname, string password, string passwordPIN, string mailto)
         {
-            string sSubject = "BITQUICK24 Information Account";
+            string sSubject = "THÔNG BÁO TỪ HELP96.GLOBAL";
 
             StringBuilder strBuilder = new StringBuilder();
 
@@ -295,15 +295,15 @@ namespace BIT.WebUI.Admin
             strBuilder.Append("<head></head>");
             strBuilder.Append("<body>");
             strBuilder.Append("<table>");
-            strBuilder.AppendLine("<tr><td><b>Hello  " + fullname + "</b><br/></td></tr>");
-            strBuilder.AppendLine("<tr><td><b>Welcome to BITQUICK24 family </b><br/></td></tr></td></tr>");
-            strBuilder.AppendLine("<tr><td><b>Your username is: " + username + "</b><br/></td></tr>");
-            strBuilder.AppendLine("<tr><td><b>Your password: " + password + " </b><br/></td></tr>");
-            strBuilder.AppendLine("<tr><td><b>Your transaction password: " + passwordPIN + " </b><br/></td></tr>");
-            strBuilder.AppendLine("<b><a href='http://bitquick24.org'>http://bitquick24.org </a></b><br/>");
-            strBuilder.AppendLine("<tr><td><b>Please contact to your upline or  BITQUICK24's support to support you everything. </b><br/></td></tr>");
-            strBuilder.AppendLine("<tr><td><b><br/><br/><br/>Thanks & Best regards</b><br/></td></tr>");
-            strBuilder.AppendLine("<tr><td><b><br/>BITQUICK24</b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b>Xin chào bạn  " + fullname + "</b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b>Chào mừng bạn đến với cộng đồng HELP96.GLOBAL </b><br/></td></tr></td></tr>");
+            strBuilder.AppendLine("<tr><td><b>Tên đăng nhập của bạn: " + username + "</b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b>Mật khẩu đăng nhập: " + password + " </b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b>Mật khẩu giao dịch: " + passwordPIN + " </b><br/></td></tr>");
+            strBuilder.AppendLine("<b><a href='http://help96.org'>http://help96.org </a></b><br/>");
+            strBuilder.AppendLine("<tr><td><b>Trong quá trình sử dụng nếu có vướng mắc, bạn hãy liên hệ với người bảo trợ hoặc ban truyền thông để được hỗ trợ. </b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b><br/><br/><br/>Xin cảm ơn và chúc thành công.</b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b><br/>HELP96.GLOBAL</b><br/></td></tr>");
             strBuilder.Append("</table>");
             strBuilder.Append("</body>");
             strBuilder.Append("</html>");
