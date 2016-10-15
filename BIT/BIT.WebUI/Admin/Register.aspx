@@ -12,15 +12,19 @@
         <section class="panel">
             <div class="panel-body">
                 <div class="form">
-                    <div class="col-lg-12">
+<%--                    <div class="col-lg-12">
                         <asp:Label runat="server" ID="lblMessage" ForeColor="#cc0066" Text="SUCCESS" Visible="false"></asp:Label>
-                    </div>
+                    </div>--%>
+
                     <div class="col-lg-12 margin-top-05 Info_Tip_Header">
                         <div style="float: left; padding-right: 10px;">
                             <img alt="" src="../Images/Icon_key.png" />
                         </div>
                         <div style="float: left; margin-top: 3px;">ACCOUNT INFORMATION</div>
                         <div style="float: left; font-size: 12px; color: Red; padding-left: 25px; margin-top: 3px; font-weight: normal;"><span id="CPMember_ctl00_Message_Accouting"></span></div>
+                    </div>
+                    <div class="col-lg-12 margin-top-05"">
+                        <asp:LinkButton ID="lblLink" runat="server" Text="<% =strLink %>"><% =strLink %></asp:LinkButton>
                     </div>
                     <%--<div class="col-lg-12">
                         <div class="col-lg-1">
@@ -86,7 +90,7 @@
 
                     <div class="col-lg-12 margin-top-05">
                         <div class="col-lg-2">
-                            <label for="confirm_password" class="control-label">Confir Transfer*</label>
+                            <label for="confirm_password" class="control-label">Confirm Transfer*</label>
                         </div>
                         <div class="col-lg-6">
                             <asp:TextBox runat="server" ID="txtConfirmPassword_PIN" CssClass="form-control" placeholder="Password PIN Confirm" type="password"></asp:TextBox>
@@ -126,7 +130,7 @@
                             <label for="phone" class="control-label">Phone number*</label>
                         </div>
                         <div class="col-lg-6">
-                            <asp:TextBox runat="server" ID="txtPhone" CssClass="form-control" placeholder="Phone number"></asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtPhone" CssClass="form-control" placeholder="Phone number"  onkeydown = "return ((event.keyCode>47 && event.keyCode<58) || (event.keyCode>95 && event.keyCode<106) || (event.keyCode==8));"></asp:TextBox>
                             <asp:RequiredFieldValidator ErrorMessage="Enter your phone number" ControlToValidate="txtPhone" runat="server" ForeColor="#cc0066" Text="Enter your phone number" Display="Dynamic" />
                         </div>
                     </div>
@@ -141,79 +145,6 @@
                             <asp:RequiredFieldValidator ErrorMessage="Enter your country" ControlToValidate="ddlCountry" runat="server" ForeColor="#cc0066" value="VIET NAM" Display="Dynamic" Enabled="false" />
                         </div>
                     </div>
-
-                    <div class="col-lg-12 margin-top-05">
-                        <div class="col-lg-2">
-                            <label for="country" class="control-label">Terms of use</label>
-                        </div>
-                        <div class="col-lg-10">
-                            <asp:TextBox ID="txtTerm" runat="server" TextMode="MultiLine" Width="500px" Height="100px" Text="Registration to Investment Community HELP96 is free! We do insist that you abide by the rules and policies detailed below. If you agree to the terms, please check the 'Agree with terms and conditions' checkbox and press the 'Register' button below.
-
-- Each leader/investor only use 1 ID with verified ID/passport picture.
-
-- By agreeing to these rules, you warrant that you will not break that and commit the consistent, longterm development with us.
-
-- Independent investors, voluntary and self-responsibility for investment funds
-
-- The owners of BITQUICK24 reserve the rich to block, delete any usename which commit the rules above.">
-                            </asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="col-lg-2">
-                            <label for="country" class="control-label">Agree with term and condition</label>
-                        </div>
-                        <div class="col-lg-10">
-                            <asp:CheckBox ID="chk" runat="server" />
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12 margin-top-05 Info_Tip_Header">
-                        <div style="float: left; padding-right: 10px;">
-                            <img alt="" src="../Images/Icon_home.png" /></div>
-                        <div style="float: left; padding-top: 2px;">BANK INFORMATION</div>
-                        <div style="float: left; font-size: 12px; color: Red; padding-left: 25px; font-weight: normal;"><span id="CPMember_ctl00_Span1"></span></div>
-                    </div>
-
-                    <div class="col-lg-12 margin-top-05">
-                        <div class="col-lg-2">
-                            <label for="phone" class="control-label">Account own*</label>
-                        </div>
-                        <div class="col-lg-6">
-                            <asp:TextBox runat="server" ID="txtAcountOwn" CssClass="form-control" placeholder="Account own"></asp:TextBox>
-                            <asp:RequiredFieldValidator ErrorMessage="Enter your phone number" ControlToValidate="txtPhone" runat="server" ForeColor="#cc0066" Text="Enter your phone number" Display="Dynamic" />
-                        </div>
-                    </div>
-                    <div class="col-lg-12 margin-top-05">
-                        <div class="col-lg-2">
-                            <label for="phone" class="control-label">Account number*</label>
-                        </div>
-                        <div class="col-lg-6">
-                            <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" placeholder="Account own"></asp:TextBox>
-                            <asp:RequiredFieldValidator ErrorMessage="Enter your phone number" ControlToValidate="txtPhone" runat="server" ForeColor="#cc0066" Text="Enter your phone number" Display="Dynamic" />
-                        </div>
-                    </div>
-                    <div class="col-lg-12 margin-top-05">
-                        <div class="col-lg-2">
-                            <label for="country" class="control-label">Bank name*</label>
-                        </div>
-                        <div class="col-lg-5">
-                            <asp:DropDownList runat="server" ID="DropDownList1" CssClass="form-control">
-                            </asp:DropDownList>
-                            <asp:RequiredFieldValidator ErrorMessage="Enter your country" ControlToValidate="ddlCountry" runat="server" ForeColor="#cc0066" value="VIET NAM" Display="Dynamic" Enabled="false" />
-                        </div>
-                    </div>
-                    <div class="col-lg-12 margin-top-05">
-                        <div class="col-lg-2">
-                            <label for="phone" class="control-label">Branch bank*</label>
-                        </div>
-                        <div class="col-lg-6">
-                            <asp:TextBox runat="server" ID="TextBox2" CssClass="form-control" placeholder="Account own"></asp:TextBox>
-                            <asp:RequiredFieldValidator ErrorMessage="Enter your phone number" ControlToValidate="txtPhone" runat="server" ForeColor="#cc0066" Text="Enter your phone number" Display="Dynamic" />
-                        </div>
-                    </div>
-
-                     
 
                     <div class="col-lg-12 margin-top-05">
                         <div class="col-lg-2"></div>

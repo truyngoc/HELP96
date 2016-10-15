@@ -65,10 +65,10 @@ namespace BIT.WebUI.Admin
             switch (e.CommandName)
             {
                 case "lnkWallet":
-                    LinkButton btn = (LinkButton)(sender);
-                    string yourValue = btn.CommandArgument;
+                    //LinkButton btn = (LinkButton)(sender);
+                    //string yourValue = btn.CommandArgument;
 
-                    string url = string.Format("https://blockchain.info/address/{0}", yourValue);
+                    string url = string.Format("https://blockchain.info/address/{0}", e.CommandArgument);
                     string s = "window.open('" + url + "', 'popup_window');";
                     ClientScript.RegisterStartupScript(this.GetType(), "script", s, true);
                     break;

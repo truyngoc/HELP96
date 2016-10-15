@@ -39,36 +39,36 @@ namespace BIT.WebUI.Admin
             if (!this.IsPostBack)
             {
 
-                //if (!Singleton<BITCurrentSession>.Inst.isLoginUser)
-                //{
-                //    //Response.Redirect("../Account/Login.aspx");
-                //    string a = Request.Params[0];
+                if (!Singleton<BITCurrentSession>.Inst.isLoginUser)
+                {
+                    //Response.Redirect("../Account/Login.aspx");
+                    string a = Request.Params[0];
 
-                //    string strUserName = GiaiMa(a);
-                //    if (String.IsNullOrEmpty("strUserName"))
-                //    {
-                //        return;
-                //    }
-                //    MEMBERS obj = Singleton<MEMBERS_BC>.Inst.SelectItemByUserName(strUserName);
-                //    if (obj == null)
-                //    {
-                //        Response.Redirect("Login.aspx");
-                //    }
-                //    else
-                //    {
-                //        newRegist = true;
-                //        lblUserNameSponsor.Text = obj.CodeId;
-                //        Load_Category();
-                //    }
-                //}
-                //else
-                //{
-                //    dynamic h1 = Request.Url.Host;
-                //    dynamic h2 = Request.Url.Authority;
-                //    lblLink.Text = h2 + "/Admin/Register.aspx?ref=" + MaHoa(Singleton<BITCurrentSession>.Inst.SessionMember.Username);
-                //    newRegist = false;
-                //    Load_Category();
-                //}
+                    string strUserName = GiaiMa(a);
+                    if (String.IsNullOrEmpty("strUserName"))
+                    {
+                        return;
+                    }
+                    MEMBERS obj = Singleton<MEMBERS_BC>.Inst.SelectItemByUserName(strUserName);
+                    if (obj == null)
+                    {
+                        Response.Redirect("Login.aspx");
+                    }
+                    else
+                    {
+                        newRegist = true;
+                        lblUserNameSponsor.Text = obj.CodeId;
+                        Load_Category();
+                    }
+                }
+                else
+                {
+                    dynamic h1 = Request.Url.Host;
+                    dynamic h2 = Request.Url.Authority;
+                    lblLink.Text = h2 + "/Admin/Register.aspx?ref=" + MaHoa(Singleton<BITCurrentSession>.Inst.SessionMember.Username);
+                    newRegist = false;
+                    Load_Category();
+                }
             }
         }
 
@@ -217,8 +217,6 @@ namespace BIT.WebUI.Admin
             {
                 if (Page.IsValid)
                 {
-                    if (chk.Checked)
-                    {
                         MEMBERS_BC ctlMember = new MEMBERS_BC();
                         MEMBERS obj = GetDataOnForm();
 
@@ -275,12 +273,6 @@ namespace BIT.WebUI.Admin
                             //throw new Exception(ex.ToString);
                         }
                     }
-                }
-                else
-                {
-                    lblMessage.Text = "You must to agrre our term";
-                    lblMessage.Visible = true;
-                }
             }
             catch (Exception ex)
             {

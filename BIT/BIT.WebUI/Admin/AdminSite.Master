@@ -230,14 +230,14 @@
                                     <i class="fa fa-users"></i>
                                     <span class="username title-file">ADMINISTRATOR</span>
                                 </a>
-                                <ul class="dropdown-menu extendedadmin logout" style="display: none;">
-                                    <li><a href="MemberManagement.aspx"><i class="fa fa-universal-access" aria-hidden="true"></i><span>ACCOUNT MANAGER</span></a></li>
-                                    <li><a href="PINAdmin.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>PIN ACCEPT</span></a></li>
-                                    <li><a href="WithDraw.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>WITHDRAW MANAGER</span></a></li>
+                                <ul class="dropdown-menu"">
+                                    <li class="sub-menu" ><a href="MemberManagement.aspx"><i class="fa fa-universal-access" aria-hidden="true"></i><span>Quản lý tài khoản</span></a></li>
+                                    <%--<li class="sub-menu" ><a href="PINAdmin.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>PIN ACCEPT</span></a></li>--%>
+                                    <li class="sub-menu" ><a href="WithDraw.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>Quản lý rút tiền hoa hồng</span></a></li>
                                     <%--                                    <li><a href="ReCharge.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>RECHANGRE MANAGER</span></a></li>--%>
-                                    <li><a href="CreateCommandPH_GH.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>COMMAND PH-GH</span></a></li>
-                                    <li><a href="COMMAN_LIST.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>COMMAND LIST</span></a></li>
-                                    <li><a href="COMMAND_DETAIL_EXPIRED_LIST.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>PH - GH EXPIRED</span></a></li>
+                                    <li class="sub-menu" ><a href="CreateCommandPH_GH.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>Xếp lệnh</span></a></li>
+                                    <li class="sub-menu" ><a href="COMMAN_LIST.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>Lịch sử xếp lệnh</span></a></li>
+                                    <li class="sub-menu" ><a href="COMMAND_DETAIL_EXPIRED_LIST.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>Report</span></a></li>
                                 </ul>
                             </li>
                             <!--end of Administrator-->

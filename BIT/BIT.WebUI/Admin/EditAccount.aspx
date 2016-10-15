@@ -60,13 +60,13 @@
                             <asp:Label runat="server" ID="lblAdminWallet"></asp:Label>
                         </div>
                     </div>
-                    <div class="form-group col-lg-12">
+<%--                    <div class="form-group col-lg-12">
                         <label class="control-label col-lg-3">Transaction</label>
                         <div class="col-lg-6">
                             <asp:TextBox runat="server" ID="txtTransaction" CssClass="form-control" placeholder="Blockchain transaction"></asp:TextBox>
                             <asp:RequiredFieldValidator ErrorMessage="Enter your transaction" ControlToValidate="txtTransaction" runat="server" ForeColor="#cc0066" Text="Enter your Transaction" Display="Dynamic" />
                         </div>
-                    </div>
+                    </div>--%>
                     <div class="form-group col-lg-12">
                         <div style="text-align: center;" class="col-lg-4">
                             <asp:Button runat="server" ID="btnUpdate" class="btn btn-info" Text="Order Update Information (0.1BTC)" OnClick="btnUpdate_Click" />
