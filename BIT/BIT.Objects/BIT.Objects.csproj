@@ -47,6 +47,7 @@
     <Compile Include="MEMBERS.cs" />
     <Compile Include="PIN.cs" />
     <Compile Include="PH.cs" />
+    <Compile Include="PIN_TRANS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SNUOC.cs" />
     <Compile Include="WALLET.cs" />

@@ -12,7 +12,7 @@
     <meta name="author" content="Mosaddek" />
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina" />
     <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <title>BitQuick24</title>
+    <title>Help96</title>
     <meta name="csrf-token" content="AvJsvFUkFTxZxtYHOn19V6YN6zqQExtwl6k0WVSd" />
     <link href="../Content/slidebars.css" rel="stylesheet" />
     <!-- Custom styles for this template -->
@@ -82,7 +82,7 @@
                 <header class="header white-bg">
                     <!--logo start-->
                     <a href="../admin/Dashboard.aspx" class="logo">
-                        <img src="../images/logo_BitQuick.png" />
+                        <span class="text-lg text-bold text-primary" style="color: white">HELP96 . GLOBAL</span>
                     </a>
                     <!--logo end-->
                     <div class="sidebar-toggle-box">
@@ -95,9 +95,10 @@
                         </ul>
                         <!--  notification end -->
                     </div>
+
                     <div class="top-nav ">
-                        <!--search & user info start-->
-                        <ul class="nav pull-right top-menu">
+                        <!--search & user info start google map-->
+                        <%--<ul class="nav pull-right top-menu">
                             <li class="border-r">
                                 <div id="google_translate_element"></div>
                                 <script type="text/javascript">
@@ -108,7 +109,7 @@
                                 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                             </li>
                             <li class="border-r"></li>
-                        </ul>
+                        </ul>--%>
                         <!--search & user info end-->
                     </div>
                 </header>
@@ -128,8 +129,8 @@
                                 <ul class="dropdown-menu extended logout" style="display: none;">
                                     <li><a href="../Admin/EditAccount.aspx"><span><i class=" fa fa-user"></i></span><span>Profile setting</span></a></li>
                                     <li><a href="../Admin/ChangePassword.aspx"><span><i class="fa fa-cog"></i></span><span>Change password</span></a></li>
-                                    <li><a href="../Admin/ChangePasswordTwo.aspx"><span><i class="fa fa-cog"></i></span><span>Change password 2</span></a></li>
-                                    <li><a href="../Admin/OrderChangeInfo.aspx"><span><i class="fa fa-cog"></i></span><span>Order Edit Profile</span></a></li>
+                                    <%--<li><a href="../Admin/ChangePasswordTwo.aspx"><span><i class="fa fa-cog"></i></span><span>Change password 2</span></a></li>--%>
+                                   <%-- <li><a href="../Admin/OrderChangeInfo.aspx"><span><i class="fa fa-cog"></i></span><span>Order Edit Profile</span></a></li>--%>
                                     <li><a href="../Admin/Login.aspx"><span><i class="fa fa-unlock-alt"></i></span><span>Logout</span></a></li>
                                 </ul>
                                 <!-- user login dropdown end -->
@@ -137,8 +138,8 @@
                             <!--Dashboard-->
                             <li class="sub-menu">
                                 <a class="" href="../Admin/Dashboard.aspx" style="color: #fff">
-                                    <i class="fa fa-bar-chart-o"></i>
-                                    <span>Dashboard</span>
+                                    <i class="fa fa-dashboard"></i>
+                                    <span>Home</span>
                                     <%-- <span class="bgslide"></span>--%>
                                 </a>
                             </li>
@@ -147,8 +148,8 @@
                             <!--SignUp-->
                             <li class="sub-menu"  runat="server" id="liSignUp">
                                 <a class="" href="../Admin/Register.aspx" style="color: #fff">
-                                    <i class="fa fa-user"></i>
-                                    <span>SIGNUP</span>
+                                    <i class="fa fa-users"></i>
+                                    <span>Register User</span>
                                     <%--<span class="bgslide"></span>--%>
                                 </a>
                             </li>
@@ -158,7 +159,7 @@
                             <li class="sub-menu"  id="liPin" runat="server">
                                 <a class="" href="../Admin/PIN.aspx" style="color: #fff">
                                     <i class="fa fa-heart"></i>
-                                    <span>PIN</span>
+                                    <span>Pin Transfer</span>
                                     <%-- <span class="bgslide"></span>--%>
                                 </a>
                             </li>
@@ -166,8 +167,8 @@
 
                             <li class="sub-menu"  id="liPakage" runat="server">
                                 <a class="" href="../Admin/SelectPackInvest.aspx" style="color: #fff">
-                                    <i class="fa fa-heart"></i>
-                                    <span>PACKAGE INVEST</span>
+                                    <i class="fa fa-toggle-on"></i>
+                                    <span>Pin Active</span>
                                     <%--  <span class="bgslide"></span>--%>
                                 </a>
                             </li>
@@ -176,7 +177,7 @@
                             <li class="sub-menu"  id="liPH" runat="server">
                                 <a class="" href="../Admin/CreatePHCommunity.aspx" style="color: #fff">
                                     <i class="fa fa-cloud-upload"></i>
-                                    <span>PH</span>
+                                    <span>Provide Help (PH)</span>
                                     <%-- <span class="bgslide"></span>--%>
                                 </a>
                             </li>
@@ -186,36 +187,38 @@
                             <li class="sub-menu"  id="liGH" runat="server">
                                 <a class="" href="../Admin/GHCommunity.aspx" style="color: #fff">
                                     <i class="fa fa-cloud-download"></i>
-                                    <span>GH</span>
+                                    <span>Get Help (GH)</span>
                                     <%-- <span class="bgslide"></span>--%>
                                 </a>
                             </li>
                             <!--End of GH-->
 
-                            <!--commission-->
-                            <li class="sub-menu"  id="liCommission" runat="server">
-                                <a class="" href="../Admin/Commission.aspx" style="color: #fff">
-                                    <i class="fa fa fa-bitcoin"></i>
-                                    <span>COMMISSION</span>
-                                    <%--<span class="bgslide"></span>--%>
-                                </a>
-                            </li>
-                            <!--en of commission-->
-                            <!--tree-->
+                             <!--tree-->
                             <li class="sub-menu">
                                 <a class="" href="../Admin/Tree.aspx" style="color: #fff">
-                                    <i class="fa fa-code-fork" aria-hidden="true"></i>
-                                    <span>TREE</span>
+                                    <i class="fa fa-sitemap" aria-hidden="true"></i>
+                                    <span>Downline Tree</span>
                                     <%-- <span class="bgslide"></span>--%>
                                 </a>
                             </li>
                             <!--end of tree-->
 
+                            <!--commission-->
+                            <li class="sub-menu"  id="liCommission" runat="server">
+                                <a class="" href="../Admin/Commission.aspx" style="color: #fff">
+                                    <i class="fa fa-database"></i>
+                                    <span>Sponser Bonus</span>
+                                    <%--<span class="bgslide"></span>--%>
+                                </a>
+                            </li>
+                            <!--en of commission-->
+                           
+
                             <!--WITHDRAW-->
                             <li class="sub-menu"  id="liWithdraw" runat="server">
                                 <a class="" href="../Admin/WithDraw.aspx" style="color: #fff">
-                                    <i class="fa fa fa-bitcoin" aria-hidden="true"></i>
-                                    <span>WITHDRAW</span>
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                    <span>Transaction History</span>
                                     <%-- <span class="bgslide"></span>--%>
                                 </a>
                             </li>

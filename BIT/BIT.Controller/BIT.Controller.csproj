@@ -46,6 +46,7 @@
     <Compile Include="MEMBERS_BC.cs" />
     <Compile Include="PIN_BC.cs" />
     <Compile Include="PH_BC.cs" />
+    <Compile Include="PIN_TRANS_BC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SNUOC_BC.cs" />
     <Compile Include="WALLET_BC.cs" />

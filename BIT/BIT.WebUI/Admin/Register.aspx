@@ -4,27 +4,34 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section class="wrapper">
-
+        <div class="header_function_name">
+            <span id="CPMember_ctl00_lb_header_function">REGISTRATION HELP96.GLOBAL</span>
+        </div>
         <br />
 
         <section class="panel">
-            <header class="panel-heading">
-                <h3>REGISTER</h3>
-            </header>
             <div class="panel-body">
                 <div class="form">
                     <div class="col-lg-12">
                         <asp:Label runat="server" ID="lblMessage" ForeColor="#cc0066" Text="SUCCESS" Visible="false"></asp:Label>
                     </div>
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 margin-top-05 Info_Tip_Header">
+                        <div style="float: left; padding-right: 10px;">
+                            <img alt="" src="../Images/Icon_key.png" />
+                        </div>
+                        <div style="float: left; margin-top: 3px;">ACCOUNT INFORMATION</div>
+                        <div style="float: left; font-size: 12px; color: Red; padding-left: 25px; margin-top: 3px; font-weight: normal;"><span id="CPMember_ctl00_Message_Accouting"></span></div>
+                    </div>
+                    <%--<div class="col-lg-12">
                         <div class="col-lg-1">
                         </div>
                         <div class="col-lg-11">
                             <asp:Label runat="server"></asp:Label>
                             Đường link đăng ký tài khoản:
+                           
                             <asp:LinkButton ID="lblLink" runat="server"></asp:LinkButton>
                         </div>
-                    </div>
+                    </div>--%>
                     <div class="col-lg-12 margin-top-05">
                         <div class="col-lg-2">
                             <label for="Username" class="control-label">Username*</label>
@@ -69,7 +76,7 @@
 
                     <div class="col-lg-12 margin-top-05">
                         <div class="col-lg-2">
-                            <label for="password" class="control-label">Password PIN*</label>
+                            <label for="password" class="control-label">Transfer Pass*</label>
                         </div>
                         <div class="col-lg-6">
                             <asp:TextBox runat="server" ID="txtPassword_PIN" CssClass="form-control" placeholder="Password PIN" type="password"></asp:TextBox>
@@ -79,7 +86,7 @@
 
                     <div class="col-lg-12 margin-top-05">
                         <div class="col-lg-2">
-                            <label for="confirm_password" class="control-label">Password PIN Confirm* </label>
+                            <label for="confirm_password" class="control-label">Confir Transfer*</label>
                         </div>
                         <div class="col-lg-6">
                             <asp:TextBox runat="server" ID="txtConfirmPassword_PIN" CssClass="form-control" placeholder="Password PIN Confirm" type="password"></asp:TextBox>
@@ -87,7 +94,13 @@
                             <asp:CompareValidator ID="CompareValidator2" ControlToCompare="txtPassword_PIN" ControlToValidate="txtConfirmPassword_PIN" runat="server" ForeColor="#cc0066" ErrorMessage="Password PIN confirm is not valid" Display="Dynamic"></asp:CompareValidator>
                         </div>
                     </div>
-
+                    <div class="col-lg-12 margin-top-05 Info_Tip_Header">
+                        <div style="float: left; padding-right: 10px;">
+                            <img alt="" src="../Images/icon_member.png" />
+                        </div>
+                        <div style="float: left;">PERSONAL INFORMATION</div>
+                        <div style="float: left; font-size: 12px; color: Red; padding-left: 25px; font-weight: normal;"><span id="CPMember_ctl00_Message_infomation"></span></div>
+                    </div>
                     <div class="col-lg-12 margin-top-05">
                         <div class="col-lg-2">
                             <label for="firstname" class="control-label">Fullname*</label>
@@ -134,7 +147,7 @@
                             <label for="country" class="control-label">Terms of use</label>
                         </div>
                         <div class="col-lg-10">
-                            <asp:TextBox ID="txtTerm" runat="server" TextMode="MultiLine" Width="500px" Height="100px" Text="Registration to Investment Community BITQUICK24 is free! We do insist that you abide by the rules and policies detailed below. If you agree to the terms, please check the 'Agree with terms and conditions' checkbox and press the 'Register' button below.
+                            <asp:TextBox ID="txtTerm" runat="server" TextMode="MultiLine" Width="500px" Height="100px" Text="Registration to Investment Community HELP96 is free! We do insist that you abide by the rules and policies detailed below. If you agree to the terms, please check the 'Agree with terms and conditions' checkbox and press the 'Register' button below.
 
 - Each leader/investor only use 1 ID with verified ID/passport picture.
 
@@ -154,6 +167,54 @@
                             <asp:CheckBox ID="chk" runat="server" />
                         </div>
                     </div>
+
+                    <div class="col-lg-12 margin-top-05 Info_Tip_Header">
+                        <div style="float: left; padding-right: 10px;">
+                            <img alt="" src="../Images/Icon_home.png" /></div>
+                        <div style="float: left; padding-top: 2px;">BANK INFORMATION</div>
+                        <div style="float: left; font-size: 12px; color: Red; padding-left: 25px; font-weight: normal;"><span id="CPMember_ctl00_Span1"></span></div>
+                    </div>
+
+                    <div class="col-lg-12 margin-top-05">
+                        <div class="col-lg-2">
+                            <label for="phone" class="control-label">Account own*</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <asp:TextBox runat="server" ID="txtAcountOwn" CssClass="form-control" placeholder="Account own"></asp:TextBox>
+                            <asp:RequiredFieldValidator ErrorMessage="Enter your phone number" ControlToValidate="txtPhone" runat="server" ForeColor="#cc0066" Text="Enter your phone number" Display="Dynamic" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 margin-top-05">
+                        <div class="col-lg-2">
+                            <label for="phone" class="control-label">Account number*</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <asp:TextBox runat="server" ID="TextBox1" CssClass="form-control" placeholder="Account own"></asp:TextBox>
+                            <asp:RequiredFieldValidator ErrorMessage="Enter your phone number" ControlToValidate="txtPhone" runat="server" ForeColor="#cc0066" Text="Enter your phone number" Display="Dynamic" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 margin-top-05">
+                        <div class="col-lg-2">
+                            <label for="country" class="control-label">Bank name*</label>
+                        </div>
+                        <div class="col-lg-5">
+                            <asp:DropDownList runat="server" ID="DropDownList1" CssClass="form-control">
+                            </asp:DropDownList>
+                            <asp:RequiredFieldValidator ErrorMessage="Enter your country" ControlToValidate="ddlCountry" runat="server" ForeColor="#cc0066" value="VIET NAM" Display="Dynamic" Enabled="false" />
+                        </div>
+                    </div>
+                    <div class="col-lg-12 margin-top-05">
+                        <div class="col-lg-2">
+                            <label for="phone" class="control-label">Branch bank*</label>
+                        </div>
+                        <div class="col-lg-6">
+                            <asp:TextBox runat="server" ID="TextBox2" CssClass="form-control" placeholder="Account own"></asp:TextBox>
+                            <asp:RequiredFieldValidator ErrorMessage="Enter your phone number" ControlToValidate="txtPhone" runat="server" ForeColor="#cc0066" Text="Enter your phone number" Display="Dynamic" />
+                        </div>
+                    </div>
+
+                     
+
                     <div class="col-lg-12 margin-top-05">
                         <div class="col-lg-2"></div>
                         <div class="col-lg-2" style="text-align: center;">

@@ -78,6 +78,12 @@ namespace BIT.Controller
             return ctl.IsExistsItem(user_name, Wallet, email);
 		}
 
+        public bool IsExistsItem(string user_name)
+        {
+            return ctl.IsExistsItem(user_name);
+        }
+
+
         public MEMBERS SelectItemByUserName(string user_name)
         {
             return ctl.SelectItemByUserName(user_name);

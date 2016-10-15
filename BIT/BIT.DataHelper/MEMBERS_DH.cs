@@ -136,6 +136,17 @@ user_name
             return bol;
         }
 
+        public bool IsExistsItem(string user_name)
+        {
+            IDataReader dr = defaultDB.ExecuteReader("sp_MEMBERS_SelectItemByUserName_2"
+                , user_name);
+
+            bool bol = dr.Read();
+            dr.Close();
+
+            return bol;
+        }
+
         public MEMBERS SelectItemByUserName(string user_name)
         {
             return defaultDB.ExecuteSprocAccessor<MEMBERS>("sp_MEMBERS_SelectItemByUserName"

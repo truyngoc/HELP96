@@ -6,123 +6,83 @@
         <br />
         <section class="panel">
             <header class="panel-heading">
-                <h3>Select Pack Invest </h3>
+                <h3>Pin Transfer</h3>
             </header>
             <div class="panel-body">
-                <div class="container center_div">
-                    <asp:HiddenField ID="hidPackage_transactionID" runat="server" />
-                    <asp:HiddenField ID="hid_avaiableMonth" runat="server" Value="0" />
-                    <asp:HiddenField ID="hidMonth" runat="server" />
+                <div class="form">
                     <div class="form-group col-lg-12">
-                        <label class="control-label col-lg-3">Address to payment</label>
-                            <div class="col-lg-5">
-                                <span class="badge">
-                                    <asp:Image ID="imgAdminWallet"  Width="200" Height="200" runat="server" />
-                                </span>
-                                <br />
-                                <asp:Label runat="server" ID="lblAdminWallet" ></asp:Label>
-                            </div>
+                        <asp:Label runat="server" ID="lblMessage" ForeColor="#cc0066" Visible="false" Text=""></asp:Label>
                     </div>
                     <div class="form-group col-lg-12">
-                            <label class="control-label col-lg-3">Selected Invest Pack</label>
-                            <div class="col-lg-6">
-                                <asp:Label ID="lblCurrentPack" runat="server"></asp:Label>
-                            </div>
-                        </div>
-                        <div class="form-group col-lg-12">
-                            <label class="control-label col-lg-3">Select extend invest month</label>
-                            <div class="col-lg-6">
-                                <asp:DropDownList runat="server" ID="drTimeInvest" OnSelectedIndexChanged="drTimeInvest_SelectedIndexChanged" AutoPostBack="true" >
-                                    <asp:ListItem Text="1 Month" Value="1"></asp:ListItem>
-                                    <asp:ListItem Text="2 Month" Value="2"></asp:ListItem>
-                                    <asp:ListItem Text="3 Month" Value="3"></asp:ListItem>
-                                </asp:DropDownList>
-                            </div>
-                        </div>
-                    <div class="form-group col-lg-12">
-                        <label class="control-label col-lg-3">Amount</label>
+                        <label class="control-label col-lg-3" for="firstname">Username Transfer *</label>
                         <div class="col-lg-6">
-                            <asp:TextBox runat="server" ID="txtTotalAmount" CssClass="form-control" placeholder="Total payment: Invest Pack + Extend Fee" Enabled="false">1.2</asp:TextBox>
+                            <asp:TextBox runat="server" ID="txtUserReceivePIN" CssClass="form-control"></asp:TextBox>
+                            <asp:RequiredFieldValidator ErrorMessage="Enter Username Transfer" ControlToValidate="txtUserReceivePIN" runat="server" ForeColor="#cc0066" Text="Enter Username Transfer" Display="Dynamic" />
                         </div>
                     </div>
                     <div class="form-group col-lg-12">
-                        <label class="control-label col-lg-3">Transaction</label>
+                        <label class="control-label col-lg-3" for="firstname">Amount Transfer *</label>
                         <div class="col-lg-6">
-                            <asp:TextBox runat="server" ID="txtTransaction" CssClass="form-control" placeholder="8494be30f36c1652617"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="form-group col-lg-12">
-                        <label class="control-label col-lg-3">Password PIN*</label>
-                        <div class="col-lg-6">
-                            <asp:TextBox runat="server" ID="txtPasswordPIN" CssClass="form-control" type="password"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="form-group col-lg-12">
-                        <div style="text-align: center;" class="col-lg-12">
-                            <asp:Button runat="server" ID="btnUpdate" class="btn btn-info" Text="Buy Pack" OnClick="btnUpdate_Click1" />
+                            <asp:TextBox runat="server" ID="txtAmount" CssClass="form-control" TextMode="Number"></asp:TextBox>
+                            <asp:RequiredFieldValidator ErrorMessage="Enter Amount Transfer" ControlToValidate="txtAmount" runat="server" ForeColor="#cc0066" Text="Enter Amount Transfer" Display="Dynamic" />
+
+                            PIN balance:<strong style="color: #8075C4;">
+                                <asp:Label runat="server" ID="lblPINBalance"></asp:Label>
+                            </strong>
                         </div>
                     </div>
 
                     <div class="form-group col-lg-12">
-                        <asp:Label runat="server" ID="lblMessage" Visible="false" CssClass="text-danger"></asp:Label>
+                        <label class="control-label col-lg-3" for="firstname">Transaction Password*</label>
+                        <div class="col-lg-6">
+                            <asp:TextBox runat="server" ID="txtPassword_PIN" CssClass="form-control" type="password"></asp:TextBox>
+                            <asp:RequiredFieldValidator ErrorMessage="Enter Transaction Password" ControlToValidate="txtPassword_PIN" runat="server" ForeColor="#cc0066" Text="Enter Transaction Password" Display="Dynamic" />
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <div style="text-align: center;" class="col-lg-12">
+                            <asp:Button runat="server" ID="btnSendPIN" CssClass="btn btn-info" BackColor="#3F51B5" Text="SEND PIN" OnClick="btnSendPIN_Click" />
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         <section class="panel">
             <header class="panel-heading">
-                <h3>Invest History</h3>
+                <h3>Pin History Transaction</h3>
             </header>
-            <div class="panel-body">
-                <div class="form">
-                    <asp:DataList ID="grdListPH" runat="server" class="table table-hover p-table">
-                        <HeaderTemplate>
-                            <table class="table table-hover p-table">
-                                <tr>
-                                    <th>Create Date</th>
-                                    <th>Pack Name</th>
-                                    <th>Start Date</th>
-                                    <th>Expire Date</th>
-                                    <th>Date Count</th>
-                                    <th>Status</th>
-                                    <th></th>
-                                </tr>
-                        </HeaderTemplate>
-                        <ItemTemplate>
+
+            <asp:Repeater ID="rptPIN_TRANS" runat="server">
+                <HeaderTemplate>
+                    <table class="table table-striped">
+                        <thead>
                             <tr>
-                                <td>
-                                    <asp:Label runat="server" ID="lblPHTime" Text='<%# Eval("CREATE_DATE") %>'></asp:Label>
-                                </td>
-                                <td>
-                                    <asp:Label runat="server" ID="lblAmount" Text=''> </asp:Label>BTC
-                                </td>
-                                <td>
-                                    <asp:Label runat="server" ID="lblStartDate" Text='<%# Eval("FROM_DATE") %>' />
-                                </td>
-                                <td>
-                                    <asp:Label runat="server" ID="lblEndDate" Text='<%# Eval("TO_DATE") %>'></asp:Label>
-                                </td>
-                                <td>
-                                    <asp:Label runat="server" ID="Label1" Text='<%# datecount(Eval("CREATE_DATE")) %>'></asp:Label>
-                                </td>
-                                <td>
-                                    <span class="label label-primary">
-                                        <asp:Label runat="server" ID="lblStatus" Text='<%# getStatus(Eval("STATUS")) %>'></asp:Label>
-                                    </span>
-                                </td>
-                                <td>
-                                    <a href="#">
-                                        
-                                    </a>
-                                </td>
+                                <th>Time transfer</th>
+                                <th>Notes</th>
+                                <th>Amount</th>
                             </tr>
-                        </ItemTemplate>
-                        <FooterTemplate>
-                            </table>
-                        </FooterTemplate>
-                    </asp:DataList>
-                </div>
-            </div>
+                        </thead>
+                        <tbody>
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <tr>
+                        <td>
+                            <asp:Label ID="lblCreateDate" runat="server" Text='<%# Eval("Create_Date", "{0:dd/MM/yyyy HH:mm:ss}") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="lblNotes" runat="server" Text='<%# Eval("Transaction_Type") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("Amout") %>' />
+                        </td>
+                    </tr>
+                </ItemTemplate>
+                <FooterTemplate>
+                    </tbody>
+            </table>
+                </FooterTemplate>
+            </asp:Repeater>
+
         </section>
     </section>
 </asp:Content>

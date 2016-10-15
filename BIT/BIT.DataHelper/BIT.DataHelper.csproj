@@ -56,6 +56,7 @@
     <Compile Include="MEMBERS_DH.cs" />
     <Compile Include="PIN_DH.cs" />
     <Compile Include="PH_DH.cs" />
+    <Compile Include="PIN_TRANS_DH.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SNUOC_DH.cs" />
     <Compile Include="WALLET_DH.cs" />

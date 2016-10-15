@@ -73,9 +73,9 @@ namespace BIT.WebUI.Admin
                     //}
                     //else
                     //{
-                        Singleton<BITCurrentSession>.Inst.SessionMember = login_info;
-                        lblMessage.Visible = false;
-                        Response.Redirect("~/Admin/Dashboard.aspx");
+                    Singleton<BITCurrentSession>.Inst.SessionMember = login_info;
+                    lblMessage.Visible = false;
+                    Response.Redirect("~/Admin/Dashboard.aspx");
                     //}
                 }
                 else

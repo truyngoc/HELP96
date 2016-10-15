@@ -13,7 +13,7 @@
     <meta name="author" content="Mosaddek" />
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina" />
     <link rel="shortcut icon" href="favicon.png" />
-    <title>BitQuick24 Login</title>
+    <title>Help96 Login</title>
     <meta name="csrf-token" content="AvJsvFUkFTxZxtYHOn19V6YN6zqQExtwl6k0WVSd" />
     <script src="../Scripts/jquery-1.10.2.js"></script>
     <script src="../Scripts/jquery-1.10.2.min.js"></script>
@@ -44,29 +44,32 @@
     <noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=1ArLn1QolK1052" style="display:none" height="1" width="1" alt="" /></noscript>
     <!-- End Alexa Certify Javascript -->
 </head>
-<body style="background-color: #E6E7E8;">
+<body style="background: url('../images/body_Help.jpg') no-repeat center top;">
+    <%--<div id="big-mask"></div>--%>
     <div class="container">
-        <div style="text-align: center; margin: 60px auto 0; padding: 0 15px;"  class="logo-login">
-            <a href="/" class="logo_login">
-                <img src="../images/logo_BitQuick.png" />
-            </a>
-        </div>
-        <form style="margin-top: 1px;" class="form-signin" runat="server">
-            <br />
-            <div class="text-center">
-                <asp:Label runat="server" ID="lblMessage" ForeColor="#cc0066" Text="*Username or Password is not valid" Visible="false"></asp:Label>
-            </div>
-
-            <div class="login-wrap">
-                <asp:TextBox ID="txtUserName" runat="server" class="form-control" Style="height: 41px;" placeholder="Username" />
-                <asp:RequiredFieldValidator ErrorMessage="Enter your username" ControlToValidate="txtUserName" runat="server" ForeColor="#cc0066" Text="Enter your username" Display="Dynamic" />
-                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" class="form-control" Style="height: 41px;" placeholder="Password" />
-                <div style="padding: 5px 0;">
-                    <asp:Button ID="btnLogin" runat="server" Text="Login" class="btn btn-info btn-login" OnClick="btnLogin_Click" />
-                    <asp:Button ID="btnRegister" runat="server" Text="Register" class="btn btn-info btn-login" />
+        <form style="" class="form-signin" runat="server">
+            <div class="form_login">
+                <div class="logo-login">
+                        <a href="/" class="logo_login">
+                            <img src="../images/Logo.png" />
+                        </a>
+                    </div>
+                <div class="text-center">
+                    <asp:Label runat="server" ID="lblMessage" ForeColor="#cc0066" Text="*Username or Password is not valid" Visible="false"></asp:Label>
                 </div>
-                <div>
-                    <asp:LinkButton runat="server" ID="lnkLostPass" style="color: #ED1F24;" OnClick="lnkLostPass_Click" Text="Forgot your password ? Click here"> </asp:LinkButton>
+
+                <div class="login-wrap">
+                    
+                    <asp:TextBox ID="txtUserName" runat="server" class="form-control" Style="height: 41px;" placeholder="Username" />
+                    <asp:RequiredFieldValidator ErrorMessage="Enter your username" ControlToValidate="txtUserName" runat="server" ForeColor="#cc0066" Text="Enter your username" Display="Dynamic" />
+                    <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" class="form-control" Style="height: 41px;" placeholder="Password" />
+                    <div style="padding: 5px 0; float:right;">
+                        <asp:Button ID="btnLogin" runat="server" Text="Login" class="btn btn-info btn-login" OnClick="btnLogin_Click" />
+                        <asp:Button ID="btnRegister" runat="server" Text="Register" class="btn btn-info btn-login" />
+                    </div>
+                    <div  style="float: left;">
+                        <asp:LinkButton runat="server" ID="lnkLostPass" Style="color: #305AF8;" OnClick="lnkLostPass_Click" Text="Forgot your password ? Click here"> </asp:LinkButton>
+                    </div>
                 </div>
             </div>
         </form>

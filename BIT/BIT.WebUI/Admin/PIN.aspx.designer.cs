@@ -13,105 +13,6 @@ namespace BIT.WebUI.Admin {
     public partial class PIN {
         
         /// <summary>
-        /// hidPackage_transactionID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hidPackage_transactionID;
-        
-        /// <summary>
-        /// hid_avaiableMonth control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hid_avaiableMonth;
-        
-        /// <summary>
-        /// hidMonth control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hidMonth;
-        
-        /// <summary>
-        /// imgAdminWallet control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgAdminWallet;
-        
-        /// <summary>
-        /// lblAdminWallet control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAdminWallet;
-        
-        /// <summary>
-        /// lblCurrentPack control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCurrentPack;
-        
-        /// <summary>
-        /// drTimeInvest control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drTimeInvest;
-        
-        /// <summary>
-        /// txtTotalAmount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTotalAmount;
-        
-        /// <summary>
-        /// txtTransaction control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTransaction;
-        
-        /// <summary>
-        /// txtPasswordPIN control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPasswordPIN;
-        
-        /// <summary>
-        /// btnUpdate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
-        
-        /// <summary>
         /// lblMessage control.
         /// </summary>
         /// <remarks>
@@ -121,12 +22,57 @@ namespace BIT.WebUI.Admin {
         protected global::System.Web.UI.WebControls.Label lblMessage;
         
         /// <summary>
-        /// grdListPH control.
+        /// txtUserReceivePIN control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList grdListPH;
+        protected global::System.Web.UI.WebControls.TextBox txtUserReceivePIN;
+        
+        /// <summary>
+        /// txtAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAmount;
+        
+        /// <summary>
+        /// lblPINBalance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPINBalance;
+        
+        /// <summary>
+        /// txtPassword_PIN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPassword_PIN;
+        
+        /// <summary>
+        /// btnSendPIN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSendPIN;
+        
+        /// <summary>
+        /// rptPIN_TRANS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptPIN_TRANS;
     }
 }
