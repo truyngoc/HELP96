@@ -14,17 +14,17 @@ namespace BIT.WebUI.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!this.IsPostBack)
-            //{
-            //    //if (!Singleton<BITCurrentSession>.Inst.isLoginUser)
-            //    //{
-            //    //    Response.Redirect("~/Admin/Login.aspx");
-            //    //}
-            //    //else
-            //    //{
-            //    //    BindDashboard();
-            //    //}
-            //}
+            if (!this.IsPostBack)
+            {
+                if (!Singleton<BITCurrentSession>.Inst.isLoginUser)
+                {
+                    Response.Redirect("~/Admin/Login.aspx");
+                }
+                else
+                {
+                    BindDashboard();
+                }
+            }
         }
 
         public void BindDashboard()
@@ -41,6 +41,14 @@ namespace BIT.WebUI.Admin
 
         public void BindDataToForm(DASHBOARD o)
         {
+            lblTotalDownLine.Text = o.Total_Downline.ToString();
+            lblDirectDownLine.Text = o.Direct_Downline.ToString();
+            lblPIN.Text = o.PIN_Wallet.ToString();
+            lblPH.Text = o.Total_PH.ToString();
+            lblGH.Text = o.Total_GH.ToString();
+            lblCWallet.Text = o.C_Wallet.ToString();
+            lblRWallet.Text = o.R_Wallet.ToString();
+
             ////lblB_Wallet.Text = o.B_Wallet.ToString();
             //lblC_Wallet.Text = o.C_Wallet.ToString();
             ////lblR_Wallet.Text = o.R_Wallet.ToString();

@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<%--    <asp:Button ID="Button1" runat="server" Text="Fill Form in Popup" />
+    <%--    <asp:Button ID="Button1" runat="server" Text="Fill Form in Popup" />
     <cc1:ModalPopupExtender ID="mp1" runat="server" PopupControlID="Panl1" TargetControlID="Button1"
         CancelControlID="Button2" BackgroundCssClass="Background">
     </cc1:ModalPopupExtender>
@@ -26,10 +26,12 @@
                 <div class="flip">
                     <section class="panel front divdashboard">
                         <div class="content_show_home" style="">
-                            MEMBERS : <asp:Label runat="server" ID="lblTotalDownLine" style="color:red"></asp:Label>
+                            TOTAL MEMBERS :
+                            <asp:Label runat="server" ID="lblTotalDownLine" Style="color: red"></asp:Label>
                             <br />
                             <div style="height: 15px;"></div>
-                            INTRODUCE :  <asp:Label runat="server" ID="lblDirectDownLine" style="color:red"></asp:Label>
+                            TOTAL F1 : 
+                            <asp:Label runat="server" ID="lblDirectDownLine" Style="color: red"></asp:Label>
                         </div>
                     </section>
                 </div>
@@ -39,10 +41,29 @@
                 <div class="flip">
                     <section class="panel front divdashboard">
                         <div class="content_show_home">
-                            PIN TOTAL : <asp:Label runat="server" ID="lblPIN" style="color:red"></asp:Label>
+                            PIN :
+                            <asp:Label runat="server" ID="lblPIN" Style="color: red"></asp:Label>
                             <br />
                             <div style="height: 15px;"></div>
-                            PH ACTIVE : <asp:Label runat="server" ID="lblPH" style="color:red"></asp:Label>
+                            PH : 
+                            <asp:Label runat="server" ID="lblPH" Style="color: red"></asp:Label>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; GH :
+                            <asp:Label runat="server" ID="lblGH" Style="color: red"></asp:Label>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6" style="margin: 30px;">
+                <div class="flip">
+                    <section class="panel front divdashboard">
+                        <div class="content_show_home">
+                            R WALLET :
+                            <asp:Label runat="server" ID="lblRWallet" Style="color: red"></asp:Label>
+                            <br />
+                            <div style="height: 15px;"></div>
+                            C WALLET :
+                            <asp:Label runat="server" ID="lblCWallet" Style="color: red"></asp:Label>
                         </div>
                     </section>
                 </div>

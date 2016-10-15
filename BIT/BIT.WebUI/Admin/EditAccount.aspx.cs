@@ -44,38 +44,38 @@ namespace BIT.WebUI.Admin
         //}
         public void LoadUserInfor()
         {
-            int Id;
-            if (Singleton<BITCurrentSession>.Inst.SessionMember.CodeId == "0")
-            {
-                if (Convert.ToInt32(HttpContext.Current.Session["BIT_MemberID_Edit"]) == 0)
-                {
-                    Id = Singleton<BITCurrentSession>.Inst.SessionMember.ID;
-                }
-                else
-                {
-                    Id = Convert.ToInt32(HttpContext.Current.Session["BIT_MemberID_Edit"]);
-                }
+            //int Id;
+            //if (Singleton<BITCurrentSession>.Inst.SessionMember.CodeId == "0")
+            //{
+            //    if (Convert.ToInt32(HttpContext.Current.Session["BIT_MemberID_Edit"]) == 0)
+            //    {
+            //        Id = Singleton<BITCurrentSession>.Inst.SessionMember.ID;
+            //    }
+            //    else
+            //    {
+            //        Id = Convert.ToInt32(HttpContext.Current.Session["BIT_MemberID_Edit"]);
+            //    }
 
-                //btnUpdateAdmin.Visible = true;
-                //btnUpdate.Visible = false;
-                //divBlockChain.Visible = false;
-                //txtFullName.Attributes.Remove("readonly");
-                //txtEmail.Attributes.Remove("readonly");
-                //txtPhone.Attributes.Remove("readonly");
-                //txtWallet.Attributes.Remove("readonly");
-            }
-            else
-            {
-                Id = Singleton<BITCurrentSession>.Inst.SessionMember.ID;
-                //getAdminWallet();
-                //txtFullName.Attributes.Add("readonly", "readonly");
-                //txtEmail.Attributes.Add("readonly", "readonly");
-                //txtPhone.Attributes.Add("readonly", "readonly");
-                //txtWallet.Attributes.Add("readonly", "readonly");
-            }
+            //    //btnUpdateAdmin.Visible = true;
+            //    //btnUpdate.Visible = false;
+            //    //divBlockChain.Visible = false;
+            //    //txtFullName.Attributes.Remove("readonly");
+            //    //txtEmail.Attributes.Remove("readonly");
+            //    //txtPhone.Attributes.Remove("readonly");
+            //    //txtWallet.Attributes.Remove("readonly");
+            //}
+            //else
+            //{
+            //    Id = Singleton<BITCurrentSession>.Inst.SessionMember.ID;
+            //    //getAdminWallet();
+            //    //txtFullName.Attributes.Add("readonly", "readonly");
+            //    //txtEmail.Attributes.Add("readonly", "readonly");
+            //    //txtPhone.Attributes.Add("readonly", "readonly");
+            //    //txtWallet.Attributes.Add("readonly", "readonly");
+            //}
 
-            MEMBERS_BC ctlMember = new MEMBERS_BC();
-            MEMBERS obj = ctlMember.SelectItemByID(Id);
+
+            MEMBERS obj = Singleton<BITCurrentSession>.Inst.SessionMember;
 
             txtUserName.Text = obj.Username;
             txtEmail.Text = obj.Email;
