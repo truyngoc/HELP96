@@ -125,10 +125,10 @@ user_name
             return defaultDB.ExecuteSprocAccessor<MEMBERS>("sp_MEMBERS_SelectAllItems");
         }
 
-        public bool IsExistsItem(string user_name,string wallet,string email)
+        public bool IsExistsItem(string user_name,string wallet,string email,string phone)
         {
             IDataReader dr = defaultDB.ExecuteReader("sp_MEMBERS_SelectItemByUserNameW"
-                , user_name, wallet, email);
+                , user_name, wallet, email,phone);
 
             bool bol = dr.Read();
             dr.Close();

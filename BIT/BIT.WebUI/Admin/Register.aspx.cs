@@ -78,29 +78,29 @@ namespace BIT.WebUI.Admin
         {
             if (newRegist)
             {
-                Load_SNUOC();
+                //Load_SNUOC();
             }
             else
             {
 
-                Load_SNUOC();
+                //Load_SNUOC();
                 Load_UpLine(Singleton<BITCurrentSession>.Inst.SessionMember.CodeId);
             }
         }
 
-        public void Load_SNUOC()
-        {
-            SNUOC_BC ctlNuoc = new SNUOC_BC();
+        //public void Load_SNUOC()
+        //{
+        //    SNUOC_BC ctlNuoc = new SNUOC_BC();
 
-            var lst = ctlNuoc.SelectAllItems();
+        //    var lst = ctlNuoc.SelectAllItems();
 
-            ddlCountry.DataSource = lst;
-            ddlCountry.DataTextField = "NAME";
-            ddlCountry.DataValueField = "CODE";
-            ddlCountry.DataBind();
+        //    ddlCountry.DataSource = lst;
+        //    ddlCountry.DataTextField = "NAME";
+        //    ddlCountry.DataValueField = "CODE";
+        //    ddlCountry.DataBind();
 
-            SetDefaultValueDropDownList(ddlCountry);
-        }
+        //    SetDefaultValueDropDownList(ddlCountry);
+        //}
 
         public void Load_UpLine(string CodeId)
         {
@@ -185,8 +185,8 @@ namespace BIT.WebUI.Admin
             //}
             //else
             //{
-                obj.CodeId_Sponsor = Singleton<BITCurrentSession>.Inst.SessionMember.CodeId;
-                obj.Upline = Singleton<BITCurrentSession>.Inst.SessionMember.Username;
+            obj.CodeId_Sponsor = Singleton<BITCurrentSession>.Inst.SessionMember.CodeId;
+            obj.Upline = Singleton<BITCurrentSession>.Inst.SessionMember.Username;
             //}
 
 
@@ -200,7 +200,7 @@ namespace BIT.WebUI.Admin
             obj.Level = "0";
             obj.ExistsChild = false;
             obj.Status = (int)Constants.MEMBER_STATUS.WaitActive;
-            obj.Country = ddlCountry.SelectedValue.ToString();
+            //obj.Country = ddlCountry.SelectedValue.ToString();
             //obj.ActiveDate = DBNull.Value; //@ActiveDate datetime
             //obj.ExpiredDate = DateTime.Now.AddMonths(1); //@ExpiredDate datetime
             obj.IsLock = 0;
@@ -222,55 +222,30 @@ namespace BIT.WebUI.Admin
 
                     try
                     {
-                        // check sponsor acc have execute PH success
-                        //DateTime dtExpired;
-                        //bool bSponsorPH = false;
-                        //if (newRegist)
-                        //{
-                        //    dtExpired = Singleton<MEMBERS_BC>.Inst.SelectItem(obj.CodeId_Sponsor).ExpiredDate;
-                        //}
-                        //else
-                        //{
-                        //    dtExpired = Singleton<BITCurrentSession>.Inst.SessionMember.ExpiredDate;
-                        //}
-
-                        //if (dtExpired == null)
-                        //    bSponsorPH = false;
-                        //else if (dtExpired < DateTime.Now)
-                        //    bSponsorPH = false;
-                        //else
-                        //    bSponsorPH = true;
-
-                        bool bExistAcc = ctlMember.IsExistsItem(obj.Username, obj.Wallet, obj.Email);
-
-                        //if (bSponsorPH)
-                        //{
-                        if (!bExistAcc)
+                        if (Singleton<WALLET_BC>.Inst.SelectItemByCodeId(Singleton<BITCurrentSession>.Inst.SessionMember.CodeId).PIN_Wallet <= 2)
                         {
-                            ctlMember.InsertItem(obj);
-                            SendMailToRegisterUser(obj.Username, obj.Fullname, obj.Password, obj.Password_PIN, obj.Email);
-                            TNotify.Alerts.Information("Register member " + txtUserName.Text + " success.");
-                            //lblMessage.Text = "Register member " + txtUserName.Text + " success.";
-                            //Response.Write("<script>alert('" + lblMessage.Text + "');</script>");
-                            //lblMessage.Visible = true;
-                            //Response.Redirect("../Admin/Dashboard.aspx");
+                            TNotify.Alerts.Danger("You need at least 3 PIN to create new account");
                         }
                         else
                         {
-                            lblMessage.Text = "Username is already taken";
-                            lblMessage.Visible = true;
+                            bool bExistAcc = ctlMember.IsExistsItem(obj.Username, obj.Wallet, obj.Email, obj.Phone);
+
+                            if (!bExistAcc)
+                            {
+                                ctlMember.InsertItem(obj);
+                                SendMailToRegisterUser(obj.Username, obj.Fullname, obj.Password, obj.Password_PIN, obj.Email);
+                                TNotify.Alerts.Information("Register member " + txtUserName.Text + " success.");
+                            }
+                            else
+                            {
+                                TNotify.Alerts.Danger("Username " + txtUserName.Text + " is taken.");
+                            }
+
                         }
-                        //}
-                        //else
-                        //{
-                        //    lblMessage.Text = "You can't create account member, please execute Active Package Invest transaction!";
-                        //    lblMessage.Visible = true;
-                        //}
                     }
                     catch (Exception ex)
                     {
                         throw new Exception(ex.ToString());
-                        //throw new Exception(ex.ToString);
                     }
                 }
             }

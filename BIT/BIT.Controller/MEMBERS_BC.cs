@@ -73,9 +73,9 @@ namespace BIT.Controller
 			return ctl.SelectAllItems().ToList();
 		}
 		
-		public bool IsExistsItem(string user_name, string Wallet,string email)
+		public bool IsExistsItem(string user_name, string Wallet,string email,string phone)
 		{
-            return ctl.IsExistsItem(user_name, Wallet, email);
+            return ctl.IsExistsItem(user_name, Wallet, email,phone);
 		}
 
         public bool IsExistsItem(string user_name)

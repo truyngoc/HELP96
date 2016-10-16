@@ -22,8 +22,8 @@
     <link href="../Content/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen" />
     <!-- Bootstrap core CSS -->
     <link href="../Content/bootstrap.css" rel="stylesheet" />
-        <link href="../Content/Frame.css" rel="stylesheet" />
-            <link href="../Content/Manager.css" rel="stylesheet" />
+    <link href="../Content/Frame.css" rel="stylesheet" />
+    <link href="../Content/Manager.css" rel="stylesheet" />
     <link href="../Content/bootstrap-reset.css" rel="stylesheet" />
     <!--external css-->
     <link href="../Content/font-awesome.css" rel="stylesheet" />
@@ -82,22 +82,48 @@
         <div>
             <section id="container">
                 <div id="Header_Frame">
-    <div class="headerbar-left">
-    <div style="float:left; font-weight:bold;"><a href="../Admin/Dashboard.aspx"> <span class="text-lg text-bold text-primary" style="color: white"> HELP96 . GLOBAL</span></a></div>
-    <div style="float:left; padding-left:16px; margin-top:1px;"><a class="navbar-toggle" data-toggle="menubar"> <i class="fa fa-bars" style="color: white"></i>
-					<span id="lb_show_Username" style="color:Red;"><asp:Label runat="server" ID="lblUserName"></asp:Label></span></a></div>      
-    </div>
-    <div style="float:left; font-weight:bold; color: white;  padding-top:19px; margin-left:25px;"> <a href="../Admin/ChangePassword.aspx"><i class="fa fa-unlock-alt" style="color:White; padding-right:6px; padding-top:1px;"></i><span>Login Password</span></a></div>
-    <div style="float:left; font-weight:bold; color: white;  padding-top:19px; margin-left:15px;"> <a href="../Admin/ChangePasswordTwo.aspx"><i class="fa fa-circle-o-notch" style="color:White; padding-right:6px; padding-top:1px;"></i><span>Transaction Password</span></a></div>
-    <div style="float:left; font-weight:bold; color: white;  padding-top:19px; margin-left:15px;"><a href="../Admin/EditAccount.aspx""><i class="fa fa-file-text-o" style="color:White; padding-right:6px; padding-top:1px;"></i><span>Profile Information</span></a></div>
+                    <div class="headerbar-left">
+                        <div style="float: left; font-weight: bold;">
+                            <a href="../Admin/Dashboard.aspx">
+                                <span class="text-lg text-bold text-primary" style="color: white">HELP96 . GLOBAL</span></a>
+                        </div>
+                        <div style="float: left; padding-left: 16px; margin-top: 1px;">
+                            <a class="navbar-toggle" data-toggle="menubar"><i class="fa fa-bars" style="color: white"></i>
+                                <span id="lb_show_Username" style="color: Red;">
+                                    <asp:Label runat="server" ID="lblUserName"></asp:Label></span></a>
+                        </div>
 
-    <div class="header_right">
-    <span style="color:White;"><i class="fa fa-circle" style="color:#0088cc;"></i></span>
-    <span style="color: #0088cc; padding-right:15px; font-weight:bold;"><span id="Lb_FullName"><asp:Label runat="server" ID="lblFullName"></asp:Label></span></span>
-        <%--<a id="cmdLogout" href="javascript:__doPostBack('ctl00$cmdLogout','')"><i class="fa fa-power-off" style="color: white"></i><span> Logout</span></a>--%>
-        <a href="../Admin/Logout.aspx"><span><i class="fa fa-power-off" style="color: white"></i></span><span>Logout</span></a>
-	</div>
-    </div>
+                        <div style="float: left; font-weight: bold; color: white; padding-top: 19px; margin-left: 25px;">
+                            <a href="../Admin/ChangePassword.aspx"><i class="fa fa-unlock-alt" style="color: White; padding-right: 6px; padding-top: 1px;"></i><span>Login Password</span></a>
+                        </div>
+                        <div style="float: left; font-weight: bold; color: white; padding-top: 19px; margin-left: 15px;">
+                            <a href="../Admin/ChangePasswordTwo.aspx"><i class="fa fa-circle-o-notch" style="color: White; padding-right: 6px; padding-top: 1px;"></i><span>Transaction Password</span></a>
+                        </div>
+                        <div style="float: left; font-weight: bold; color: white; padding-top: 19px; margin-left: 15px;">
+                            <a href="../Admin/EditAccount.aspx">
+                                <i class="fa fa-file-text-o" style="color: White; padding-right: 6px; padding-top: 1px;"></i><span>Profile Information</span></a>
+                        </div>
+                    </div>
+                    <div class="header_right">
+                        <span style="color: White;"><i class="fa fa-circle" style="color: #0088cc;"></i></span>
+                        <span style="color: #0088cc; padding-right: 15px; font-weight: bold;"><span id="Lb_FullName">
+                            <asp:Label runat="server" ID="lblFullName"></asp:Label></span></span>
+                        <%--<a id="cmdLogout" href="javascript:__doPostBack('ctl00$cmdLogout','')"><i class="fa fa-power-off" style="color: white"></i><span> Logout</span></a>--%>
+                        <a href="../Admin/Logout.aspx"><span><i class="fa fa-power-off" style="color: white"></i></span><span>Logout</span></a>
+                        <ul class="nav pull-right top-menu">
+                            <li class="border-r">
+                                <div id="google_translate_element"></div>
+                                <script type="text/javascript">
+                                    function googleTranslateElementInit() {
+                                        new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+                                    }
+                                </script>
+                                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                            </li>
+                            <li class="border-r"></li>
+                        </ul>
+                    </div>
+                </div>
                 <%--<header class="header white-bg">
                     <!--logo start-->
                     <a href="../admin/Dashboard.aspx" class="logo">
@@ -112,7 +138,7 @@
 <%--                    <div class="sidebar-toggle-box">
                         <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars" style="display:block"></div>
                         <%--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>--%>
-                        <%--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-collapse"></button>
+                <%--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-collapse"></button>
                     </div>
 
                     <div id="top_menu" class="nav notify-row">
@@ -172,7 +198,7 @@
                             <!---End of Dashboard-->
 
                             <!--SignUp-->
-                            <li class="sub-menu"  runat="server" id="liSignUp">
+                            <li class="sub-menu" runat="server" id="liSignUp">
                                 <a class="" href="../Admin/Register.aspx" style="color: #fff">
                                     <i class="fa fa-users"></i>
                                     <span>Register User</span>
@@ -182,7 +208,7 @@
                             <!--End of SignUp-->
 
                             <!--Pin-->
-                            <li class="sub-menu"  id="liPin" runat="server">
+                            <li class="sub-menu" id="liPin" runat="server">
                                 <a class="" href="../Admin/PIN.aspx" style="color: #fff">
                                     <i class="fa fa-heart"></i>
                                     <span>Pin Transfer</span>
@@ -191,7 +217,7 @@
                             </li>
                             <!--End of Pin-->
 
-<%--                            <li class="sub-menu"  id="liPakage" runat="server">
+                            <%--                            <li class="sub-menu"  id="liPakage" runat="server">
                                 <a class="" href="../Admin/SelectPackInvest.aspx" style="color: #fff">
                                     <i class="fa fa-toggle-on"></i>
                                     <span>Pin Active</span>
@@ -209,7 +235,7 @@
                             <!--end of PH-->
 
                             <!--GH-->
-<%--                            <li class="sub-menu"  id="liGH" runat="server">
+                            <%--                            <li class="sub-menu"  id="liGH" runat="server">
                                 <a class="" href="../Admin/GHCommunity.aspx" style="color: #fff">
                                     <i class="fa fa-cloud-download"></i>
                                     <span>Get Help (GH)</span>
@@ -217,7 +243,7 @@
                             </li>--%>
                             <!--End of GH-->
 
-                             <!--tree-->
+                            <!--tree-->
                             <li class="sub-menu">
                                 <a class="" href="../Admin/Tree.aspx" style="color: #fff">
                                     <i class="fa fa-sitemap" aria-hidden="true"></i>
@@ -228,7 +254,7 @@
                             <!--end of tree-->
 
                             <!--commission-->
-                            <li class="sub-menu"  id="liCommission" runat="server">
+                            <li class="sub-menu" id="liCommission" runat="server">
                                 <a class="" href="../Admin/Commission.aspx" style="color: #fff">
                                     <i class="fa fa-database"></i>
                                     <span>Sponsor Bonus</span>
@@ -236,10 +262,10 @@
                                 </a>
                             </li>
                             <!--en of commission-->
-                           
+
 
                             <!--WITHDRAW-->
-                            <li class="sub-menu"  id="liWithdraw" runat="server">
+                            <li class="sub-menu" id="liWithdraw" runat="server">
                                 <a class="" href="../Admin/WithDraw.aspx" style="color: #fff">
                                     <i class="fa fa-clock-o" aria-hidden="true"></i>
                                     <span>Transaction History</span>
@@ -254,14 +280,22 @@
                                     <i class="fa fa-users"></i>
                                     <span class="username title-file">ADMINISTRATOR</span>
                                 </a>
-                                <ul class="dropdown-menu"">
-                                    <li class="sub-menu" runat="server" id="liMember"><a href="MemberManagement.aspx"><i class="fa fa-universal-access" aria-hidden="true"></i><span>Quản lý tài khoản</span></a></li>
-                                    <%--<li class="sub-menu" ><a href="PINAdmin.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>PIN ACCEPT</span></a></li>--%>
-                                    <li class="sub-menu"  runat="server" id="liWithDrawMgr"><a href="WithDraw.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>Quản lý rút tiền hoa hồng hệ thống  &nbsp;&nbsp; &nbsp;</span></a></li>
-                                    <%--                                    <li><a href="ReCharge.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>RECHANGRE MANAGER</span></a></li>--%>
-                                    <li class="sub-menu" runat="server" id="liCreatePHGH" ><a href="CreateCommandPH_GH.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>Xếp lệnh</span></a></li>
-                                    <li class="sub-menu"  runat="server" id="liCommandList" ><a href="COMMAN_LIST.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>Lịch sử xếp lệnh</span></a></li>
-                                    <li class="sub-menu" runat="server" id="liReport" ><a href="COMMAND_DETAIL_EXPIRED_LIST.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>Report</span></a></li>
+                                <ul class="dropdown-menu">
+                                    <li class="sub-menu" runat="server" id="liMember">
+                                        <a href="MemberManagement.aspx"><i class="fa fa-users" aria-hidden="true"></i><span>Quản lý tài khoản</span></a>
+                                    </li>
+                                    <li class="sub-menu" runat="server" id="liWithDrawMgr">
+                                        <a href="WithDraw.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>Quản lý rút tiền hoa hồng hệ thống  &nbsp;&nbsp; &nbsp;</span></a>
+                                    </li>
+                                    <li class="sub-menu" runat="server" id="liCreatePHGH">
+                                        <a href="CreateCommandPH_GH.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>Xếp lệnh</span></a>
+                                    </li>
+                                    <li class="sub-menu" runat="server" id="liCommandList">
+                                        <a href="COMMAN_LIST.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>Lịch sử xếp lệnh</span></a>
+                                    </li>
+                                    <li class="sub-menu" runat="server" id="liReport">
+                                        <a href="COMMAND_DETAIL_EXPIRED_LIST.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>Report</span></a>
+                                    </li>
                                 </ul>
                             </li>
                             <!--end of Administrator-->

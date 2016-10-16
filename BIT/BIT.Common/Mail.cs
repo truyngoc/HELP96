@@ -26,9 +26,9 @@ namespace BIT.Common
                     Host = "smtp.gmail.com",
                     //Port = 587,
                     //Host = "mail.bitquick24.org",
-                    Port = 25,
-                    //Port = 587,
-                    EnableSsl = false,
+                    //Port = 25,
+                    Port = 587,
+                    EnableSsl = true,
                     DeliveryMethod = SmtpDeliveryMethod.Network,
                     Timeout = 30000,
                     UseDefaultCredentials = false

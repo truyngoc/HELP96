@@ -135,7 +135,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-12 margin-top-05">
+<%--                    <div class="col-lg-12 margin-top-05">
                         <div class="col-lg-2">
                             <label for="country" class="control-label">Country*</label>
                         </div>
@@ -144,7 +144,7 @@
                             </asp:DropDownList>
                             <asp:RequiredFieldValidator ErrorMessage="Enter your country" ControlToValidate="ddlCountry" runat="server" ForeColor="#cc0066" value="VIET NAM" Display="Dynamic" Enabled="false" />
                         </div>
-                    </div>
+                    </div>--%>
 
                     <div class="col-lg-12 margin-top-05">
                         <div class="col-lg-2"></div>
