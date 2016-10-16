@@ -217,30 +217,22 @@
                             </li>
                             <!--End of Pin-->
 
-                            <%--                            <li class="sub-menu"  id="liPakage" runat="server">
-                                <a class="" href="../Admin/SelectPackInvest.aspx" style="color: #fff">
-                                    <i class="fa fa-toggle-on"></i>
-                                    <span>Pin Active</span>
-                                    <%--  <span class="bgslide"></span>
-                                </a>
-                            </li>--%>
-
                             <!--PH-->
-                            <%--<li class="sub-menu"  id="liPH" runat="server">
+                            <li class="sub-menu"  id="liPH" runat="server">
                                 <a class="" href="../Admin/CreatePHCommunity.aspx" style="color: #fff">
                                     <i class="fa fa-cloud-upload"></i>
                                     <span>Provide Help (PH)</span>
                                 </a>
-                            </li>--%>
+                            </li>
                             <!--end of PH-->
 
                             <!--GH-->
-                            <%--                            <li class="sub-menu"  id="liGH" runat="server">
+                            <li class="sub-menu"  id="liGH" runat="server">
                                 <a class="" href="../Admin/GHCommunity.aspx" style="color: #fff">
                                     <i class="fa fa-cloud-download"></i>
                                     <span>Get Help (GH)</span>
                                 </a>
-                            </li>--%>
+                            </li>
                             <!--End of GH-->
 
                             <!--tree-->
