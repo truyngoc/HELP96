@@ -686,9 +686,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>17340</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1112/</IISUrl>
-          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://localhost:1112/</IISAppRootUrl>
+          <IISUrl>http://localhost:1113/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
