@@ -79,7 +79,8 @@
                                 <asp:TemplateField HeaderText="Wallet" ItemStyle-HorizontalAlign="Left">
                                     <ItemTemplate>
                                         <%--<asp:Label ID="lblWallet" runat="server" Text='<%# Eval("Wallet") %>' />--%>
-                                        <asp:LinkButton ID="lblWallet" runat="server" OnClick="lnkBlockchain_Click" CommandName="lnkWallet" CommandArgument='<%#Eval("Wallet") %>' Text='<%#Eval("Wallet").ToString().Substring(0,4) + "........" + Eval("Wallet").ToString().Substring(Eval("Wallet").ToString().Length-4,4) %>' Font-Bold="true" ForeColor="#2d3fda"></asp:LinkButton>
+                                        <%--<asp:LinkButton ID="lblWallet" runat="server" OnClick="lnkBlockchain_Click" CommandName="lnkWallet" CommandArgument='<%#Eval("Wallet") %>' Text='<%#Eval("Wallet").ToString().Substring(0,4) + "........" + Eval("Wallet").ToString().Substring(Eval("Wallet").ToString().Length-4,4) %>' Font-Bold="true" ForeColor="#2d3fda"></asp:LinkButton>--%>
+                                        <asp:LinkButton ID="lblWallet" runat="server" OnClick="lnkBlockchain_Click" CommandName="lnkWallet" CommandArgument='<%# Eval("Wallet") %>' Text='<%#Eval("Wallet").ToString() %>' Font-Bold="true" ForeColor="#2d3fda"></asp:LinkButton>
                                     </ItemTemplate>
                                 </asp:TemplateField>
 

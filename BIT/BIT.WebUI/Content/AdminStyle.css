@@ -748,36 +748,43 @@ ul.top-menu > li > a {
     }
 
 /*--sidebar toggle---*/
-
-.sidebar-toggle-box {
-    float: left;
-    /*line-height: 110px;
+@media (min-width: 768px) {
+    .sidebar-toggle-box {
+        float: left;
+        /*line-height: 110px;
     margin: 0 20px;*/
-}
-
-    .sidebar-toggle-box .fa-bars {
-        cursor: pointer;
-        display: inline-block;
-        font-size: 20px;
     }
 
-.sidebar-toggle-box {
-    margin: 15px 5px;
+
+        .sidebar-toggle-box .fa-bars {
+            cursor: pointer;
+            display: inline-block;
+            font-size: 20px;
+        }
+
+    .sidebar-toggle-box {
+        margin: 15px 5px;
+    }
+
+
+    .sidebar-closed > #sidebar > ul {
+        display: none;
+    }
+
+    .sidebar-closed #main-content {
+        margin-left: 0px;
+    }
+
+    .sidebar-closed #sidebar {
+        margin-left: -210px;
+    }
 }
-
-
-.sidebar-closed > #sidebar > ul {
-    display: none;
+@media only screen and (max-width: 767px) {
+    .responsive #top #main .sidebar {
+        display: block !important;
+        clear: both;
+    }
 }
-
-.sidebar-closed #main-content {
-    margin-left: 0px;
-}
-
-.sidebar-closed #sidebar {
-    margin-left: -210px;
-}
-
 /*state overview*/
 
 .state-overview .symbol, .state-overview .value {
@@ -6476,6 +6483,7 @@ ul.sidebar-menu .hovered .bgslide {
     border-radius: 2px !important;
     box-shadow: 0 0 8px rgba(39, 34, 26, 0.1) !important;
 }
+
 .header_function_name {
     background: rgba(0, 0, 0, 0) url("../Images/Icon_home.png") no-repeat scroll left 0;
     color: #008bc6;
@@ -6493,6 +6501,7 @@ ul.sidebar-menu .hovered .bgslide {
     font-weight: bold;
     text-transform: uppercase;
 }
+
 .Info_Tip_Header {
     color: #008bc6;
     font-weight: bold;
@@ -6500,6 +6509,7 @@ ul.sidebar-menu .hovered .bgslide {
     margin-left: 35px;
     padding-top: 12px;
 }
+
 .panel-heading h3, .panel-heading strong {
     color: #FFFFFF;
     margin: 5px 0 !important;

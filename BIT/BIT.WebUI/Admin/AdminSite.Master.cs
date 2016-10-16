@@ -24,7 +24,8 @@ namespace BIT.WebUI.Admin
             //{
             if (!IsPostBack)
             {
-                lblLoginName.Text = Singleton<BITCurrentSession>.Inst.SessionMember.Fullname;
+                lblFullName.Text = Singleton<BITCurrentSession>.Inst.SessionMember.Fullname;
+                lblUserName.Text = Singleton<BITCurrentSession>.Inst.SessionMember.Username;
                 if (Singleton<BITCurrentSession>.Inst.SessionMember.CodeId.Equals("0"))
                     liAdministrator.Visible = true;
                 else if (Singleton<BITCurrentSession>.Inst.SessionMember.IsLock == 1)
@@ -37,6 +38,34 @@ namespace BIT.WebUI.Admin
                     //liGH.Visible = false;
                     liCommission.Visible = false;
                     liWithdraw.Visible = false;
+                }
+                else if (Singleton<BITCurrentSession>.Inst.SessionMember.CodeId.Equals("009"))
+                {
+                    //QUAN LY NGUOI DUNG
+                    liCommission.Visible = false;
+                    liWithdraw.Visible = false;
+                    liSignUp.Visible = false;
+                    liPin.Visible = false;
+                    liAdministrator.Visible = true;
+                    liMember.Visible =true;
+                    liWithDrawMgr.Visible = false;
+                    liCreatePHGH.Visible = false;
+                    liCommandList.Visible = false;
+                    liReport.Visible = false;
+                }
+                else if (Singleton<BITCurrentSession>.Inst.SessionMember.CodeId.Equals("010"))
+                {
+                    //QUAN LY PH GH
+                    liCommission.Visible = false;
+                    liWithdraw.Visible = false;
+                    liSignUp.Visible = false;
+                    liPin.Visible = false;
+                    liAdministrator.Visible = true;
+                    liMember.Visible = false;
+                    liWithDrawMgr.Visible = false;
+                    liCreatePHGH.Visible = false;
+                    liCommandList.Visible = true;
+                    liReport.Visible = true;
                 }
                 else
                     liAdministrator.Visible = false;

@@ -16,14 +16,19 @@ namespace BIT.WebUI.Admin
         {
             if (!IsPostBack)
             {
-                LIST_MEMBERS = null;
+                if ((Singleton<BITCurrentSession>.Inst.SessionMember.CodeId == "0") || (Singleton<BITCurrentSession>.Inst.SessionMember.CodeId == "010"))
+                {
+                    LIST_MEMBERS = null;
 
-                LoadListMember();
-                LoadCommandDetails();
+                    LoadListMember();
+                    LoadCommandDetails();
+                }
+                else
+                    Response.Redirect("~/Admin/Login.aspx");
             }
         }
 
-        #region "Utils"              
+        #region "Utils"
 
         public List<MEMBERS> LIST_MEMBERS
         {
@@ -62,7 +67,7 @@ namespace BIT.WebUI.Admin
                 grdCommandDetails.DataBind();
             }
         }
-       
+
         public string StatusToString(int status)
         {
             switch (status)
@@ -208,7 +213,7 @@ namespace BIT.WebUI.Admin
                 catch (Exception ex)
                 {
                     TNotify.Alerts.Danger(ex.ToString(), true);
-                }                
+                }
             }
         }
     }

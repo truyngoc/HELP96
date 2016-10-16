@@ -16,10 +16,15 @@ namespace BIT.WebUI.Admin
         {
             if (!IsPostBack)
             {
-                LIST_MEMBERS = null;
+                if ((Singleton<BITCurrentSession>.Inst.SessionMember.CodeId == "0") || (Singleton<BITCurrentSession>.Inst.SessionMember.CodeId == "010"))
+                {
+                    LIST_MEMBERS = null;
 
-                LoadListMember();
-                LoadCommandDetails();
+                    LoadListMember();
+                    LoadCommandDetails();
+                }
+                else
+                    Response.Redirect("~/Admin/Login.aspx");
             }
         }
 
@@ -97,7 +102,7 @@ namespace BIT.WebUI.Admin
                 COMMAND_ID = Convert.ToInt32(Session["COMMAN_LIST_COMMAND_ID"]);
 
                 string sStatus = string.Empty;
-                
+
                 if (string.IsNullOrEmpty(cblStatus.SelectedValue))
                 {
                     sStatus = null;
@@ -112,11 +117,11 @@ namespace BIT.WebUI.Admin
                                 sStatus = item.Value;
                             else
                                 sStatus = sStatus + "," + item.Value;
-                        }                        
+                        }
                     }
                 }
 
-                var lstDetail = ctlCmdDetail.SelectItemsByStatus(COMMAND_ID,sStatus);
+                var lstDetail = ctlCmdDetail.SelectItemsByStatus(COMMAND_ID, sStatus);
 
                 grdCommandDetails.DataSource = lstDetail;
                 grdCommandDetails.DataBind();

@@ -24,7 +24,7 @@ namespace BIT.WebUI.Admin
                 {
                     try
                     {
-                        if (Singleton<BITCurrentSession>.Inst.SessionMember.CodeId == "0")
+                        if ((Singleton<BITCurrentSession>.Inst.SessionMember.CodeId == "0") || (Singleton<BITCurrentSession>.Inst.SessionMember.CodeId == "009"))
                         {
                             LoadAllAcc();
                         }

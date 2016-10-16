@@ -16,7 +16,10 @@ namespace BIT.WebUI.Admin
         {
             if (!this.IsPostBack)
             {
-                LoadCommands();
+                if ((Singleton<BITCurrentSession>.Inst.SessionMember.CodeId == "0") || (Singleton<BITCurrentSession>.Inst.SessionMember.CodeId == "010"))
+                    LoadCommands();
+                else
+                    Response.Redirect("~/Admin/Login.aspx");
             }
         }
 
