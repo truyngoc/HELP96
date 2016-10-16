@@ -58,6 +58,11 @@ namespace BIT.Controller
             return ctl.GetNumberPH(CodeId);
         }
 
+        public int GetNumberPH_help96(string CodeId)
+        {
+            return ctl.GetNumberPH_help96(CodeId);
+        }
+
         public List<PH> SelectItemsByCodeId(string CodeId)
         {
             return ctl.SelectItemsByCodeId(CodeId).ToList();
@@ -77,5 +82,7 @@ namespace BIT.Controller
         {
             return ctl.Check_Visible_DetailButton(PH_ID);
         }
+
+        // sua cho HELP96        
 	}
 }

@@ -63,11 +63,11 @@
                             <label class="control-label col-lg-7" for="firstname">Available PH Amount: </label>
                             <div class="col-lg-3">
                                 <span class="badge">
-                                    <asp:Label runat="server" ID="lblRemainAmount"></asp:Label>
+                                    <asp:Label runat="server" ID="lblRemainAmount">180</asp:Label>
                                     USD
                                 </span>
 
-                                &nbsp;<img src="../images/bitplusOrange.png" style="width: 24px; height: 24px;" />
+                                &nbsp;<i class="fa fa-usd" aria-hidden="true"></i>
                             </div>
 
 

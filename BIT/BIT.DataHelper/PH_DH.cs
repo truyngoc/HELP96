@@ -26,13 +26,13 @@ namespace BIT.DataHelper
 		public void InsertItem(PH obj)
 		{
 			defaultDB.ExecuteNonQuery("sp_PH_Insert"
-				, obj.CodeId, obj.Amount, obj.CurrentAmount, obj.CreateDate, obj.Status);
+				, obj.CodeId, obj.Amount, obj.CurrentAmount, obj.CreateDate, obj.Status, obj.IsFirst);
 		}
 
 		public void UpdateItem(PH obj)
 		{
 			defaultDB.ExecuteNonQuery("sp_PH_Update"
-				, obj.ID, obj.CodeId, obj.Amount, obj.CurrentAmount, obj.CreateDate, obj.Status);
+				, obj.ID, obj.CodeId, obj.Amount, obj.CurrentAmount, obj.CreateDate, obj.Status, obj.IsFirst);
 		}
 
 		public void DeleteItem(int ID)
@@ -66,6 +66,13 @@ namespace BIT.DataHelper
         public int GetNumberPH(string CodeId)
         {
             var iCount = defaultDB.ExecuteScalar("sp_PH_GetNumberPH", CodeId);
+
+            return Convert.ToInt32(iCount);
+        }
+
+        public int GetNumberPH_help96(string CodeId)
+        {
+            var iCount = defaultDB.ExecuteScalar("sp_PH_GetNumberPH_help96", CodeId);
 
             return Convert.ToInt32(iCount);
         }

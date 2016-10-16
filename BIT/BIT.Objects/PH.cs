@@ -24,7 +24,7 @@ namespace BIT.Objects
         public DateTime? CreateDate { get; set; }
 
         public int? Status { get; set; }
-
+        public bool? IsFirst { get; set; }
     }
 
     [Serializable]
@@ -44,6 +44,7 @@ namespace BIT.Objects
         public int? Status { get; set; }
 
         public string Username { get; set; }
+        public bool? IsFirst { get; set; }
     }
 }
 

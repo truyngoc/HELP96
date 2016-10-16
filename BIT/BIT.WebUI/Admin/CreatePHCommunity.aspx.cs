@@ -29,89 +29,86 @@ namespace BIT.WebUI.Admin
                     // load list PH
                     this.LoadListPH();
 
-                    // load so BIT toi da cua thang nay theo goi dang ky (lay goi dk gan nhat)
-                    // neu chua dang ky goi thi thong bao
-                    if (ctlPack.IsPackageExpire(codeId))
-                    {
-                        var package = ctlPack.SelectItemByCodeId(codeId);
 
-                        lblRemainAmount.Text = package.PACKAGEID.ToString();
+                    // check dia chi vi ko co thi thong bao cap nhat profile
+                    string wallet = Singleton<BITCurrentSession>.Inst.SessionMember.Wallet;
+                    if (string.IsNullOrEmpty(wallet))
+                    {
+                        btnCreatePH.Enabled = false;                        
+                        TNotify.Alerts.Warning("You have to update wallet address on profile information", true);
                     }
-                    else
+
+                    // check so luong PIn it nhat 2 moi dc tao
+                    var oWallet = Singleton<WALLET_BC>.Inst.SelectItemByCodeId(codeId);
+                    if (oWallet.PIN_Wallet < 2)
                     {
                         btnCreatePH.Enabled = false;
-                        // thong bao het han hoac chua dang ky goi
-                        TNotify.Alerts.Warning("Package is not register or account is expired", true);
+                        TNotify.Alerts.Warning("You not enough PIN for create PH (at least 2 PIN)", true);
                     }
-                }                
-            }            
+                    
+                }
+            }
         }
 
         protected void btnCreatePH_Click(object sender, EventArgs e)
-        {            
+        {
             if (Page.IsValid)
             {
                 var ctlMember = new MEMBERS_BC();
 
                 string codeId = Singleton<BITCurrentSession>.Inst.SessionMember.CodeId;
 
-                // check xem goi dang ky da het han chua
-                if (ctlPack.IsPackageExpire(codeId))
+
+                // check quota
+                if (ctlPH.GetNumberPH_help96(codeId) < 1)
                 {
-                    // check quota
-                    if (ctlPH.GetNumberPH(codeId) < 1)
+                    // tao lenh PH
+                    // check transaction pass co dung ko
+                    string passPIN = txtTransPass.Text;
+                    if (ctlMember.CheckPasswordPIN(codeId, passPIN))
                     {
-                        // tao lenh PH
-                        // check transaction pass co dung ko
-                        string passPIN = txtTransPass.Text;
-                        if (ctlMember.CheckPasswordPIN(codeId, passPIN))
+                        var oPH = GetPH();
+                        // Insert PH
+                        try
                         {
-                            var oPH = GetPH();
-                            // Insert PH
-                            try
-                            {
-                                ctlPH.InsertItem(oPH);
+                            ctlPH.InsertItem(oPH);
 
-                                TNotify.Toastr.Success("Create PH successfull", "Create PH", TNotify.NotifyPositions.toast_top_full_width, true);
+                            TNotify.Toastr.Success("Create PH successfull", "Create PH", TNotify.NotifyPositions.toast_top_full_width, true);
 
-                                // reload list PH
-                                this.LoadListPH();                                
-                            }
-                            catch (Exception ex)
-                            {
-                                TNotify.Alerts.Danger(ex.ToString(), true);
-                            }
-                            Response.Redirect("CreatePHCommunity.aspx");
+                            // reload list PH
+                            this.LoadListPH();
                         }
-                        else
+                        catch (Exception ex)
                         {
-                            // thong bao password pin ko dung
-                            TNotify.Alerts.Warning("Password PIN is not valid", true);
+                            TNotify.Alerts.Danger(ex.ToString(), true);
                         }
+                        Response.Redirect("CreatePHCommunity.aspx");
                     }
                     else
                     {
-                        // thong bao het quota PH trong ngay
-                        TNotify.Alerts.Warning("Only have PH once perday", true);
+                        // thong bao password pin ko dung
+                        TNotify.Alerts.Warning("Password PIN is not valid", true);
                     }
                 }
                 else
                 {
-                    // thong bao het han hoac chua dang ky goi
-                    TNotify.Alerts.Warning("Package is not register or account is expired", true);
+                    // thong bao chi dc thuc hien PH 1 lan
+                    TNotify.Alerts.Warning("Only have PH once times", true);
                 }
+
             }
-            
+
         }
 
         private PH GetPH()
         {
             var oPH = new PH();
 
-            oPH.CodeId = Singleton<BITCurrentSession>.Inst.SessionMember.CodeId;;
+            oPH.CodeId = Singleton<BITCurrentSession>.Inst.SessionMember.CodeId; ;
             oPH.Amount = Convert.ToDecimal(lblRemainAmount.Text);
             oPH.CreateDate = DateTime.Now;
             oPH.Status = (int)Constants.PH_STATUS.Waiting;
+            oPH.IsFirst = true;
 
             return oPH;
         }
@@ -131,7 +128,7 @@ namespace BIT.WebUI.Admin
         {
             switch (status)
             {
-                case (int) Constants.PH_STATUS.Waiting:
+                case (int)Constants.PH_STATUS.Waiting:
                     return Constants.PH_STATUS.Waiting.ToString();
                 case (int)Constants.PH_STATUS.Pending:
                     return Constants.PH_STATUS.Pending.ToString();
