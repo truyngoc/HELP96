@@ -96,9 +96,9 @@ namespace BIT.DataHelper
             return defaultDB.ExecuteSprocAccessor<COMMAND_DETAIL>("sp_COMMAND_DETAIL_SelectCommandDetailAdmin");
         }
 
-        public IEnumerable<COMMAND_DETAIL> SelectCommandDetailAdminByStatus(string Status)
+        public IEnumerable<COMMAND_DETAIL> SelectCommandDetailAdminByStatus(string username,string Status)
         {
-            return defaultDB.ExecuteSprocAccessor<COMMAND_DETAIL>("sp_COMMAND_DETAIL_SelectCommandDetailAdminByStatus", Status);
+            return defaultDB.ExecuteSprocAccessor<COMMAND_DETAIL>("sp_COMMAND_DETAIL_SelectCommandDetailAdminByStatus", username,Status);
         }
 
         public IEnumerable<COMMAND_DETAIL> SelectItemsByStatus(int CommandID, string Status)

@@ -1,5 +1,4 @@
-﻿
-<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminSite.Master" AutoEventWireup="true" CodeBehind="ManagerPHGH.aspx.cs" Inherits="BIT.WebUI.Admin.ManagerPHGH" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminSite.Master" AutoEventWireup="true" CodeBehind="ManagerPHGH.aspx.cs" Inherits="BIT.WebUI.Admin.ManagerPHGH" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -21,6 +20,8 @@
                             <asp:ListItem Value="2">&nbsp;&nbsp;SUCCESS&nbsp;&nbsp;</asp:ListItem>
                             <asp:ListItem Value="3">&nbsp;&nbsp;EXPIRED&nbsp;&nbsp;</asp:ListItem>
                         </asp:CheckBoxList>
+                        <asp:TextBox ID="txtUsername" runat="server" placeholder="Username"></asp:TextBox>
+                        <asp:Button ID="btnSearch" runat="server" Text="SEARCH" OnClick="btnSearch_Click" />
                     </div>
                 </div>
                 <section class="panel">

@@ -65,21 +65,7 @@ namespace BIT.WebUI.Admin
 
         public void LoadCommandDetails()
         {
-            if (Session["COMMAN_LIST_COMMAND_ID"] != null)
-            {
-                var ctlCmdDetail = new COMMAND_DETAIL_BC();
-                COMMAND_ID = Convert.ToInt32(Session["COMMAN_LIST_COMMAND_ID"]);
-
-                var lstDetail = ctlCmdDetail.SelectItemsByCommandId(COMMAND_ID);
-
-                grdCommandDetails.DataSource = lstDetail;
-                grdCommandDetails.DataBind();
-            }
-            else
-            {
-                grdCommandDetails.DataSource = null;
-                grdCommandDetails.DataBind();
-            }
+            LoadCommandDetailByStatus();
         }
 
         public void LoadCommandDetailByStatus()
@@ -109,7 +95,7 @@ namespace BIT.WebUI.Admin
                     }
                 }
 
-                var lstDetail = ctlCmdDetail.SelectItemsByStatus(COMMAND_ID, sStatus);
+                var lstDetail = ctlCmdDetail.SelectCommandDetailAdminByStatus(txtUsername.Text.Trim(), sStatus);
 
                 grdCommandDetails.DataSource = lstDetail;
                 grdCommandDetails.DataBind();
@@ -173,6 +159,11 @@ namespace BIT.WebUI.Admin
         }
 
         protected void cblStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadCommandDetailByStatus();
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
         {
             LoadCommandDetailByStatus();
         }
