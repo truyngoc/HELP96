@@ -34,6 +34,32 @@ namespace BIT.WebUI.Admin
             set { HttpContext.Current.Session["CreateCommandPH_GH_LIST_PH"] = value; }
         }
 
+        public List<PH_Info> ListPH_First
+        {
+            get
+            {
+                if (HttpContext.Current.Session["CreateCommandPH_GH_LIST_PH_First"] != null)
+                {
+                    return HttpContext.Current.Session["CreateCommandPH_GH_LIST_PH_First"] as List<PH_Info>;
+                }
+                return null;
+            }
+            set { HttpContext.Current.Session["CreateCommandPH_GH_LIST_PH_First"] = value; }
+        }
+
+        public List<PH_Info> ListPH_First_Selected
+        {
+            get
+            {
+                if (HttpContext.Current.Session["CreateCommandPH_GH_LIST_PH_FIRST_SELECTED"] != null)
+                {
+                    return HttpContext.Current.Session["CreateCommandPH_GH_LIST_PH_FIRST_SELECTED"] as List<PH_Info>;
+                }
+                return null;
+            }
+            set { HttpContext.Current.Session["CreateCommandPH_GH_LIST_PH_FIRST_SELECTED"] = value; }
+        }
+
         public List<GH_Info> ListGH
         {
             get
@@ -143,6 +169,7 @@ namespace BIT.WebUI.Admin
                     ResetAllSessionList();
 
                     LoadListPH();
+                    LoadListPH_First();
                     LoadListGH();
                     LoadListAdminGH();
                     LoadListMember();
@@ -165,27 +192,62 @@ namespace BIT.WebUI.Admin
             return str;
         }
 
+        private string ReplaceUserName_PH_First()
+        {
+            string str = txtUserNamePH_First.Text;
+            return str;
+        }
+
 
         public void LoadListPH()
         {
-            string strUserName = ReplaceUserName();
-            if (String.IsNullOrEmpty(strUserName.Trim()))
+            if (ListPH == null)
             {
-                if (this.ListPH == null)
+                string strUserName = ReplaceUserName();
+                if (String.IsNullOrEmpty(strUserName.Trim()))
                 {
-                    var numberPH = txtNumberPH.Text == string.Empty ? 0 : Convert.ToInt32(txtNumberPH.Text);
-                    this.ListPH = ctlPH.SelectItemsByNumber(numberPH);
+                    if (this.ListPH == null)
+                    {
+                        var numberPH = txtNumberPH.Text == string.Empty ? 0 : Convert.ToInt32(txtNumberPH.Text);
+                        this.ListPH = ctlPH.SelectItemsByNumber(numberPH);
+                    }
+                }
+                else
+                {
+                    this.ListPH = ctlPH.SelectItemsByUserNameList(strUserName);
                 }
             }
-            else
-            {
-                this.ListPH = ctlPH.SelectItemsByUserNameList(strUserName);
-            }
-
+            
             lblTotalAmountPH.Text = ListPH.Sum(m => m.Amount).Value.ToString();
 
             grdPH.DataSource = ListPH;
             grdPH.DataBind();
+
+        }
+
+        public void LoadListPH_First()
+        {
+            if (ListPH_First == null)
+            {
+                string strUserName = ReplaceUserName_PH_First();
+                if (String.IsNullOrEmpty(strUserName.Trim()))
+                {
+                    if (this.ListPH_First == null)
+                    {
+                        var numberPH = txtNumberPH_First.Text == string.Empty ? 0 : Convert.ToInt32(txtNumberPH_First.Text);
+                        this.ListPH_First = ctlPH.SelectItemsByNumber_PH_First(numberPH);
+                    }
+                }
+                else
+                {
+                    this.ListPH_First = ctlPH.SelectItemsByUserNameList_PH_First(strUserName);
+                }
+            }
+            
+            lblTotalAmountPH_First.Text = ListPH_First.Sum(m => m.Amount).Value.ToString();
+
+            grdPH_First.DataSource = ListPH_First;
+            grdPH_First.DataBind();
 
         }
 
@@ -247,7 +309,7 @@ namespace BIT.WebUI.Admin
                         Label username = row.Cells[1].FindControl("lblUserName") as Label;
                         Label createdate = row.Cells[2].FindControl("lblCreateDate") as Label;
                         TextBox amount = row.Cells[3].FindControl("txtAmount") as TextBox;
-                        HiddenField codeid = row.Cells[5].FindControl("hidCodeId") as HiddenField;
+                        HiddenField codeid = row.Cells[4].FindControl("hidCodeId") as HiddenField;
 
                         //oGHInfo.CreateDate = DateTime.ParseExact(row.Cells[2].Text, "dd/MM/yyyy HH:mm:ss", null);                        
 
@@ -295,9 +357,75 @@ namespace BIT.WebUI.Admin
             ListAdminGH_Selected = null;
         }
 
+        public List<PH_Info> GetList_PH_First_SelectedForPH()
+        {
+            var lst = new List<PH_Info>();
+
+            foreach (GridViewRow row in grdPH_First.Rows)
+            {
+                if (row.RowType == DataControlRowType.DataRow)
+                {
+                    CheckBox chk = (row.Cells[4].FindControl("chkIsSelected") as CheckBox);
+
+                    if (chk.Checked)
+                    {
+                        var oPHInfo = new PH_Info();
+                        Label username = row.Cells[1].FindControl("lblUserName") as Label;
+                        Label createdate = row.Cells[2].FindControl("lblCreateDate") as Label;
+                        Label amount = row.Cells[3].FindControl("lblAmount") as Label;
+                        HiddenField codeid = row.Cells[4].FindControl("hidCodeId") as HiddenField;
+                        HiddenField create_date = row.Cells[4].FindControl("hidCreateDate") as HiddenField;
+                        HiddenField phId = row.Cells[4].FindControl("hidID") as HiddenField;
+
+                        oPHInfo.ID = Convert.ToInt32(phId.Value);
+                        oPHInfo.CodeId = codeid.Value;
+                        oPHInfo.CreateDate = Convert.ToDateTime(create_date.Value);
+                        oPHInfo.Username = username.Text;
+                        oPHInfo.Amount = Convert.ToDecimal(amount.Text);
+                        oPHInfo.CurrentAmount = Convert.ToDecimal(amount.Text);
+                        oPHInfo.Status = 0;                        
+                        lst.Add(oPHInfo);
+                    }
+                }
+            }
+
+            return lst;
+        }
+
+        public void Tranfer_PH_First_ToPH()
+        {
+            if (this.ListPH_First_Selected == null)
+            {
+                ListPH_First_Selected = GetList_PH_First_SelectedForPH();
+            }
+
+            // dua len PH
+            foreach (var o in ListPH_First_Selected)
+            {
+                ListPH.Add(o);
+                ListPH = ListPH.OrderBy(m => m.CreateDate).ToList();
+                // xoa duoi list admin ph
+                var oFind = ListPH_First.Where(m => m.CodeId == o.CodeId).FirstOrDefault();
+                if (oFind != null)
+                {
+                    ListPH_First.Remove(oFind);
+                }
+            }
+
+            // bind lai 2 list
+            LoadListPH();
+
+            LoadListPH_First();
+
+            // reset selected list
+            ListPH_First_Selected = null;
+        }
+
         public void ResetAllSessionList()
         {
             this.ListPH = null;
+            this.ListPH_First = null;
+            this.ListPH_First_Selected = null;
             this.ListGH = null;
             this.ListAdminGH = null;
             this.ListAdminGH_Selected = null;
@@ -307,6 +435,7 @@ namespace BIT.WebUI.Admin
             this.LIST_MEMBERS = null;
 
             LoadListPH();
+            LoadListPH_First();
             LoadListGH();
             LoadListAdminGH();
             LoadListMember();
@@ -332,6 +461,12 @@ namespace BIT.WebUI.Admin
         {
             grdPH.PageIndex = e.NewPageIndex;
             LoadListPH();
+        }
+
+        protected void grdPH_First_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdPH_First.PageIndex = e.NewPageIndex;
+            LoadListPH_First();
         }
 
         protected void grdGH_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -426,9 +561,24 @@ namespace BIT.WebUI.Admin
             LoadListGH();
         }
 
+        protected void btnLoadPH_First_byNumber_Click(object sender, EventArgs e)
+        {
+            // reset list PH
+            ListPH_First = null;
+
+            // load lai theo so luong PH nhap
+            LoadListPH_First();
+        }
+
+
         protected void btnTranferToGHList_Click(object sender, EventArgs e)
         {
             TranferAdminToGH();
+        }
+
+        protected void btnTranferToPHList_Click(object sender, EventArgs e)
+        {
+            Tranfer_PH_First_ToPH();
         }
 
         protected void btnResetAllList_Click(object sender, EventArgs e)
@@ -436,10 +586,15 @@ namespace BIT.WebUI.Admin
             ResetAllSessionList();
         }
 
+        protected void btnResetAllPHList_Click(object sender, EventArgs e)
+        {
+            ResetAllSessionList();
+        }
+
         protected void btnCreateCommand_Click(object sender, EventArgs e)
         {
             // lay danh sach admin GH
-            var _listGH_Admin = ListGH.Where(m => System.Text.RegularExpressions.Regex.IsMatch(m.CodeId, "001.*")).ToList();
+            var _listGH_Admin = ListGH.Where(m => System.Text.RegularExpressions.Regex.IsMatch(m.CodeId, "008.*")).ToList();
             this.ListAdminGH_FINAL = _listGH_Admin;
 
             // danh sach PH - GH

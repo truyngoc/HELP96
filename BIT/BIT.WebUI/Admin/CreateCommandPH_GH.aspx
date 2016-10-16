@@ -52,8 +52,6 @@
                         <b>Total amount PH:  </b>
                         <asp:Label ID="lblTotalAmountPH" runat="server" CssClass="control-label" Text="5" ForeColor="Blue"></asp:Label>
                     </div>
-
-
                 </div>
 
                 <div class="col-md-6">
@@ -111,8 +109,7 @@
                     <div class="col-md-2">
                         <asp:Button ID="btnLoadPHbyNumber" runat="server" Text="LOAD PH" CssClass="btn btn-primary" OnClick="btnLoadPHbyNumber_Click" />
                     </div>
-                    <div class="col-md-2">
-                        <%--<asp:Button ID="btnLoadAllPH" runat="server" Text="ALL" CssClass="btn btn-primary" />--%>
+                    <div class="col-md-2">                        
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -125,15 +122,63 @@
                     <div class="col-md-2">
                         <asp:Button ID="btnLoadGHbyNumber" runat="server" Text="LOAD GH" CssClass="btn btn-primary" OnClick="btnLoadGHbyNumber_Click" />
                     </div>
-                    <div class="col-md-2">
-                        <%--<asp:Button ID="btnLoadAllPH" runat="server" Text="ALL" CssClass="btn btn-primary" />--%>
+                    <div class="col-md-2">                        
                     </div>
                 </div>
             </div>
 
-
+            <hr />
             <div class="row">
                 <div class="col-md-6">
+                    <h4>PH first</h4>
+                    <!--ss Gridview PH-->
+                    <section class="panel">
+                        <div class="table-responsive">
+                            <asp:GridView ID="grdPH_First" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="50"
+                                OnPageIndexChanging="grdPH_First_OnPageIndexChanging" CssClass="table table-hover p-table" UseAccessibleHeader="true" GridLines="None">
+                                <Columns>
+                                    <asp:TemplateField HeaderText="No." ItemStyle-HorizontalAlign="Center">
+                                        <ItemTemplate>
+                                            <%# Container.DataItemIndex + 1 %>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+
+                                    <asp:TemplateField HeaderText="Account" ItemStyle-HorizontalAlign="Left">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblUserName" runat="server" Text='<%# Eval("Username") %>' />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+
+                                    <asp:TemplateField HeaderText="PH Time" ItemStyle-HorizontalAlign="Left">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblCreateDate" runat="server" Text='<%# Eval("CreateDate" , "{0:dd/MM/yyyy HH:mm}") %>' />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+
+                                    <asp:TemplateField HeaderText="Amount" ItemStyle-HorizontalAlign="Left">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("Amount") %>' />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+
+                                    <asp:TemplateField HeaderText="" ItemStyle-HorizontalAlign="Left">
+                                        <ItemTemplate>
+                                            <asp:CheckBox ID="chkIsSelected" runat="server" />            
+                                            <asp:HiddenField ID="hidCodeId" runat="server" Value='<%# Eval("CodeId") %>' />                                
+                                            <asp:HiddenField ID="hidCreateDate" runat="server" Value='<%# Eval("CreateDate") %>' />
+                                            <asp:HiddenField ID="hidID" runat="server" Value='<%# Eval("ID") %>' />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                </Columns>
+                            </asp:GridView>
+                        </div>
+                    </section>
+                    <!--end of ss Gridview PH-->
+
+                    <div class="text-right">
+                        <b>Total amount PH First:  </b>
+                        <asp:Label ID="lblTotalAmountPH_First" runat="server" CssClass="control-label" Text="5" ForeColor="Blue"></asp:Label>
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <h4>Admin account list</h4>
@@ -162,21 +207,16 @@
                                     </asp:TemplateField>
 
                                     <asp:TemplateField HeaderText="Amount" ItemStyle-HorizontalAlign="Left">
-                                        <ItemTemplate>
-                                            <%--<asp:Label ID="lblAmount" runat="server" Text='<%# Eval("Amount") %>' />--%>
-                                            <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" placeholder="Amount of GH">5.5</asp:TextBox>
+                                        <ItemTemplate>                                            
+                                            <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" placeholder="Amount of GH">240</asp:TextBox>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="" ItemStyle-HorizontalAlign="Left">
                                         <ItemTemplate>
-                                            <asp:CheckBox ID="chkIsSelected" runat="server" />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField>
-                                        <ItemTemplate>
+                                            <asp:CheckBox ID="chkIsSelected" runat="server" />                                            
                                             <asp:HiddenField ID="hidCodeId" runat="server" Value='<%# Eval("CodeId") %>' />
                                         </ItemTemplate>
-                                    </asp:TemplateField>
+                                    </asp:TemplateField>                                    
                                 </Columns>
                             </asp:GridView>
                         </div>
@@ -184,13 +224,38 @@
                     <!--end of ss Gridview admin GH-->
                 </div>
             </div>
+
             <div class="row">
                 <div class="col-md-6">
+                    <div class="col-md-2">
+                        <asp:TextBox ID="txtNumberPH_First" runat="server" placeholder="Number PH" CssClass="form-control col-md-1"></asp:TextBox>
+                    </div>
+                    <div class="col-md-6">
+                        <asp:TextBox ID="txtUserNamePH_First" runat="server" placeholder="UserName1,UserName2..." CssClass="form-control col-md-1" Text=""></asp:TextBox>
+                    </div>
+                    <div class="col-md-2">
+                        <asp:Button ID="btnLoadPH_First" runat="server" Text="LOAD PH" CssClass="btn btn-primary" OnClick="btnLoadPH_First_byNumber_Click" />
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <asp:Button ID="btnTranferToPHList" runat="server" Text="UP TO PH LIST" CssClass="btn btn-primary" OnClick="btnTranferToPHList_Click" />
+                    &nbsp;&nbsp;
+                    <asp:Button ID="btnResetAllPHList" runat="server" Text="RESET PH LIST" CssClass="btn btn-primary" OnClick="btnResetAllPHList_Click" />
                 </div>
                 <div class="col-md-6">
                     <asp:Button ID="btnTranferToGHList" runat="server" Text="UP TO GH LIST" CssClass="btn btn-primary" OnClick="btnTranferToGHList_Click" />
                     &nbsp;&nbsp;
-                    <asp:Button ID="btnResetAllList" runat="server" Text="RESET LIST" CssClass="btn btn-primary" OnClick="btnResetAllList_Click" />
+                    <asp:Button ID="btnResetAllList" runat="server" Text="RESET GH LIST" CssClass="btn btn-primary" OnClick="btnResetAllList_Click" />
                 </div>
             </div>
 

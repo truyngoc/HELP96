@@ -103,6 +103,24 @@ namespace BIT.WebUI.Admin {
         protected global::System.Web.UI.WebControls.Button btnLoadGHbyNumber;
         
         /// <summary>
+        /// grdPH_First control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdPH_First;
+        
+        /// <summary>
+        /// lblTotalAmountPH_First control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalAmountPH_First;
+        
+        /// <summary>
         /// grdAdminList control.
         /// </summary>
         /// <remarks>
@@ -110,6 +128,51 @@ namespace BIT.WebUI.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdAdminList;
+        
+        /// <summary>
+        /// txtNumberPH_First control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNumberPH_First;
+        
+        /// <summary>
+        /// txtUserNamePH_First control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUserNamePH_First;
+        
+        /// <summary>
+        /// btnLoadPH_First control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLoadPH_First;
+        
+        /// <summary>
+        /// btnTranferToPHList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnTranferToPHList;
+        
+        /// <summary>
+        /// btnResetAllPHList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnResetAllPHList;
         
         /// <summary>
         /// btnTranferToGHList control.

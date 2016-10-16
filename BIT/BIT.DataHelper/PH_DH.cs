@@ -92,6 +92,16 @@ namespace BIT.DataHelper
             return defaultDB.ExecuteSprocAccessor<PH_Info>("sp_PH_SelectItemsByUserNameList", strUserName);
         }
 
+        public IEnumerable<PH_Info> SelectItemsByNumber_PH_First(int numberPH)
+        {
+            return defaultDB.ExecuteSprocAccessor<PH_Info>("sp_PH_SelectItemsByNumber_PH_First", numberPH);
+        }
+
+        public IEnumerable<PH_Info> SelectItemsByUserNameList_PH_First(string strUserName)
+        {
+            return defaultDB.ExecuteSprocAccessor<PH_Info>("sp_PH_SelectItemsByUserNameList_PH_First", strUserName);
+        }
+
         public void UpdateStatusWithTrans(DbTransaction trans, int ID, int Status)
         {
             defaultDB.ExecuteNonQuery(trans, "sp_PH_UpdateStatus"

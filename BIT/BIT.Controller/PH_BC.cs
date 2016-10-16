@@ -78,6 +78,17 @@ namespace BIT.Controller
             return ctl.SelectItemsByUserNameList(strUserName).ToList();
         }
 
+        public List<PH_Info> SelectItemsByNumber_PH_First(int numberPH)
+        {
+            return ctl.SelectItemsByNumber_PH_First(numberPH).ToList();
+        }
+
+        public List<PH_Info> SelectItemsByUserNameList_PH_First(string strUserName)
+        {
+            return ctl.SelectItemsByUserNameList_PH_First(strUserName).ToList();
+        }
+
+
         public bool Check_Visible_DetailButton(int PH_ID)
         {
             return ctl.Check_Visible_DetailButton(PH_ID);
