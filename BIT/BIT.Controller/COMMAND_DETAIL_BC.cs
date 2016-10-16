@@ -73,6 +73,16 @@ namespace BIT.Controller
             return ctl.SelectItemsByCommandId(CommandID).ToList();
         }
 
+        public List<COMMAND_DETAIL> SelectCommandDetailAdmin()
+        {
+            return ctl.SelectCommandDetailAdmin().ToList();
+        }
+
+        public List<COMMAND_DETAIL> SelectCommandDetailAdminByStatus(string Status)
+        {
+            return ctl.SelectCommandDetailAdminByStatus(Status).ToList();
+        }
+
         public List<COMMAND_DETAIL> SelectItemsByStatus(int CommandID, string Status)
         {
             return ctl.SelectItemsByStatus(CommandID, Status).ToList();

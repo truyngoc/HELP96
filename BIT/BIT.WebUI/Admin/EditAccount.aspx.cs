@@ -165,6 +165,7 @@ namespace BIT.WebUI.Admin
                 {
                     MEMBERS obj = GetDataOnForm();
                     Singleton<MEMBERS_BC>.Inst.UpdateItem(obj);
+                    Singleton<BITCurrentSession>.Inst.SessionMember = Singleton<MEMBERS_BC>.Inst.SelectItem(obj.CodeId);
                     //Singleton<MEMBERS_BC>.Inst.InsertEditItem(obj);
                     TNotify.Alerts.Success("Edit account information success.", true);
                     //Response.Redirect("OrderChangeInfo.aspx");

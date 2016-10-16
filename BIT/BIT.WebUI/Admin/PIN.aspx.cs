@@ -110,33 +110,25 @@ namespace BIT.WebUI.Admin
 
                         LoadDataOnForm(Singleton<BITCurrentSession>.Inst.SessionMember.CodeId);
 
-                        ShowMessageError(lblMessage);
+                        TNotify.Alerts.Success("Send PIN to "+ txtUserReceivePIN.Text +" success.", true);
                     }
                     else
                     {
-                        // sai password PIN
-                        ShowMessageError(lblMessage, "Wrong transaction password", true);
+                        TNotify.Alerts.Danger("Wrong transaction password", true);
                     }
                 }
                 else
                 {
                     // ko du PIN de giao dich
-                    ShowMessageError(lblMessage, "Not enough PIN for tranfer", true);
+                    TNotify.Alerts.Danger("Not enough PIN for tranfer", true);
                 }
             }
             else
             {
                 // acc ko ton tai
-                ShowMessageError(lblMessage, "Account receive PIN not exist", true);
+                TNotify.Alerts.Danger("Account receive PIN not exist", true);
             }
         }
-
-        public void ShowMessageError(Label lblMsgErr, string sMsgErr = "", bool bVisible = false)
-        {
-            lblMsgErr.Text = sMsgErr;
-            lblMsgErr.Visible = bVisible;
-        }
-
         public void ResetForm()
         {
             txtUserReceivePIN.Text = string.Empty;
