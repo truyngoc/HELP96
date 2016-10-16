@@ -218,7 +218,7 @@
                             <!--End of Pin-->
 
                             <!--PH-->
-                            <li class="sub-menu"  id="liPH" runat="server">
+                            <li class="sub-menu" id="liPH" runat="server">
                                 <a class="" href="../Admin/CreatePHCommunity.aspx" style="color: #fff">
                                     <i class="fa fa-cloud-upload"></i>
                                     <span>Provide Help (PH)</span>
@@ -227,7 +227,7 @@
                             <!--end of PH-->
 
                             <!--GH-->
-                            <li class="sub-menu"  id="liGH" runat="server">
+                            <li class="sub-menu" id="liGH" runat="server">
                                 <a class="" href="../Admin/GHCommunity.aspx" style="color: #fff">
                                     <i class="fa fa-cloud-download"></i>
                                     <span>Get Help (GH)</span>
@@ -284,6 +284,9 @@
                                     </li>
                                     <li class="sub-menu" runat="server" id="liCommandList">
                                         <a href="COMMAN_LIST.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>Lịch sử xếp lệnh</span></a>
+                                    </li>
+                                    <li class="sub-menu" runat="server" id="liManagerPHGH">
+                                        <a href="ManagerPHGH.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>Theo dõi lệnh</span></a>
                                     </li>
                                     <li class="sub-menu" runat="server" id="liReport">
                                         <a href="COMMAND_DETAIL_EXPIRED_LIST.aspx"><i class="fa fa-money" aria-hidden="true"></i><span>Report</span></a>

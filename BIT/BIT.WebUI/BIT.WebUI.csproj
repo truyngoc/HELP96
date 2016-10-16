@@ -129,6 +129,7 @@
     <Content Include="Admin\AdminSelectPackInvest.aspx" />
     <Content Include="Admin\GHCommunity.aspx" />
     <Content Include="Admin\GH_DETAIL.aspx" />
+    <Content Include="Admin\ManagerPHGH.aspx" />
     <Content Include="Admin\MemberManagement.aspx" />
     <Content Include="Admin\OrderChangeInfo.aspx" />
     <Content Include="Admin\PH_DETAIL.aspx" />
@@ -508,6 +509,13 @@
     </Compile>
     <Compile Include="Admin\GH_DETAIL.aspx.designer.cs">
       <DependentUpon>GH_DETAIL.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManagerPHGH.aspx.cs">
+      <DependentUpon>ManagerPHGH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManagerPHGH.aspx.designer.cs">
+      <DependentUpon>ManagerPHGH.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\MemberManagement.aspx.cs">
       <DependentUpon>MemberManagement.aspx</DependentUpon>

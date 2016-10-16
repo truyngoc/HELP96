@@ -148,6 +148,15 @@ namespace BIT.WebUI.Admin {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liCommandList;
         
         /// <summary>
+        /// liManagerPHGH control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liManagerPHGH;
+        
+        /// <summary>
         /// liReport control.
         /// </summary>
         /// <remarks>
