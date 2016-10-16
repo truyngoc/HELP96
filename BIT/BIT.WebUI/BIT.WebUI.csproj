@@ -169,6 +169,7 @@
     <Content Include="Content\Login\slidebars.css" />
     <Content Include="Content\Login\style-responsive.css" />
     <Content Include="Content\Login\style.css" />
+    <Content Include="Content\Manager.css" />
     <Content Include="Content\npm.js" />
     <Content Include="Content\owl.carousel.css" />
     <Content Include="Content\Site.css" />

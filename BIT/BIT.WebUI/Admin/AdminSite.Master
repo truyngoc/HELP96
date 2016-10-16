@@ -23,6 +23,7 @@
     <!-- Bootstrap core CSS -->
     <link href="../Content/bootstrap.css" rel="stylesheet" />
         <link href="../Content/Frame.css" rel="stylesheet" />
+            <link href="../Content/Manager.css" rel="stylesheet" />
     <link href="../Content/bootstrap-reset.css" rel="stylesheet" />
     <!--external css-->
     <link href="../Content/font-awesome.css" rel="stylesheet" />
@@ -82,10 +83,9 @@
             <section id="container">
                 <div id="Header_Frame">
     <div class="headerbar-left">
-    <div style="float:left; font-weight:bold;"><a href="/Member/"> <span class="text-lg text-bold text-primary" style="color: white"> HELP96 . GLOBAL</span></a></div>
-    <div style="float:left; padding-left:16px; margin-top:1px;"><a class="btn btn-icon-toggle menubar-toggle" data-toggle="menubar"> <i class="fa fa-bars" style="color: white"></i>
-					</a></div>   
-    <div style="float:left; font-weight:bold; color: white; text-transform:uppercase; margin-left:15px;"><span id="lb_show_Username" style="color:Red;"><asp:Label runat="server" ID="lblUserName"></asp:Label></span></div>    
+    <div style="float:left; font-weight:bold;"><a href="../Admin/Dashboard.aspx"> <span class="text-lg text-bold text-primary" style="color: white"> HELP96 . GLOBAL</span></a></div>
+    <div style="float:left; padding-left:16px; margin-top:1px;"><a class="navbar-toggle" data-toggle="menubar"> <i class="fa fa-bars" style="color: white"></i>
+					<span id="lb_show_Username" style="color:Red;"><asp:Label runat="server" ID="lblUserName"></asp:Label></span></a></div>      
     </div>
     <div style="float:left; font-weight:bold; color: white;  padding-top:19px; margin-left:25px;"> <a href="../Admin/ChangePassword.aspx"><i class="fa fa-unlock-alt" style="color:White; padding-right:6px; padding-top:1px;"></i><span>Login Password</span></a></div>
     <div style="float:left; font-weight:bold; color: white;  padding-top:19px; margin-left:15px;"> <a href="../Admin/ChangePasswordTwo.aspx"><i class="fa fa-circle-o-notch" style="color:White; padding-right:6px; padding-top:1px;"></i><span>Transaction Password</span></a></div>
