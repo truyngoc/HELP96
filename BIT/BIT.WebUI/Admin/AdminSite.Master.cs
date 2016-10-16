@@ -51,6 +51,7 @@ namespace BIT.WebUI.Admin
                     liWithDrawMgr.Visible = false;
                     liCreatePHGH.Visible = false;
                     liCommandList.Visible = false;
+                    liManagerPHGH.Visible = false;
                     liReport.Visible = false;
                 }
                 else if (Singleton<BITCurrentSession>.Inst.SessionMember.CodeId.Equals("010"))
@@ -65,6 +66,7 @@ namespace BIT.WebUI.Admin
                     liWithDrawMgr.Visible = false;
                     liCreatePHGH.Visible = false;
                     liCommandList.Visible = true;
+                    liManagerPHGH.Visible = true;
                     liReport.Visible = true;
                 }
                 else
