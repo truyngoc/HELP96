@@ -84,45 +84,86 @@
             <section id="container">
                 <div id="Header_Frame">
                     <div class="headerbar-left">
-                        <div style="float: left; font-weight: bold;">
+                        <div class="Logo_help">
                             <a href="../Admin/Dashboard.aspx">
                                 <span class="text-lg text-bold text-primary" style="color: white">HELP96 . GLOBAL</span></a>
                         </div>
-                        <div style="float: left; padding-left: 16px; margin-top: 1px;">
+                        <div class="icon_navition">
                             <a class="navbar-toggle" data-toggle="menubar"><i class="fa fa-bars" style="color: white"></i>
-                                <span id="lb_show_Username" style="color: Red;">
-                                    <asp:Label runat="server" ID="lblUserName"></asp:Label></span></a>
+                            </a>
                         </div>
 
-                        <div style="float: left; font-weight: bold; color: white; padding-top: 19px; margin-left: 25px;">
-                            <a href="../Admin/ChangePassword.aspx"><i class="fa fa-unlock-alt" style="color: White; padding-right: 6px; padding-top: 1px;"></i><span>Login Password</span></a>
-                        </div>
-                        <div style="float: left; font-weight: bold; color: white; padding-top: 19px; margin-left: 15px;">
-                            <a href="../Admin/ChangePasswordTwo.aspx"><i class="fa fa-circle-o-notch" style="color: White; padding-right: 6px; padding-top: 1px;"></i><span>Transaction Password</span></a>
-                        </div>
-                        <div style="float: left; font-weight: bold; color: white; padding-top: 19px; margin-left: 15px;">
-                            <a href="../Admin/EditAccount.aspx">
-                                <i class="fa fa-file-text-o" style="color: White; padding-right: 6px; padding-top: 1px;"></i><span>Profile Information</span></a>
-                        </div>
                     </div>
+
                     <div class="header_right">
-                        <span style="color: White;"><i class="fa fa-circle" style="color: #0088cc;"></i></span>
-                        <span style="color: #0088cc; padding-right: 15px; font-weight: bold;"><span id="Lb_FullName">
-                            <asp:Label runat="server" ID="lblFullName"></asp:Label></span></span>
-                        <%--<a id="cmdLogout" href="javascript:__doPostBack('ctl00$cmdLogout','')"><i class="fa fa-power-off" style="color: white"></i><span> Logout</span></a>--%>
-                        <a href="../Admin/Logout.aspx"><span><i class="fa fa-power-off" style="color: white"></i></span><span>Logout</span></a>
-                        <ul class="nav pull-right top-menu">
-                            <li class="border-r">
-                                <div id="google_translate_element"></div>
-                                <script type="text/javascript">
-                                    function googleTranslateElementInit() {
-                                        new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
-                                    }
-                                </script>
-                                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-                            </li>
-                            <li class="border-r"></li>
-                        </ul>
+                        <div class="admenu">
+                        </div>
+                        <div class="admenu">
+                            <nav class="navbar navbar-inverse" role="navigation">
+
+                                <!-- Brand and toggle get grouped for better mobile display -->
+
+                                <!-- Collect the nav links, forms, and other content for toggling -->
+                                <div class="collapse navbar-collapse menuright" id="bs-example-navbar-collapse-1">
+                                    <ul class="nav navbar-nav">
+                                        <li><span id="lb_show_Username">
+                                            <asp:Label runat="server" ID="lblUserName"></asp:Label></span>
+                                            <div>
+                                                <a href="../Admin/ChangePassword.aspx"><i class="fa fa-unlock-alt" style="color: White; padding-right: 6px; padding-top: 1px;"></i><span>Login Password</span></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <a href="../Admin/ChangePasswordTwo.aspx"><i class="fa fa-circle-o-notch" style="color: White; padding-right: 6px; padding-top: 1px;"></i><span>Transaction Password</span></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div>
+                                                <a href="../Admin/EditAccount.aspx">
+                                                    <i class="fa fa-file-text-o" style="color: White; padding-right: 6px; padding-top: 1px;"></i><span>Profile Information</span></a>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <div id="google_translate_element"></div>
+                                            <script type="text/javascript">
+                                                function googleTranslateElementInit() {
+                                                    new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+                                                }
+                                            </script>
+                                            <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                                        </li>
+                                        <li>
+                                            <span style="color: White;"><i class="fa fa-circle" style="color: #0088cc;"></i></span>
+                                            <span style="color: #0088cc; padding-right: 15px; font-weight: bold;"><span id="Lb_FullName">
+                                                <asp:Label runat="server" ID="lblFullName"></asp:Label></span></span>
+                                        </li>
+                                        <li>
+                                            <a href="../Admin/Logout.aspx"><span><i class="fa fa-power-off" style="color: white"></i></span><span>Logout</span></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="navbar-header ">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                                <!-- /.navbar-collapse -->
+
+                                <!-- /.container -->
+                            </nav>
+                        </div>
+                        <%--<div style="float: left;">
+                            <ul class="nav pull-right top-menu">
+                                <li class="border-r"></li>
+                                <li class="border-r"></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>--%>
                     </div>
                 </div>
                 <%--<header class="header white-bg">

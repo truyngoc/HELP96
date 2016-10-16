@@ -779,6 +779,7 @@ ul.top-menu > li > a {
         margin-left: -210px;
     }
 }
+
 @media only screen and (max-width: 767px) {
     .responsive #top #main .sidebar {
         display: block !important;
@@ -6684,3 +6685,38 @@ img {
     float: left;
     margin: 20px 0;
 }
+
+
+.admenu {
+    display: inline;
+     float: left;
+    padding: 16px 0;
+}
+
+    .admenu div {
+        font-weight: bold;
+        color: white;
+        margin-left: 15px;
+        float: left;
+    }
+
+#lb_show_Username {
+    color: Red;
+    float: left;
+}
+
+.icon_navition {
+    float: left;
+    padding-left: 16px;
+}
+
+.Logo_help {
+    float: left;
+    font-weight: bold;
+     padding: 16px 0;
+}
+.menuright {
+    margin-bottom: 0 !important;
+    padding: 14px 10px !important;
+    background-color: none !important;
+}

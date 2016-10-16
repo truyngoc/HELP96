@@ -172,15 +172,15 @@ input[type="submit"] {
 }
 
 .navbar-inverse {
-    border-bottom: 20px solid #F6921E !important;
+    border-bottom: none !important;
     color: #fff !important;
     margin-bottom: 0;
-    padding: 14px 10px !important;
-    background-color: #E6E7E8 !important;
+    /*padding: 14px 10px !important;*/
+    background-color: none !important;
 }
 
 .mnvav {
-    background-color: #E6E7E8 !important;
+    background-color: none !important;
     color: #F6921E !important;
     font-weight: bolder;
 }
