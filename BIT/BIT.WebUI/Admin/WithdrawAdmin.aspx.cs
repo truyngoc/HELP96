@@ -108,7 +108,7 @@ namespace BIT.WebUI.Admin
             string CodeID = objWdr.CodeId;
             Decimal Amount = decimal.Parse(objWdr.Amount.ToString());
             Singleton<WITHDRAW_BC>.Inst.UpdateTranSactionWithdraw(ID, CodeID, Amount);
-            TNotify.Toastr.Warning(string.Format("Confirmed withdraw {0} BTC for user {1} !", objWdr.Amount, objWdr.username), "Completed", TNotify.NotifyPositions.toast_top_full_width, true);
+            TNotify.Toastr.Warning(string.Format("Confirmed withdraw {0} USD for user {1} !", objWdr.Amount, objWdr.username), "Completed", TNotify.NotifyPositions.toast_top_full_width, true);
             Response.Redirect(Request.Path);
         }
 

@@ -123,7 +123,7 @@ namespace BIT.WebUI.Admin
             strBuilder.Append("<table>");
             strBuilder.AppendLine("<tr><td><b>Xin chào bạn  " + userFrom.Username + "</b><br/></td></tr>");
             strBuilder.AppendLine("<tr><td><b>Chào mừng bạn đến với cộng đồng HELP96.GLOBAL </b><br/></td></tr></td></tr>");
-            strBuilder.AppendLine("<tr><td><b>Your PH with: " + userTo.Username + "/" + userTo.Phone + " has approved. </b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b>Lệnh PH của tài khoản: " + userTo.Username + "/" + userTo.Phone + " đã được duyệt. </b><br/></td></tr>");
             strBuilder.AppendLine("<tr><td><b>Số lượng: " + command.Amount.ToString() + " USD </b><br/></td></tr>");
             strBuilder.AppendLine("<b><a href='http://help96.org'>http://help96.org </a></b><br/>");
             strBuilder.AppendLine("<tr><td><b>Trong quá trình sử dụng nếu có vướng mắc, bạn hãy liên hệ với người bảo trợ hoặc ban truyền thông để được hỗ trợ. </b><br/></td></tr>");

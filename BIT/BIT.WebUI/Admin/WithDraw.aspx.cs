@@ -108,7 +108,7 @@ namespace BIT.WebUI.Admin
                     withdrawAmount = Convert.ToDecimal(txtAmount.Text);
                     if (withdrawAmount > Convert.ToDecimal(lblCWalletAmt.Text))
                     {
-                        TNotify.Toastr.Warning("Not enought BTC to withdraw !", "Completed", TNotify.NotifyPositions.toast_top_full_width, true);
+                        TNotify.Toastr.Warning("Not enought USD to withdraw !", "Completed", TNotify.NotifyPositions.toast_top_full_width, true);
                         return;
                     }
                 }

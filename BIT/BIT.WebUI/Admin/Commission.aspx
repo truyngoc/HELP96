@@ -34,7 +34,7 @@
                                 </td>
                                 <td>
                                     <asp:Label runat="server" ID="lblGHAmount"><%# Eval("Amount").ToString().Remove(6) %></asp:Label>
-                                    BTC
+                                    USD
                                 </td>
                                 <td>
                                     <asp:Label runat="server" ID="Label2"><%# Eval("Type") %></asp:Label>

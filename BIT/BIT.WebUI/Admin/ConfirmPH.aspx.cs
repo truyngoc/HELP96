@@ -117,24 +117,26 @@ namespace BIT.WebUI.Admin
             var userFrom = ctlMem.SelectItem(command.CodeId_From);
             var userTo = ctlMem.SelectItem(command.CodeId_To);
 
-            string sSubject = "BITQUICK24 PH-GH";
+            string sSubject = "THÔNG BÁO TỪ HELP96.GLOBAL";
 
-            // PH
             StringBuilder strBuilder = new StringBuilder();
 
             strBuilder.Append("<html>");
             strBuilder.Append("<head></head>");
             strBuilder.Append("<body>");
             strBuilder.Append("<table>");
-            strBuilder.AppendLine("<tr><td><b>Hello  " + userTo.Username + "</b><br/></td></tr>");
-            strBuilder.AppendLine("<tr><td><b>Your GH with: " + userFrom.Username + "/" + userFrom.Phone + " has approved. </b><br/></td></tr>");
-            strBuilder.AppendLine("<tr><td><b>Amount: " + command.Amount.ToString() + " BTC </b><br/></td></tr>");
-            strBuilder.AppendLine("<b><a href='http://bitquick24.org'>http://bitquick24.org </a></b><br/>");
-            strBuilder.AppendLine("<tr><td><b>Please contact to your upline or  BITQUICK24's support to support you everything. </b><br/></td></tr>");
-            strBuilder.AppendLine("<tr><td><b><br/><br/><br/>Thanks & Best regards</b><br/></td></tr>");
-            strBuilder.AppendLine("<tr><td><b><br/>BITQUICK24</b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b>Xin chào bạn  " + userFrom.Username + "</b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b>Chào mừng bạn đến với cộng đồng HELP96.GLOBAL </b><br/></td></tr></td></tr>");
+            strBuilder.AppendLine("<tr><td><b>Lệnh GH của tài khoản: " + userTo.Username + "/" + userTo.Phone + " đã được duyệt. </b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b>Số lượng: " + command.Amount.ToString() + " USD </b><br/></td></tr>");
+            strBuilder.AppendLine("<b><a href='http://help96.org'>http://help96.org </a></b><br/>");
+            strBuilder.AppendLine("<tr><td><b>Trong quá trình sử dụng nếu có vướng mắc, bạn hãy liên hệ với người bảo trợ hoặc ban truyền thông để được hỗ trợ. </b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b><br/><br/><br/>Xin cảm ơn và chúc thành công.</b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b><br/>HELP96.GLOBAL</b><br/></td></tr>");
             strBuilder.Append("</table>");
             strBuilder.Append("</body>");
+            strBuilder.Append("</html>");
+
             strBuilder.Append("</html>");
 
             Mail.Send(userTo.Email, sSubject, strBuilder.ToString());

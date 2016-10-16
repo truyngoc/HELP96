@@ -64,7 +64,7 @@
                             <div class="col-lg-3">
                                 <span class="badge">
                                     <asp:Label runat="server" ID="lblRemainAmount"></asp:Label>
-                                    BTC
+                                    USD
                                 </span>
 
                                 &nbsp;<img src="../images/bitplusOrange.png" style="width: 24px; height: 24px;" />

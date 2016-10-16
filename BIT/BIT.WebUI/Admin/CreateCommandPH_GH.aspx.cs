@@ -721,7 +721,7 @@ namespace BIT.WebUI.Admin
             strBuilder.Append("<table>");
             strBuilder.AppendLine("<tr><td><b>Hello  " + userFrom.Username + "</b><br/></td></tr>");
             strBuilder.AppendLine("<tr><td><b>You have PH with: " + userTo.Username + "/" + userTo.Phone + "</b><br/></td></tr>");
-            strBuilder.AppendLine("<tr><td><b>Amount: " + command.Amount.ToString() + " BTC </b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b>Amount: " + command.Amount.ToString() + " USD </b><br/></td></tr>");
             strBuilder.AppendLine("<b><a href='http://bitquick24.org'>http://bitquick24.org </a></b><br/>");
             strBuilder.AppendLine("<tr><td><b>Please contact to your upline or  BITQUICK24's support to support you everything. </b><br/></td></tr>");
             strBuilder.AppendLine("<tr><td><b><br/><br/><br/>Thanks & Best regards</b><br/></td></tr>");
@@ -741,7 +741,7 @@ namespace BIT.WebUI.Admin
             strGH.Append("<table>");
             strGH.AppendLine("<tr><td><b>Hello  " + userTo.Username + "</b><br/></td></tr>");
             strGH.AppendLine("<tr><td><b>you will get GH from account: " + userFrom.Username + "/" + userFrom.Phone + "</b><br/></td></tr>");
-            strGH.AppendLine("<tr><td><b>Amount: " + command.Amount.ToString() + " BTC </b><br/></td></tr>");
+            strGH.AppendLine("<tr><td><b>Amount: " + command.Amount.ToString() + " USD </b><br/></td></tr>");
             strGH.AppendLine("<b><a href='http://bitquick24.org'>http://bitquick24.org </a></b><br/>");
             strGH.AppendLine("<tr><td><b>Please contact to your upline or  BITQUICK24's support to support you everything. </b><br/></td></tr>");
             strGH.AppendLine("<tr><td><b><br/><br/><br/>Thanks & Best regards</b><br/></td></tr>");

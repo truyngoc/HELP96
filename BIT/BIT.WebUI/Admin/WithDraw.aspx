@@ -80,7 +80,7 @@
                             </td>
                             <td>
                                 <asp:Label runat="server" ID="lblGHAmount"><%# Eval("Amount").ToString().Remove(6) %></asp:Label>
-                                BTC</td>
+                                USD</td>
                             <td>
                                 <span class="label label-success"><%# getGHStatus(Eval("Status")) %></span>
                             </td>
