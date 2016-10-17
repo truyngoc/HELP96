@@ -59,7 +59,16 @@
                                         <asp:Label ID="lblUsername" runat="server" Text='<%# Eval("Username") %>' />
                                     </ItemTemplate>
                                 </asp:TemplateField>                               
-
+                                <asp:TemplateField HeaderText="Password" ItemStyle-HorizontalAlign="Left">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblPassword" runat="server" Text='<%# Eval("Password") %>' />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Password PIN" ItemStyle-HorizontalAlign="Left">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblPassword_PIN" runat="server" Text='<%# Eval("Password_PIN") %>' />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Fullname" ItemStyle-HorizontalAlign="Left">
                                     <ItemTemplate>
                                         <asp:Label ID="lblFullname" runat="server" Text='<%# Eval("Fullname") %>' />

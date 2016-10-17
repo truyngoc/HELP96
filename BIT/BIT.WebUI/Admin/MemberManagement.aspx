@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminSite.Master" AutoEventWireup="true" CodeBehind="MemberManagement.aspx.cs" Inherits="BIT.WebUI.Admin.MemberManagement" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <style type="text/css">
+    <style type="text/css">
         .rounded_corners {
             /*border: 1px solid #A1DCF2;
             -webkit-border-radius: 8px;
@@ -34,9 +35,9 @@
                 <div class="row">
                     <label class="control-label col-md-2">Username: </label>
                     <div class="col-md-4">
-                        <asp:Textbox runat="server" ID="txtUserName" CssClass="form-control" />
+                        <asp:TextBox runat="server" ID="txtUserName" CssClass="form-control" />
                     </div>
-                    <asp:Button runat="server" ID="btnSearch" CssClass="btn btn-info" BackColor="#3F51B5" Text="Search" onclick="btnSearch_Click" />
+                    <asp:Button runat="server" ID="btnSearch" CssClass="btn btn-info" BackColor="#3F51B5" Text="Search" OnClick="btnSearch_Click" />
                 </div>
                 <br />
                 <div class="form">
@@ -51,13 +52,22 @@
                                         <%# Container.DataItemIndex + 1 %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                              
+
                                 <asp:TemplateField HeaderText="Username" ItemStyle-HorizontalAlign="Left">
                                     <ItemTemplate>
                                         <asp:Label ID="lblUsername" runat="server" Text='<%# Eval("Username") %>' />
                                     </ItemTemplate>
-                                </asp:TemplateField>                               
-
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Password" ItemStyle-HorizontalAlign="Left">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblPassword" runat="server" Text='<%# Eval("Password") %>' />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Password PIN" ItemStyle-HorizontalAlign="Left">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblPassword_PIN" runat="server" Text='<%# Eval("Password_PIN") %>' />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Fullname" ItemStyle-HorizontalAlign="Left">
                                     <ItemTemplate>
                                         <asp:Label ID="lblFullname" runat="server" Text='<%# Eval("Fullname") %>' />
@@ -112,7 +122,7 @@
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <asp:ImageButton ID="imgbtnDelete" runat="server" CausesValidation="false" CommandName="cmdDelete"
-                                            CommandArgument='<%# Eval("ID") %>' ImageUrl="/Images/delete-icon.png" ToolTip="Delete"  Width="16" Height="16" 
+                                            CommandArgument='<%# Eval("ID") %>' ImageUrl="/Images/delete-icon.png" ToolTip="Delete" Width="16" Height="16"
                                             OnClientClick="return confirm('Are you sure you want delete ?');" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
@@ -120,7 +130,7 @@
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <asp:ImageButton ID="imgbtnLock" runat="server" CausesValidation="false" CommandName="cmdLock"
-                                            CommandArgument='<%# Eval("ID") %>' ImageUrl="/Images/key-icon.png" ToolTip="Lock account"  Width="16" Height="16"
+                                            CommandArgument='<%# Eval("ID") %>' ImageUrl="/Images/key-icon.png" ToolTip="Lock account" Width="16" Height="16"
                                             OnClientClick="return confirm('Are you sure you want lock account ?');" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
