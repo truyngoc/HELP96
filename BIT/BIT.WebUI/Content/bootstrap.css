@@ -4190,6 +4190,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-collapse.in {
   overflow-y: auto;
+      background-color: #000000;
 }
 @media (min-width: 768px) {
   .navbar-collapse {
@@ -4645,7 +4646,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   background-color: #333;
 }
 .navbar-inverse .navbar-toggle .icon-bar {
-      display:block;
+    display:block;
     width:22px;
     height:2px;
     border-radius:1px;

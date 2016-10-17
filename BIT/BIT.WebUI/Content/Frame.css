@@ -194,13 +194,13 @@
 {
     float:left;
     /*padding-top:20px;*/
-    margin-left:27px;
+    margin-left:10px;
 }
 .header_right
 {
     display: inline;
     float:right;
-    margin-right:10px;
+    margin-right:70px;
     color:White;
     font-size:12px;
 }

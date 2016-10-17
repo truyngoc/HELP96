@@ -33,7 +33,7 @@ a, a:hover, a:focus {
 }
 
 ::selection {
-    background: #FF6C60;
+    background: #007ACC;
     color: #fff;
 }
 
@@ -6689,8 +6689,7 @@ img {
 
 .admenu {
     display: inline;
-     float: left;
-    padding: 16px 0;
+    float: left;
 }
 
     .admenu div {
@@ -6713,10 +6712,19 @@ img {
 .Logo_help {
     float: left;
     font-weight: bold;
-     padding: 16px 0;
+    padding: 16px 0;
 }
+
 .menuright {
     margin-bottom: 0 !important;
     padding: 14px 10px !important;
-    background-color: none !important;
-}
+    /*background-color: #fff !important;*/
+}
+.navbar-nav li{
+    padding: 15px 1px;
+}
+
+.navbar-collapse.in {
+    overflow-y: auto;
+    background-color: #37474F !important;
+}
