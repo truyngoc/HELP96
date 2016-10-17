@@ -56,38 +56,40 @@
             <header class="panel-heading">
                 <h3>PH - Provide Help Community</h3>
             </header>
-            <div class="panel-body">
-                <div class="form">
-                    <div class="form-group col-lg-12">
-                        <div class="col-md-6 col-md-offset-3">
-                            <label class="control-label col-lg-7" for="firstname">Available PH Amount: </label>
-                            <div class="col-lg-3">
-                                <span class="badge">
-                                    <asp:Label runat="server" ID="lblRemainAmount">180</asp:Label>
-                                    USD
+            <asp:Panel ID="pnlPH" runat="server">
+                <div class="panel-body">
+                    <div class="form">
+                        <div class="form-group col-lg-12">
+                            <div class="col-md-6 col-md-offset-3">
+                                <label class="control-label col-lg-7" for="firstname">Available PH Amount: </label>
+                                <div class="col-lg-3">
+                                    <span class="badge">
+                                        <asp:Label runat="server" ID="lblRemainAmount">180</asp:Label>
+                                        USD
                                 </span>
 
-                                &nbsp;<i class="fa fa-usd" aria-hidden="true"></i>
+                                    &nbsp;<i class="fa fa-usd" aria-hidden="true"></i>
+                                </div>
+
+
                             </div>
 
-
-                        </div>
-
-                        <div class="col-md-6 col-md-offset-3 margin-top-05">
-                            <label class="control-label col-lg-7">Password PIN:</label>
-                            <div class="col-lg-5">
-                                <asp:TextBox runat="server" ID="txtTransPass" TextMode="Password" CssClass="form-control"></asp:TextBox>
-                                <asp:RequiredFieldValidator ErrorMessage="Enter password PIN" ControlToValidate="txtTransPass" runat="server" ForeColor="#cc0066" Text="Enter password PIN" Display="Dynamic" ValidationGroup="createPH" />
+                            <div class="col-md-6 col-md-offset-3 margin-top-05">
+                                <label class="control-label col-lg-7">Password PIN:</label>
+                                <div class="col-lg-5">
+                                    <asp:TextBox runat="server" ID="txtTransPass" TextMode="Password" CssClass="form-control"></asp:TextBox>
+                                    <asp:RequiredFieldValidator ErrorMessage="Enter password PIN" ControlToValidate="txtTransPass" runat="server" ForeColor="#cc0066" Text="Enter password PIN" Display="Dynamic" ValidationGroup="createPH" />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group col-lg-12">
-                        <div style="text-align: center;" class="col-lg-12">
-                            <asp:Button runat="server" ID="btnCreatePH" class="btn btn-info" Text="Create PH" OnClick="btnCreatePH_Click" ValidationGroup="createPH" />
+                        <div class="form-group col-lg-12">
+                            <div style="text-align: center;" class="col-lg-12">
+                                <asp:Button runat="server" ID="btnCreatePH" class="btn btn-info" Text="Create PH" OnClick="btnCreatePH_Click" ValidationGroup="createPH" />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </asp:Panel>
         </section>
         <!---End Of ss PH-->
         <!--ss Gridview PH-->
@@ -126,6 +128,7 @@
                 </ItemTemplate>
                 <FooterTemplate>
                     </table>
+               
                 </FooterTemplate>
             </asp:DataList>
 

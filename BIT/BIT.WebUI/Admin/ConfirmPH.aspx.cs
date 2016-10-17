@@ -77,36 +77,46 @@ namespace BIT.WebUI.Admin
 
                 string codeId = Singleton<BITCurrentSession>.Inst.SessionMember.CodeId;
 
-                string passPIN = txtPasswordPIN.Text;
-                if (ctlMember.CheckPasswordPIN(codeId, passPIN))
+
+                // check so luong PIn it nhat 1 moi dc confirm
+                var oWallet = Singleton<WALLET_BC>.Inst.SelectItemByCodeId(codeId);
+                if (oWallet.PIN_Wallet >= 1)
                 {
-                    var ctlCommandDetail = new COMMAND_DETAIL_BC();
-                    COMMAND_DETAIL obj = ctlCommandDetail.SelectItem(COMMAND_DETAIL_ID);
-                    try
+                    string passPIN = txtPasswordPIN.Text;
+                    if (ctlMember.CheckPasswordPIN(codeId, passPIN))
                     {
-                        COMMAND_DETAIL CMD = new COMMAND_DETAIL { ID = COMMAND_DETAIL_ID, TransactionId = txtTransaction.Text, ConfirmPH = true, DateConfirmPH = DateTime.Now, Status = (int)Constants.COMMAND_STATUS.PH_Success, CodeId_From = obj.CodeId_From, CodeId_To = obj.CodeId_To };
-                        ctlCommandDetail.ConfirmPH(CMD);
+                        var ctlCommandDetail = new COMMAND_DETAIL_BC();
+                        COMMAND_DETAIL obj = ctlCommandDetail.SelectItem(COMMAND_DETAIL_ID);
+                        try
+                        {
+                            COMMAND_DETAIL CMD = new COMMAND_DETAIL { ID = COMMAND_DETAIL_ID, TransactionId = txtTransaction.Text, ConfirmPH = true, DateConfirmPH = DateTime.Now, Status = (int)Constants.COMMAND_STATUS.PH_Success, CodeId_From = obj.CodeId_From, CodeId_To = obj.CodeId_To };
+                            ctlCommandDetail.ConfirmPH(CMD);
 
-                        TNotify.Toastr.Success("Confirm PH successfull", "Confirm PH", TNotify.NotifyPositions.toast_top_full_width, true);
+                            TNotify.Toastr.Success("Confirm PH successfull", "Confirm PH", TNotify.NotifyPositions.toast_top_full_width, true);
 
-                        SendMailToRECEIVER(CMD);
-                        Response.Redirect("PH_DETAIL.aspx");
+                            SendMailToRECEIVER(CMD);
+                            Response.Redirect("PH_DETAIL.aspx");
+                        }
+                        catch (System.Threading.ThreadAbortException ex)
+                        {
+                            // C2: catch exception nay khi redirect
+                        }
+                        catch (Exception ex)
+                        {
+                            TNotify.Alerts.Danger(ex.ToString(), true);
+                        }
                     }
-                    catch (System.Threading.ThreadAbortException ex)
+                    else
                     {
-                        // C2: catch exception nay khi redirect
-                    }
-                    catch (Exception ex)
-                    {
-                        TNotify.Alerts.Danger(ex.ToString(), true);
+                        // thong bao password pin ko dung
+                        TNotify.Alerts.Warning("Password PIN is not valid", true);
                     }
                 }
                 else
                 {
-                    // thong bao password pin ko dung
-                    TNotify.Alerts.Warning("Password PIN is not valid", true);
+                    btnConfirmPH.Enabled = false;
+                    TNotify.Alerts.Warning("You not enough PIN for confirm PH (at least 1 PIN)", true);
                 }
-
             }
 
         }

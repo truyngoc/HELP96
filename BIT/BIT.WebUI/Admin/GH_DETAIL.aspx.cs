@@ -42,13 +42,13 @@ namespace BIT.WebUI.Admin
                 int GH_ID = Convert.ToInt32(Session["GHCommunity_GH_ID"]);
                 var lstDetail = ctlCmdDetail.SelectItemsByGhId(GH_ID).ToList();
 
-                grdCMD.DataSource = lstDetail;
-                grdCMD.DataBind();
+                grdCommandDetails.DataSource = lstDetail;
+                grdCommandDetails.DataBind();
             }
             else
             {
-                grdCMD.DataSource = null;
-                grdCMD.DataBind();
+                grdCommandDetails.DataSource = null;
+                grdCommandDetails.DataBind();
             }
         }
         #endregion
@@ -148,14 +148,15 @@ namespace BIT.WebUI.Admin
                 if (status == (int)Constants.COMMAND_STATUS.PH_Success)
                 {
                     var currentDate = DateTime.Now;
-                    var expiredDate = timeremain.AddHours(12);
+                    var expiredDate = timeremain.AddHours(48);
 
                     if (currentDate > expiredDate)
                         return "Expired";
                     else
                     {
                         var remainDate = expiredDate - currentDate;
-                        string ret = remainDate.Hours.ToString("00") + ":" + remainDate.Minutes.ToString("00") + ":" + remainDate.Seconds.ToString("00");
+                        var hours = (remainDate.Days * 24) + remainDate.Hours;
+                        string ret = hours.ToString("00") + ":" + remainDate.Minutes.ToString("00") + ":" + remainDate.Seconds.ToString("00");
                         return ret;
                     }
                 }
@@ -211,15 +212,15 @@ namespace BIT.WebUI.Admin
         }
         #endregion
 
-        protected void btnConfirm_Click(object sender, EventArgs e)
-        {
-            LinkButton btn = (LinkButton)(sender);
-            int COMMAND_DETAIL_ID = Convert.ToInt32(btn.CommandArgument);
+        //protected void btnConfirm_Click(object sender, EventArgs e)
+        //{
+        //    LinkButton btn = (LinkButton)(sender);
+        //    int COMMAND_DETAIL_ID = Convert.ToInt32(btn.CommandArgument);
 
-            Session["GH_DETAIL_COMMAND_DETAIL_ID"] = COMMAND_DETAIL_ID;
+        //    Session["GH_DETAIL_COMMAND_DETAIL_ID"] = COMMAND_DETAIL_ID;
 
-            Response.Redirect("ConfirmGH.aspx");
-        }
+        //    Response.Redirect("ConfirmGH.aspx");
+        //}
 
     }
 }

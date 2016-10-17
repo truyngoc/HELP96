@@ -42,13 +42,13 @@ namespace BIT.WebUI.Admin
                 int PH_ID = Convert.ToInt32(Session["CreatePHCommunity_PH_ID"]);
                 var lstDetail = ctlCmdDetail.SelectItemsByPhId(PH_ID).ToList();
 
-                grdCMD.DataSource = lstDetail;
-                grdCMD.DataBind();
+                grdCommandDetails.DataSource = lstDetail;
+                grdCommandDetails.DataBind();
             }
             else
             {
-                grdCMD.DataSource = null;
-                grdCMD.DataBind();
+                grdCommandDetails.DataSource = null;
+                grdCommandDetails.DataBind();
             }
         }
         #endregion
@@ -147,14 +147,16 @@ namespace BIT.WebUI.Admin
             if ((status != (int)Constants.COMMAND_STATUS.Success) && (status != (int)Constants.COMMAND_STATUS.PH_Success))
             {
                 var currentDate = DateTime.Now;
-                var expiredDate = timeremain.AddHours(12);
+                var expiredDate = timeremain.AddHours(48);
 
                 if (currentDate > expiredDate)
                     return "Expired";
                 else
                 {
                     var remainDate = expiredDate - currentDate;
-                    string ret = remainDate.Hours.ToString("00") + ":" + remainDate.Minutes.ToString("00") + ":" + remainDate.Seconds.ToString("00");
+
+                    var hours = (remainDate.Days * 24) + remainDate.Hours;
+                    string ret = hours.ToString("00") + ":" + remainDate.Minutes.ToString("00") + ":" + remainDate.Seconds.ToString("00");
                     return ret;
                 }
             }
@@ -163,10 +165,10 @@ namespace BIT.WebUI.Admin
         #endregion
 
         #region "grid view event"
-        //protected void grdCommandDetails_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
-        //{
-        //    LoadCommandDetails();
-        //}
+        protected void grdCommandDetails_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            LoadCommandDetails();
+        }
 
         protected void grdCommandDetails_OnRowCommand(object sender, GridViewCommandEventArgs e)
         {
@@ -180,34 +182,7 @@ namespace BIT.WebUI.Admin
             }
         }
         #endregion
-
-        protected void btnConfirm_Click(object sender, EventArgs e)
-        {
-            //if (e.CommandName == "cmdConfirm")
-            //{
-            LinkButton btn = (LinkButton)(sender);
-            int COMMAND_DETAIL_ID = Convert.ToInt32(btn.CommandArgument);
-
-            Session["PH_DETAIL_COMMAND_DETAIL_ID"] = COMMAND_DETAIL_ID;
-
-            Response.Redirect("ConfirmPH.aspx");
-            //}
-        }
-
-        protected void grdCMD_ItemCreated(object sender, DataListItemEventArgs e)
-        {
-
-            //if (e.Item.ItemType == ListItemType.Header)
-            //{
-            //    Label TempLabel;
-            //    TempLabel = (Label)e.Item.FindControl("lblSTT");
-
-
-            //    if (TempLabel != null)
-            //        TempLabel.Text = this.m_RowCount.ToString();
-            //}
-        }
-
+      
 
 
     }

@@ -198,6 +198,11 @@ namespace BIT.WebUI.Admin
             return str;
         }
 
+        private string ReplaceUserName_GH()
+        {
+            string str = txtUserName.Text;
+            return str;
+        }
 
         public void LoadListPH()
         {
@@ -256,15 +261,16 @@ namespace BIT.WebUI.Admin
 
             if (this.ListGH == null)
             {
-                if (txtUserName.Text.Equals(""))
+                string strUserName = ReplaceUserName_GH();
+                if (string.IsNullOrEmpty(strUserName))
                 {
                     var numberGH = txtNumberGH.Text == string.Empty ? 0 : Convert.ToInt32(txtNumberGH.Text);
-                    //this.ListGH = ctlGH.SelectWaitingGH();
+                    
                     this.ListGH = ctlGH.SelectItemsByNumber(numberGH);
                 }
                 else
                 {
-                    this.ListGH = ctlGH.SelectItemsByName(txtUserName.Text);
+                    this.ListGH = ctlGH.SelectItemsByNameList(strUserName);
                 }
             }
             lblTotalAmountGH.Text = ListGH.Sum(m => m.Amount).Value.ToString();
@@ -877,10 +883,10 @@ namespace BIT.WebUI.Admin
             strBuilder.AppendLine("<tr><td><b>Hello  " + userFrom.Username + "</b><br/></td></tr>");
             strBuilder.AppendLine("<tr><td><b>You have PH with: " + userTo.Username + "/" + userTo.Phone + "</b><br/></td></tr>");
             strBuilder.AppendLine("<tr><td><b>Amount: " + command.Amount.ToString() + " USD </b><br/></td></tr>");
-            strBuilder.AppendLine("<b><a href='http://bitquick24.org'>http://bitquick24.org </a></b><br/>");
-            strBuilder.AppendLine("<tr><td><b>Please contact to your upline or  BITQUICK24's support to support you everything. </b><br/></td></tr>");
+            strBuilder.AppendLine("<b><a href='http://help96.org'>http://help96.org </a></b><br/>");
+            strBuilder.AppendLine("<tr><td><b>Please contact to your upline or  HELP96's support to support you everything. </b><br/></td></tr>");
             strBuilder.AppendLine("<tr><td><b><br/><br/><br/>Thanks & Best regards</b><br/></td></tr>");
-            strBuilder.AppendLine("<tr><td><b><br/>BITQUICK24</b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b><br/>HELP96.GLOBAL</b><br/></td></tr>");
             strBuilder.Append("</table>");
             strBuilder.Append("</body>");
             strBuilder.Append("</html>");
@@ -897,10 +903,10 @@ namespace BIT.WebUI.Admin
             strGH.AppendLine("<tr><td><b>Hello  " + userTo.Username + "</b><br/></td></tr>");
             strGH.AppendLine("<tr><td><b>you will get GH from account: " + userFrom.Username + "/" + userFrom.Phone + "</b><br/></td></tr>");
             strGH.AppendLine("<tr><td><b>Amount: " + command.Amount.ToString() + " USD </b><br/></td></tr>");
-            strGH.AppendLine("<b><a href='http://bitquick24.org'>http://bitquick24.org </a></b><br/>");
-            strGH.AppendLine("<tr><td><b>Please contact to your upline or  BITQUICK24's support to support you everything. </b><br/></td></tr>");
+            strGH.AppendLine("<b><a href='http://help96.org'>http://help96.org </a></b><br/>");
+            strGH.AppendLine("<tr><td><b>Please contact to your upline or  HELP96's support to support you everything. </b><br/></td></tr>");
             strGH.AppendLine("<tr><td><b><br/><br/><br/>Thanks & Best regards</b><br/></td></tr>");
-            strGH.AppendLine("<tr><td><b><br/>BITQUICK24</b><br/></td></tr>");
+            strGH.AppendLine("<tr><td><b><br/>HELP96.GLOBAL</b><br/></td></tr>");
             strGH.Append("</table>");
             strGH.Append("</body>");
             strGH.Append("</html>");

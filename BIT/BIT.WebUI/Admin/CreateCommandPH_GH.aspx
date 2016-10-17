@@ -74,7 +74,7 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
-                                    <asp:TemplateField HeaderText="PH Time" ItemStyle-HorizontalAlign="Left">
+                                    <asp:TemplateField HeaderText="GH Time" ItemStyle-HorizontalAlign="Left">
                                         <ItemTemplate>
                                             <asp:Label ID="lblCreateDate" runat="server" Text='<%# Eval("CreateDate" , "{0:dd/MM/yyyy HH:mm}") %>' />
                                         </ItemTemplate>

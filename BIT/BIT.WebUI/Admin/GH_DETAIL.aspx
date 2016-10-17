@@ -28,7 +28,7 @@
 
                 </div>
                 <section class="panel">
-                        <asp:DataList ID="grdCMD" runat="server" class="table table-hover p-table">
+                        <%--<asp:DataList ID="grdCMD" runat="server" class="table table-hover p-table">
                         <HeaderTemplate>
                             <table class="table table-hover p-table">
                                 <tr>
@@ -76,9 +76,9 @@
                         <FooterTemplate>
                             </table>
                         </FooterTemplate>
-                    </asp:DataList>
+                    </asp:DataList>--%>
 
-                        <%--<asp:GridView ID="grdCommandDetails" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="50"
+                        <asp:GridView ID="grdCommandDetails" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="50"
                             OnPageIndexChanging="grdCommandDetails_OnPageIndexChanging" CssClass="table table-hover p-table" UseAccessibleHeader="true" GridLines="None"
                             OnRowCommand="grdCommandDetails_OnRowCommand">
                             <Columns>
@@ -108,7 +108,7 @@
 
                                 <asp:TemplateField HeaderText="Time remaining (hours)" ItemStyle-HorizontalAlign="Left">
                                     <ItemTemplate>
-                                        <asp:Label ID="lblTimeRemaining" runat="server" Text='<%# showTimeRemaining_TUNG(Eval("DateConfirmPH").ToString(), (int)Eval("Status")) %>' />
+                                        <asp:Label ID="lblTimeRemaining" runat="server" Text='<%# showTimeRemaining((DateTime)Eval("DateCreate"), (int)Eval("Status")) %>' />
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
@@ -131,7 +131,7 @@
                                 </asp:TemplateField>
 
                             </Columns>
-                        </asp:GridView>--%>
+                        </asp:GridView>
                 </section>
             </div>
         </section>

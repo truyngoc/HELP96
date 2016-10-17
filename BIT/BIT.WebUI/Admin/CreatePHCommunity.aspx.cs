@@ -29,23 +29,34 @@ namespace BIT.WebUI.Admin
                     // load list PH
                     this.LoadListPH();
 
-
-                    // check dia chi vi ko co thi thong bao cap nhat profile
-                    string wallet = Singleton<BITCurrentSession>.Inst.SessionMember.Wallet;
-                    if (string.IsNullOrEmpty(wallet))
+                    // check quota
+                    if (ctlPH.GetNumberPH_help96(codeId) < 1)
                     {
-                        btnCreatePH.Enabled = false;                        
-                        TNotify.Alerts.Warning("You have to update wallet address on profile information", true);
+                        pnlPH.Visible = true;
+
+                        // check dia chi vi ko co thi thong bao cap nhat profile
+                        string wallet = Singleton<BITCurrentSession>.Inst.SessionMember.Wallet;
+                        if (string.IsNullOrEmpty(wallet))
+                        {
+                            btnCreatePH.Enabled = false;
+                            TNotify.Alerts.Warning("You have to update wallet address on profile information", true);
+                        }
+
+                        // check so luong PIn it nhat 2 moi dc tao
+                        var oWallet = Singleton<WALLET_BC>.Inst.SelectItemByCodeId(codeId);
+                        if (oWallet.PIN_Wallet < 2)
+                        {
+                            btnCreatePH.Enabled = false;
+                            TNotify.Alerts.Warning("You not enough PIN for create PH (at least 2 PIN)", true);
+                        }
+                    }
+                    else
+                    {
+                        pnlPH.Visible = false;
                     }
 
-                    // check so luong PIn it nhat 2 moi dc tao
-                    var oWallet = Singleton<WALLET_BC>.Inst.SelectItemByCodeId(codeId);
-                    if (oWallet.PIN_Wallet < 2)
-                    {
-                        btnCreatePH.Enabled = false;
-                        TNotify.Alerts.Warning("You not enough PIN for create PH (at least 2 PIN)", true);
-                    }
-                    
+
+
                 }
             }
         }
@@ -59,42 +70,42 @@ namespace BIT.WebUI.Admin
                 string codeId = Singleton<BITCurrentSession>.Inst.SessionMember.CodeId;
 
 
-                // check quota
-                if (ctlPH.GetNumberPH_help96(codeId) < 1)
+                //// check quota
+                //if (ctlPH.GetNumberPH_help96(codeId) < 1)
+                //{
+                // tao lenh PH
+                // check transaction pass co dung ko
+                string passPIN = txtTransPass.Text;
+                if (ctlMember.CheckPasswordPIN(codeId, passPIN))
                 {
-                    // tao lenh PH
-                    // check transaction pass co dung ko
-                    string passPIN = txtTransPass.Text;
-                    if (ctlMember.CheckPasswordPIN(codeId, passPIN))
+                    var oPH = GetPH();
+                    // Insert PH
+                    try
                     {
-                        var oPH = GetPH();
-                        // Insert PH
-                        try
-                        {
-                            ctlPH.InsertItem(oPH);
+                        ctlPH.InsertItem(oPH);
 
-                            TNotify.Toastr.Success("Create PH successfull", "Create PH", TNotify.NotifyPositions.toast_top_full_width, true);
+                        TNotify.Toastr.Success("Create PH successfull", "Create PH", TNotify.NotifyPositions.toast_top_full_width, true);
 
-                            // reload list PH
-                            this.LoadListPH();
-                        }
-                        catch (Exception ex)
-                        {
-                            TNotify.Alerts.Danger(ex.ToString(), true);
-                        }
-                        Response.Redirect("CreatePHCommunity.aspx");
+                        // reload list PH
+                        this.LoadListPH();
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        // thong bao password pin ko dung
-                        TNotify.Alerts.Warning("Password PIN is not valid", true);
+                        TNotify.Alerts.Danger(ex.ToString(), true);
                     }
+                    Response.Redirect("CreatePHCommunity.aspx");
                 }
                 else
                 {
-                    // thong bao chi dc thuc hien PH 1 lan
-                    TNotify.Alerts.Warning("Only have PH once times", true);
+                    // thong bao password pin ko dung
+                    TNotify.Alerts.Warning("Password PIN is not valid", true);
                 }
+                //}
+                //else
+                //{
+                //    // thong bao chi dc thuc hien PH 1 lan
+                //    TNotify.Alerts.Warning("Only have PH once times", true);
+                //}
 
             }
 
