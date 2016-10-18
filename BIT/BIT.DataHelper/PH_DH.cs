@@ -29,6 +29,12 @@ namespace BIT.DataHelper
 				, obj.CodeId, obj.Amount, obj.CurrentAmount, obj.CreateDate, obj.Status, obj.IsFirst);
 		}
 
+        public void InsertItemWithTrans(DbTransaction trans, PH obj)
+        {
+            defaultDB.ExecuteNonQuery(trans,"sp_PH_Insert"
+                , obj.CodeId, obj.Amount, obj.CurrentAmount, obj.CreateDate, obj.Status, obj.IsFirst);
+        }
+
 		public void UpdateItem(PH obj)
 		{
 			defaultDB.ExecuteNonQuery("sp_PH_Update"
