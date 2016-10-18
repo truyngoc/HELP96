@@ -47,7 +47,7 @@ namespace BIT.WebUI.Admin
                     liSignUp.Visible = false;
                     liPin.Visible = false;
                     liAdministrator.Visible = true;
-                    liMember.Visible =true;
+                    liMember.Visible = true;
                     liWithDrawMgr.Visible = false;
                     liCreatePHGH.Visible = false;
                     liCommandList.Visible = false;
