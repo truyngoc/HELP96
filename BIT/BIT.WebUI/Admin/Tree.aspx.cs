@@ -30,7 +30,7 @@ namespace BIT.WebUI.Admin
                     var ParentCodeId = Singleton<BITCurrentSession>.Inst.SessionMember.CodeId;
                     List<MEMBERS> lstMember = new List<MEMBERS>();
 
-                    if (Singleton<BITCurrentSession>.Inst.SessionMember.Username.ToUpper().IndexOf("ADMIN") > 0)
+                    if (Singleton<BITCurrentSession>.Inst.SessionMember.Username.ToUpper().IndexOf("ADMINISTRATOR") > 0)
                     {
                         lstMember = Singleton<MEMBERS_BC>.Inst.Tree_GetData(string.Empty, string.Empty, string.Empty, string.Empty, string.Empty);
                     }

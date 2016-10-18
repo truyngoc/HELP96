@@ -45,7 +45,7 @@
                     <div class="rounded_corners">
                         <asp:GridView ID="grdMEMBERS" runat="server" HeaderStyle-BackColor="#3AC0F2" Font-Size="XX-Large" Font-Bold="true"
                             HeaderStyle-ForeColor="White" RowStyle-BackColor="#A1DCF2" AlternatingRowStyle-BackColor="White"
-                            RowStyle-ForeColor="#3A3A3A" AutoGenerateColumns="false" AllowPaging="true" PageSize="30"
+                            RowStyle-ForeColor="#3A3A3A" AutoGenerateColumns="false" AllowPaging="true" PageSize="100"
                             OnPageIndexChanging="OnPageIndexChanging" OnRowCommand="grdMEMBERS_RowCommand">
                             <Columns>
                                 <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">

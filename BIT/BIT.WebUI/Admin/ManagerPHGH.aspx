@@ -28,7 +28,7 @@
 
 
                     <div class="table-responsive">
-                        <asp:GridView ID="grdCommandDetails" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="50"
+                        <asp:GridView ID="grdCommandDetails" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="100"
                             OnPageIndexChanging="grdCommandDetails_OnPageIndexChanging" CssClass="table table-hover p-table" UseAccessibleHeader="true" GridLines="None">
                             <Columns>
                                 <asp:TemplateField HeaderText="No." ItemStyle-HorizontalAlign="Center">

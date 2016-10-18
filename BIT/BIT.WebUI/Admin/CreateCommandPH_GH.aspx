@@ -16,7 +16,7 @@
                     <!--ss Gridview PH-->
                     <section class="panel">
                         <div class="table-responsive">
-                            <asp:GridView ID="grdPH" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="50"
+                            <asp:GridView ID="grdPH" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="100"
                                 OnPageIndexChanging="grdPH_OnPageIndexChanging" CssClass="table table-hover p-table" UseAccessibleHeader="true" GridLines="None">
                                 <Columns>
                                     <asp:TemplateField HeaderText="No." ItemStyle-HorizontalAlign="Center">
@@ -59,7 +59,7 @@
                     <!--ss Gridview GH-->
                     <section class="panel">
                         <div class="table-responsive">
-                            <asp:GridView ID="grdGH" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="50"
+                            <asp:GridView ID="grdGH" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="100"
                                 OnPageIndexChanging="grdGH_OnPageIndexChanging" CssClass="table table-hover p-table" UseAccessibleHeader="true" GridLines="None">
                                 <Columns>
                                     <asp:TemplateField HeaderText="No." ItemStyle-HorizontalAlign="Center">
@@ -134,7 +134,7 @@
                     <!--ss Gridview PH-->
                     <section class="panel">
                         <div class="table-responsive">
-                            <asp:GridView ID="grdPH_First" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="50"
+                            <asp:GridView ID="grdPH_First" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="100"
                                 OnPageIndexChanging="grdPH_First_OnPageIndexChanging" CssClass="table table-hover p-table" UseAccessibleHeader="true" GridLines="None">
                                 <Columns>
                                     <asp:TemplateField HeaderText="No." ItemStyle-HorizontalAlign="Center">
@@ -185,7 +185,7 @@
                     <!--ss Gridview admin GH-->
                     <section class="panel">
                         <div class="table-responsive">
-                            <asp:GridView ID="grdAdminList" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="50"
+                            <asp:GridView ID="grdAdminList" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="100"
                                 OnPageIndexChanging="grdAdminList_OnPageIndexChanging" CssClass="table table-hover p-table" UseAccessibleHeader="true" GridLines="None">
                                 <Columns>
                                     <asp:TemplateField HeaderText="No." ItemStyle-HorizontalAlign="Center">
