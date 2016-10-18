@@ -603,9 +603,19 @@ ul.top-menu > li > a {
             }
 
     .dropdown-menu.extended.logout > li > a {
+        display: inline;
         color: #a4abbb;
         border-bottom: none !important;
     }
+
+.dropdown-menu li a {
+  display: inline;
+    width: 100%;
+}
+
+.dropdown-menu li a i {
+}
+
 
 .full-width .dropdown-menu.extended.logout > li > a:hover {
     background: none !important;
@@ -6543,6 +6553,11 @@ ul.sidebar-menu .hovered .bgslide {
     background-color: #263238;
 }
 
+    /*float: left;
+    line-height: 15px;
+    padding: 9px 0;
+    width: 100%;*/
+
     .dcjq-parent-li a span {
         color: #CFD8DC;
     }
@@ -6720,7 +6735,8 @@ img {
     padding: 14px 10px !important;
     /*background-color: #fff !important;*/
 }
-.navbar-nav li{
+
+.navbar-nav li {
     padding: 15px 1px;
 }
 

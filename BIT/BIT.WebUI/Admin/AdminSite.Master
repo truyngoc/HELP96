@@ -121,49 +121,37 @@
             <div id="sidebar" class="nav-collapse">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion" style="margin-top: 90px;">
-                    <li class="sub-menu user-info dropdown dcjq-parent-li">
+                    <li class="sub-menu user-info dropdown dcjq-parent-li" id="li1" runat="server">
                         <!-- user login dropdown start-->
-                        <a href="#" class="dcjq-parent">
+                        <a href="#" class="">
                             <span class="username title-file">
-                                <asp:Label runat="server" ID="lblLoginName"></asp:Label></span>
-                            <b class="caret" style="float: right; margin: 6px 0;"></b>
+                                <asp:Label runat="server" ID="lblUserName"></asp:Label>
+                            </span>
+                            <b class="caret" style="float: right; margin: -8px 0;"></b>
                         </a>
-                        <ul class="dropdown-menu extended logout" style="display: none;">
-                            <li>
-                                <span id="lb_show_Username">
-                                    <asp:Label runat="server" ID="lblUserName"></asp:Label>
-                                </span>
-                            </li>
-                            <li>
-                                <div>
-                                    <a href="../Admin/ChangePassword.aspx"><i class="fa fa-unlock-alt" style="color: White; padding-right: 6px; padding-top: 1px;"></i><span>Login Password</span></a>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <a href="../Admin/ChangePasswordTwo.aspx">
-                                        <i class="fa fa-circle-o-notch" style="color: White; padding-right: 6px; padding-top: 1px;"></i>
-                                        <span>Transaction Password</span>
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div>
-                                    <a href="../Admin/EditAccount.aspx">
-                                        <i class="fa fa-file-text-o" style="color: White; padding-right: 6px; padding-top: 1px;"></i>
-                                        <span>Profile Information</span>
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <span style="color: White;"><i class="fa fa-circle" style="color: #0088cc;"></i></span>
+                        <ul class="dropdown-menu" style="display: none;">
+                            <li class="sub-menu">
+                                <a href="#"><span style="color: White;"><i class="fa fa-circle" style="color: #0088cc; float:left;"></i></span>
                                 <span style="color: #0088cc; padding-right: 15px; font-weight: bold;"><span id="Lb_FullName">
-                                    <asp:Label runat="server" ID="lblFullName"></asp:Label></span></span>
+                                    <asp:Label runat="server" ID="lblFullName"></asp:Label></span></span></a>
                             </li>
-                            <li>
-                                <div>
-                                    <a href="../Admin/Logout.aspx"><span><i class="fa fa-power-off" style="color: white"></i></span><span>Logout</span></a>
-                                </div>
+                            <li class="sub-menu">
+                                <a href="../Admin/ChangePassword.aspx"><i class="fa fa-unlock-alt" style="color: White; padding-right: 6px; padding-top: 1px;"></i><span>Login Password</span></a>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="../Admin/ChangePasswordTwo.aspx">
+                                    <i class="fa fa-circle-o-notch" style="color: White; padding-right: 6px; padding-top: 1px;"></i>
+                                    <span>Transaction Password</span>
+                                </a>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="../Admin/EditAccount.aspx">
+                                    <i class="fa fa-file-text-o" style="color: White; padding-right: 6px; padding-top: 1px;"></i>
+                                    <span>Profile Information</span>
+                                </a>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="../Admin/Logout.aspx"><span><i class="fa fa-power-off" style="color: white"></i></span><span>Logout</span></a>
                             </li>
                         </ul>
                         <!-- user login dropdown end -->
