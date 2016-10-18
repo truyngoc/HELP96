@@ -27,7 +27,7 @@
     <script src="../Scripts/jquery.validate.js" type="text/javascript"></script>
     <script src="../Scripts/jquery.validate.unobtrusive.js"></script>
 
-   
+
     <!-- Start Alexa Certify Javascript -->
     <script type="text/javascript">
         _atrk_opts = { atrk_acct: "HIwpn1aMp410Y8", domain: "virginbtc.com", dynamic: true };
@@ -65,7 +65,6 @@
                 <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
                 <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <asp:ScriptReference Path="~/Scripts/jquery-1.10.2.min.js" />
                 <asp:ScriptReference Path="~/Scripts/WebForms/TreeView.js" />
@@ -84,7 +83,7 @@
                     </a>
                     <!--logo end-->
                     <div class="sidebar-toggle-box">
-             <%--           <div class="navbar-header">
+                        <%--           <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>  
@@ -153,9 +152,6 @@
                                             <i class="fa fa-file-text-o" style="color: White; padding-right: 6px; padding-top: 1px;"></i>
                                             <span>Profile Information</span>
                                         </a>
-                                    </li>
-                                    <li class="sub-menu">
-                                        <a href="../Admin/Logout.aspx"><span><i class="fa fa-power-off" style="color: white"></i></span><span>Logout</span></a>
                                     </li>
                                 </ul>
                                 <!-- user login dropdown end -->
@@ -237,6 +233,8 @@
                                     <%-- <span class="bgslide"></span>--%>
                                 </a>
                             </li>
+
+                            
                             <!--end of tree-->
 
                             <!--Administrator-->
@@ -266,6 +264,14 @@
                                     </li>
                                 </ul>
                             </li>
+
+                            <li class="sub-menu" id="li2" runat="server">
+                                <a class="" href="../Admin/WithDraw.aspx" style="color: #fff">
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                     <a href="../Admin/Logout.aspx"><span><i class="fa fa-power-off" style="color: white"></i></span><span>Logout</span></a>
+                                    <%-- <span class="bgslide"></span>--%>
+                                </a>
+                            </li>
                             <!--end of Administrator-->
                         </ul>
                         <!-- sidebar menu end-->
@@ -284,10 +290,6 @@
         </div>
     </form>
     <!-- js placed at the end of the document so the pages load faster -->
-    <script src="../Scripts/jquery-1.10.2.min.js"></script>
-    <script src="../Scripts/Admin/myjs.js"></script>
-    <script src="../Scripts/Admin/jquery.js"></script>
-    <script src="../Scripts/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="../Scripts/Admin/jquery.dcjqaccordion.2.7.js"></script>
     <script src="../Scripts/Admin/jquery.scrollTo.min.js"></script>
     <script src="../Scripts/Admin/jquery.nicescroll.js" type="text/javascript"></script>
@@ -296,6 +298,7 @@
     <script src="../Scripts/Admin/owl.carousel.js"></script>
     <script src="../Scripts/Admin/jquery.customSelect.min.js"></script>
     <script src="../Scripts/Admin/respond.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
     <!--right slidebar-->
     <script src="../Scripts/Admin/slidebars.min.js"></script>
     <!--common script for all pages-->
