@@ -3,6 +3,7 @@
 <%--<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>--%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%--    <asp:Button ID="Button1" runat="server" Text="Fill Form in Popup" />
@@ -14,7 +15,7 @@
         <br />
         <asp:Button ID="Button2" runat="server" Text="Close" />
     </asp:Panel>--%>
-
+     
     <div style="clear: both;"></div>
     <div class="label_b" style="padding: 25px 0;">
         <div class="header_function_name">

@@ -9,7 +9,7 @@
     <meta name="author" content="Mosaddek" />
     <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina" />
     <link rel="shortcut icon" href="img/favicon.png" />
-    <title>Help96</title>
+    <title>HELP96 . GLOBAL</title>
     <meta name="csrf-token" content="AvJsvFUkFTxZxtYHOn19V6YN6zqQExtwl6k0WVSd" />
     <!-- Bootstrap core CSS -->
     <link href="../Content/bootstrap.css" rel="stylesheet" />
@@ -27,7 +27,7 @@
     <script src="../Scripts/jquery.validate.js" type="text/javascript"></script>
     <script src="../Scripts/jquery.validate.unobtrusive.js"></script>
 
-    <meta name=viewport content="width=device-width, initial-scale=1">
+   
     <!-- Start Alexa Certify Javascript -->
     <script type="text/javascript">
         _atrk_opts = { atrk_acct: "HIwpn1aMp410Y8", domain: "virginbtc.com", dynamic: true };
@@ -65,6 +65,7 @@
                 <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
                 <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
             </Scripts>
@@ -79,7 +80,16 @@
                     </a>
                     <!--logo end-->
                     <div class="sidebar-toggle-box">
-                        <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars tooltips"></div>
+             <%--           <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>  
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="./index.html">ossoc</a>
+            </div>--%>
+
+                        <div data-placement="right" data-toggle="collapse" data-target="navbar collapse" class="fa fa-bars tooltips"></div>
                     </div>
                     <div id="top_menu" class="nav notify-row">
                         <!--  notification start -->
