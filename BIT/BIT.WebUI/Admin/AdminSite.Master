@@ -67,6 +67,10 @@
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 
                 <asp:ScriptReference Name="WebFormsBundle" />
+                <asp:ScriptReference Path="~/Scripts/jquery-1.10.2.min.js" />
+                <asp:ScriptReference Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Path="~/Scripts/jquery-treeview/jquery.treeview.js" />
+                <asp:ScriptReference Path="~/Scripts/toastr.min.js" />
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
