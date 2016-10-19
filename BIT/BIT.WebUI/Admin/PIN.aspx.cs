@@ -39,7 +39,7 @@ namespace BIT.WebUI.Admin
             obj.To = txtUserReceivePIN.Text.Trim();
             obj.Amout = Convert.ToInt32(txtAmount.Text);
             obj.Transaction_Type = Constants.PIN_TRANSACTION_TYPE_SOLD;
-            obj.Create_Date = DateTime.Today;
+            obj.Create_Date = DateTime.Now;
 
             return obj;
         }
