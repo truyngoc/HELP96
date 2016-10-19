@@ -85,15 +85,6 @@
                     </a>
                     <!--logo end-->
                     <div class="sidebar-toggle-box">
-                        <%--           <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>  
-                  <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="./index.html">ossoc</a>
-            </div>--%>
-
                         <div data-placement="right" data-toggle="collapse" data-target="navbar collapse" class="fa fa-bars tooltips"></div>
                     </div>
                     <div id="top_menu" class="nav notify-row">
@@ -155,6 +146,12 @@
                                             <span>Profile Information</span>
                                         </a>
                                     </li>
+                                    <li class="sub-menu">
+                                        <a href="../Admin/Logout.aspx">
+                                            <i class="fa fa-power-off" style="color: white"></i>
+                                            <span>Logout</span>
+                                        </a>
+                                    </li>
                                 </ul>
                                 <!-- user login dropdown end -->
                             </li>
@@ -163,7 +160,6 @@
                                 <a class="" href="../Admin/Dashboard.aspx" style="color: #fff">
                                     <i class="fa fa-dashboard"></i>
                                     <span>Home</span>
-                                    <%-- <span class="bgslide"></span>--%>
                                 </a>
                             </li>
                             <!---End of Dashboard-->
@@ -173,7 +169,6 @@
                                 <a class="" href="../Admin/Register.aspx" style="color: #fff">
                                     <i class="fa fa-users"></i>
                                     <span>Register User</span>
-                                    <%--<span class="bgslide"></span>--%>
                                 </a>
                             </li>
                             <!--End of SignUp-->
