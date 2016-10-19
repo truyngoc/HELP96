@@ -278,7 +278,7 @@
                 </aside>
                 <!--sidebar end-->
                 <section id="main-content">
-                    <section class="wrapper" style="margin-top: 120px;">
+                    <section class="wrapper" style="margin-top: 65px;">
                         <div>
                             <t:alert ID="talerts" runat="server" />
                             <t:notify ID="tnotifys" runat="server" />
