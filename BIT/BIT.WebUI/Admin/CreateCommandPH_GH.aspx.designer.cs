@@ -13,42 +13,6 @@ namespace BIT.WebUI.Admin {
     public partial class CreateCommandPH_GH {
         
         /// <summary>
-        /// grdPH control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdPH;
-        
-        /// <summary>
-        /// lblTotalAmountPH control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotalAmountPH;
-        
-        /// <summary>
-        /// grdGH control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdGH;
-        
-        /// <summary>
-        /// lblTotalAmountGH control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotalAmountGH;
-        
-        /// <summary>
         /// txtNumberPH control.
         /// </summary>
         /// <remarks>
@@ -103,31 +67,40 @@ namespace BIT.WebUI.Admin {
         protected global::System.Web.UI.WebControls.Button btnLoadGHbyNumber;
         
         /// <summary>
-        /// grdPH_First control.
+        /// lblTotalAmountPH control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdPH_First;
+        protected global::System.Web.UI.WebControls.Label lblTotalAmountPH;
         
         /// <summary>
-        /// lblTotalAmountPH_First control.
+        /// lblTotalAmountGH control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotalAmountPH_First;
+        protected global::System.Web.UI.WebControls.Label lblTotalAmountGH;
         
         /// <summary>
-        /// grdAdminList control.
+        /// grdPH control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdAdminList;
+        protected global::System.Web.UI.WebControls.GridView grdPH;
+        
+        /// <summary>
+        /// grdGH control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdGH;
         
         /// <summary>
         /// txtNumberPH_First control.
@@ -155,6 +128,33 @@ namespace BIT.WebUI.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLoadPH_First;
+        
+        /// <summary>
+        /// lblTotalAmountPH_First control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalAmountPH_First;
+        
+        /// <summary>
+        /// grdPH_First control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdPH_First;
+        
+        /// <summary>
+        /// grdAdminList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdAdminList;
         
         /// <summary>
         /// btnTranferToPHList control.

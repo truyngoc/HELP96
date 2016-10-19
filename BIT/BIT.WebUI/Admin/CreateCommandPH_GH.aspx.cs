@@ -213,7 +213,7 @@ namespace BIT.WebUI.Admin
                 {
                     if (this.ListPH == null)
                     {
-                        var numberPH = txtNumberPH.Text == string.Empty ? 0 : Convert.ToInt32(txtNumberPH.Text);
+                        int? numberPH = (txtNumberPH.Text == string.Empty ? null : (int?)Convert.ToInt32(txtNumberPH.Text));
                         this.ListPH = ctlPH.SelectItemsByNumber(numberPH);
                     }
                 }
@@ -223,7 +223,7 @@ namespace BIT.WebUI.Admin
                 }
             }
 
-            lblTotalAmountPH.Text = ListPH.Sum(m => m.Amount).Value.ToString();
+            lblTotalAmountPH.Text = ListPH.Sum(m => m.Amount).Value.ToString("0.#####");
 
             grdPH.DataSource = ListPH;
             grdPH.DataBind();
@@ -239,7 +239,8 @@ namespace BIT.WebUI.Admin
                 {
                     if (this.ListPH_First == null)
                     {
-                        var numberPH = txtNumberPH_First.Text == string.Empty ? 0 : Convert.ToInt32(txtNumberPH_First.Text);
+                        //var numberPH = txtNumberPH_First.Text == string.Empty ? 0 : Convert.ToInt32(txtNumberPH_First.Text);
+                        int? numberPH = (txtNumberPH_First.Text == string.Empty ? null : (int?)Convert.ToInt32(txtNumberPH_First.Text));
                         this.ListPH_First = ctlPH.SelectItemsByNumber_PH_First(numberPH);
                     }
                 }
@@ -249,7 +250,7 @@ namespace BIT.WebUI.Admin
                 }
             }
 
-            lblTotalAmountPH_First.Text = ListPH_First.Sum(m => m.Amount).Value.ToString();
+            lblTotalAmountPH_First.Text = ListPH_First.Sum(m => m.Amount).Value.ToString("0.#####");
 
             grdPH_First.DataSource = ListPH_First;
             grdPH_First.DataBind();
@@ -264,7 +265,8 @@ namespace BIT.WebUI.Admin
                 string strUserName = ReplaceUserName_GH();
                 if (string.IsNullOrEmpty(strUserName))
                 {
-                    var numberGH = txtNumberGH.Text == string.Empty ? 0 : Convert.ToInt32(txtNumberGH.Text);
+                    //var numberGH = txtNumberGH.Text == string.Empty ? 0 : Convert.ToInt32(txtNumberGH.Text);
+                    int? numberGH = (txtNumberGH.Text == string.Empty ? null : (int?)Convert.ToInt32(txtNumberGH.Text));
 
                     this.ListGH = ctlGH.SelectItemsByNumber(numberGH);
                 }
@@ -273,7 +275,7 @@ namespace BIT.WebUI.Admin
                     this.ListGH = ctlGH.SelectItemsByNameList(strUserName);
                 }
             }
-            lblTotalAmountGH.Text = ListGH.Sum(m => m.Amount).Value.ToString();
+            lblTotalAmountGH.Text = ListGH.Sum(m => m.Amount).Value.ToString("0.#####");
 
             grdGH.DataSource = ListGH;
             grdGH.DataBind();
@@ -919,5 +921,9 @@ namespace BIT.WebUI.Admin
 
         #endregion
 
+        public string formatAmount(decimal amount)
+        {
+            return amount.ToString("0.#####");
+        }
     }
 }

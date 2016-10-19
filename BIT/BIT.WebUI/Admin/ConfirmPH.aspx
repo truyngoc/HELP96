@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="form-group col-lg-12">
-                        <label class="control-label col-lg-3">Transaction</label>
+                        <label class="control-label col-lg-3">Transaction URL</label>
                         <div class="col-lg-6">
                             <asp:TextBox runat="server" ID="txtTransaction" CssClass="form-control" placeholder="Input transaction PIN to confirm PH"></asp:TextBox>
                             <asp:RequiredFieldValidator ErrorMessage="Enter Transaction ID" ControlToValidate="txtTransaction" runat="server" ForeColor="#cc0066" Text="Enter Transaction ID" Display="Dynamic" />

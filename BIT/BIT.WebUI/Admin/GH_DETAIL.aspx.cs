@@ -79,6 +79,16 @@ namespace BIT.WebUI.Admin
             return briefInfo;
         }
 
+        public string AccountSponsorBriefInfoByCodeId(string CodeId)
+        {
+            var user = LIST_MEMBERS.Where(m => m.CodeId == CodeId).SingleOrDefault();
+
+            var sponsor = LIST_MEMBERS.Where(o => o.CodeId == user.CodeId_Sponsor).SingleOrDefault();
+            string briefInfo = sponsor.Username + "/" + sponsor.Fullname + "/" + sponsor.Phone;
+
+            return briefInfo;
+        }
+
         public string StatusToString(int status)
         {
             switch (status)

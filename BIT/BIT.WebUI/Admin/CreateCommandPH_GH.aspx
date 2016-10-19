@@ -9,10 +9,55 @@
             <h3>Create command PH - GH</h3>
         </header>
         <div class="panel-body">
-
             <div class="row">
                 <div class="col-md-6">
                     <h4>PH list</h4>
+                    <div class="col-md-2">
+                        <asp:TextBox ID="txtNumberPH" runat="server" placeholder="Number PH" CssClass="form-control col-md-1"></asp:TextBox>
+                    </div>
+                    <div class="col-md-6">
+                        <asp:TextBox ID="txtUserPH" runat="server" placeholder="UserName1,UserName2..." CssClass="form-control col-md-1" Text=""></asp:TextBox>
+                    </div>
+                    <div class="col-md-2">
+                        <asp:Button ID="btnLoadPHbyNumber" runat="server" Text="LOAD PH" CssClass="btn btn-primary" OnClick="btnLoadPHbyNumber_Click" />
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h4>GH list</h4>
+                    <div class="col-md-2">
+                        <asp:TextBox ID="txtNumberGH" runat="server" placeholder="Number GH" CssClass="form-control col-md-1" Text="100"></asp:TextBox>
+                    </div>
+                    <div class="col-md-3">
+                        <asp:TextBox ID="txtUserName" runat="server" placeholder="UserName" CssClass="form-control col-md-1" Text=""></asp:TextBox>
+                    </div>
+                    <div class="col-md-2">
+                        <asp:Button ID="btnLoadGHbyNumber" runat="server" Text="LOAD GH" CssClass="btn btn-primary" OnClick="btnLoadGHbyNumber_Click" />
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-right">
+                        <b>Total amount PH:  </b>
+                        <asp:Label ID="lblTotalAmountPH" runat="server" CssClass="control-label" Text="5" ForeColor="Blue"></asp:Label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="text-right">
+                        <b>Total amount GH:  </b>
+                        <asp:Label ID="lblTotalAmountGH" runat="server" CssClass="control-label" Text="5" ForeColor="Blue"></asp:Label>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <%--<h4>PH list</h4>--%>
                     <!--ss Gridview PH-->
                     <section class="panel">
                         <div class="table-responsive">
@@ -39,7 +84,7 @@
 
                                     <asp:TemplateField HeaderText="Amount" ItemStyle-HorizontalAlign="Left">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("Amount") %>' />
+                                            <asp:Label ID="lblAmount" runat="server" Text='<%# formatAmount((decimal)Eval("Amount") )%>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
@@ -48,14 +93,11 @@
                     </section>
                     <!--end of ss Gridview PH-->
 
-                    <div class="text-right">
-                        <b>Total amount PH:  </b>
-                        <asp:Label ID="lblTotalAmountPH" runat="server" CssClass="control-label" Text="5" ForeColor="Blue"></asp:Label>
-                    </div>
+
                 </div>
 
                 <div class="col-md-6">
-                    <h4>GH list</h4>
+                    <%--<h4>GH list</h4>--%>
                     <!--ss Gridview GH-->
                     <section class="panel">
                         <div class="table-responsive">
@@ -82,7 +124,7 @@
 
                                     <asp:TemplateField HeaderText="Amount" ItemStyle-HorizontalAlign="Left">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("Amount") %>' />
+                                            <asp:Label ID="lblAmount" runat="server" Text='<%# formatAmount((decimal) Eval("Amount")) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
@@ -91,46 +133,48 @@
                     </section>
                     <!--end of ss Gridview GH-->
 
-                    <div class="text-right">
-                        <b>Total amount GH:  </b>
-                        <asp:Label ID="lblTotalAmountGH" runat="server" CssClass="control-label" Text="5" ForeColor="Blue"></asp:Label>
-                    </div>
+
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="col-md-2">
-                        <asp:TextBox ID="txtNumberPH" runat="server" placeholder="Number PH" CssClass="form-control col-md-1"></asp:TextBox>
-                    </div>
-                    <div class="col-md-6">
-                        <asp:TextBox ID="txtUserPH" runat="server" placeholder="UserName1,UserName2..." CssClass="form-control col-md-1" Text=""></asp:TextBox>
-                    </div>
-                    <div class="col-md-2">
-                        <asp:Button ID="btnLoadPHbyNumber" runat="server" Text="LOAD PH" CssClass="btn btn-primary" OnClick="btnLoadPHbyNumber_Click" />
-                    </div>
-                    <div class="col-md-2">                        
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="col-md-2">
-                        <asp:TextBox ID="txtNumberGH" runat="server" placeholder="Number GH" CssClass="form-control col-md-1" Text="100"></asp:TextBox>
-                    </div>
-                    <div class="col-md-3">
-                        <asp:TextBox ID="txtUserName" runat="server" placeholder="UserName" CssClass="form-control col-md-1" Text=""></asp:TextBox>
-                    </div>
-                    <div class="col-md-2">
-                        <asp:Button ID="btnLoadGHbyNumber" runat="server" Text="LOAD GH" CssClass="btn btn-primary" OnClick="btnLoadGHbyNumber_Click" />
-                    </div>
-                    <div class="col-md-2">                        
-                    </div>
-                </div>
-            </div>
+
 
             <hr />
             <div class="row">
+                
                 <div class="col-md-6">
                     <h4>PH first</h4>
+                    <div class="col-md-2">
+                        <asp:TextBox ID="txtNumberPH_First" runat="server" placeholder="Number PH" CssClass="form-control col-md-1"></asp:TextBox>
+                    </div>
+                    <div class="col-md-6">
+                        <asp:TextBox ID="txtUserNamePH_First" runat="server" placeholder="UserName1,UserName2..." CssClass="form-control col-md-1" Text=""></asp:TextBox>
+                    </div>
+                    <div class="col-md-2">
+                        <asp:Button ID="btnLoadPH_First" runat="server" Text="LOAD PH" CssClass="btn btn-primary" OnClick="btnLoadPH_First_byNumber_Click" />
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text-right">
+                        <b>Total amount PH First:  </b>
+                        <asp:Label ID="lblTotalAmountPH_First" runat="server" CssClass="control-label" Text="5" ForeColor="Blue"></asp:Label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-6">
+                    <%--<h4>PH first</h4>--%>
                     <!--ss Gridview PH-->
                     <section class="panel">
                         <div class="table-responsive">
@@ -157,14 +201,14 @@
 
                                     <asp:TemplateField HeaderText="Amount" ItemStyle-HorizontalAlign="Left">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("Amount") %>' />
+                                            <asp:Label ID="lblAmount" runat="server" Text='<%# formatAmount((decimal)Eval("Amount")) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
                                     <asp:TemplateField HeaderText="" ItemStyle-HorizontalAlign="Left">
                                         <ItemTemplate>
-                                            <asp:CheckBox ID="chkIsSelected" runat="server" />            
-                                            <asp:HiddenField ID="hidCodeId" runat="server" Value='<%# Eval("CodeId") %>' />                                
+                                            <asp:CheckBox ID="chkIsSelected" runat="server" />
+                                            <asp:HiddenField ID="hidCodeId" runat="server" Value='<%# Eval("CodeId") %>' />
                                             <asp:HiddenField ID="hidCreateDate" runat="server" Value='<%# Eval("CreateDate") %>' />
                                             <asp:HiddenField ID="hidID" runat="server" Value='<%# Eval("ID") %>' />
                                         </ItemTemplate>
@@ -174,11 +218,7 @@
                         </div>
                     </section>
                     <!--end of ss Gridview PH-->
-
-                    <div class="text-right">
-                        <b>Total amount PH First:  </b>
-                        <asp:Label ID="lblTotalAmountPH_First" runat="server" CssClass="control-label" Text="5" ForeColor="Blue"></asp:Label>
-                    </div>
+                    
                 </div>
                 <div class="col-md-6">
                     <h4>Admin account list</h4>
@@ -207,40 +247,21 @@
                                     </asp:TemplateField>
 
                                     <asp:TemplateField HeaderText="Amount" ItemStyle-HorizontalAlign="Left">
-                                        <ItemTemplate>                                            
+                                        <ItemTemplate>
                                             <asp:TextBox ID="txtAmount" runat="server" CssClass="form-control" placeholder="Amount of GH">240</asp:TextBox>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="" ItemStyle-HorizontalAlign="Left">
                                         <ItemTemplate>
-                                            <asp:CheckBox ID="chkIsSelected" runat="server" />                                            
+                                            <asp:CheckBox ID="chkIsSelected" runat="server" />
                                             <asp:HiddenField ID="hidCodeId" runat="server" Value='<%# Eval("CodeId") %>' />
                                         </ItemTemplate>
-                                    </asp:TemplateField>                                    
+                                    </asp:TemplateField>
                                 </Columns>
                             </asp:GridView>
                         </div>
                     </section>
                     <!--end of ss Gridview admin GH-->
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="col-md-2">
-                        <asp:TextBox ID="txtNumberPH_First" runat="server" placeholder="Number PH" CssClass="form-control col-md-1"></asp:TextBox>
-                    </div>
-                    <div class="col-md-6">
-                        <asp:TextBox ID="txtUserNamePH_First" runat="server" placeholder="UserName1,UserName2..." CssClass="form-control col-md-1" Text=""></asp:TextBox>
-                    </div>
-                    <div class="col-md-2">
-                        <asp:Button ID="btnLoadPH_First" runat="server" Text="LOAD PH" CssClass="btn btn-primary" OnClick="btnLoadPH_First_byNumber_Click" />
-                    </div>
-                    <div class="col-md-2">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    
                 </div>
             </div>
 
@@ -250,11 +271,13 @@
                 <div class="col-md-6">
                     <asp:Button ID="btnTranferToPHList" runat="server" Text="UP TO PH LIST" CssClass="btn btn-primary" OnClick="btnTranferToPHList_Click" />
                     &nbsp;&nbsp;
+                   
                     <asp:Button ID="btnResetAllPHList" runat="server" Text="RESET PH LIST" CssClass="btn btn-primary" OnClick="btnResetAllPHList_Click" />
                 </div>
                 <div class="col-md-6">
                     <asp:Button ID="btnTranferToGHList" runat="server" Text="UP TO GH LIST" CssClass="btn btn-primary" OnClick="btnTranferToGHList_Click" />
                     &nbsp;&nbsp;
+                   
                     <asp:Button ID="btnResetAllList" runat="server" Text="RESET GH LIST" CssClass="btn btn-primary" OnClick="btnResetAllList_Click" />
                 </div>
             </div>
@@ -263,6 +286,7 @@
             <div>
                 <asp:Button ID="btnCreateCommand" runat="server" Text="CREATE COMMAND" CssClass="btn btn-primary" OnClick="btnCreateCommand_Click" OnClientClick="javascript:return confirm('Are you absolutely sure you want to create command?')" />
                 &nbsp;&nbsp;
+               
                 <asp:Button ID="btnSaveCommand" runat="server" Text="SAVE COMMAND" CssClass="btn btn-primary" OnClick="btnSaveCommand_Click" OnClientClick="javascript:return confirm('Are you absolutely sure you want to save command?')" />
             </div>
 
@@ -301,7 +325,7 @@
 
                                     <asp:TemplateField HeaderText="Amount" ItemStyle-HorizontalAlign="Left">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("Amount") %>' />
+                                            <asp:Label ID="lblAmount" runat="server" Text='<%# formatAmount((decimal)Eval("Amount")) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
 

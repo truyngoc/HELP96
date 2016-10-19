@@ -127,7 +127,7 @@ namespace BIT.WebUI.Admin
                 else
                 {
                     btnConfirmPH.Enabled = false;
-                    TNotify.Alerts.Warning("You not enough PIN for confirm PH (at least 1 PIN)", true);
+                    TNotify.Alerts.Warning("You not enough PIN for confirm PH (at least 2 PIN)", true);
                 }
             }
 

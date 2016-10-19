@@ -68,7 +68,7 @@ namespace BIT.Controller
             return ctl.SelectItemsByCodeId(CodeId).ToList();
         }
 
-        public List<PH_Info> SelectItemsByNumber(int numberPH)
+        public List<PH_Info> SelectItemsByNumber(int? numberPH)
         {
             return ctl.SelectItemsByNumber(numberPH).ToList();
         }
@@ -78,7 +78,7 @@ namespace BIT.Controller
             return ctl.SelectItemsByUserNameList(strUserName).ToList();
         }
 
-        public List<PH_Info> SelectItemsByNumber_PH_First(int numberPH)
+        public List<PH_Info> SelectItemsByNumber_PH_First(int? numberPH)
         {
             return ctl.SelectItemsByNumber_PH_First(numberPH).ToList();
         }

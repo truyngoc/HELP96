@@ -57,7 +57,7 @@ namespace BIT.Controller
 		}
 
 
-        public List<GH_Info> SelectItemsByNumber(int numberGH)
+        public List<GH_Info> SelectItemsByNumber(int? numberGH)
         {
             return ctl.SelectItemsByNumber(numberGH).ToList();
         }
