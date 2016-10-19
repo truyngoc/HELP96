@@ -63,9 +63,21 @@ namespace BIT.WebUI.Admin
                 COMMAND_DETAIL cmdDetail = ctlCmdDetail.SelectItem(CMD_DETAIL_ID);
                 MEMBERS member = ctlMem.SelectItem(cmdDetail.CodeId_To);
 
-                imgGHWallet.ImageUrl = string.Format("http://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={0}", member.Wallet.Trim()).Trim();
-                lblGHWallet.Text = "Address: " + member.Wallet;
-                txtTotalAmount.Text = cmdDetail.Amount.ToString();
+                
+
+                if (!string.IsNullOrEmpty(member.Wallet))
+                {
+                    imgGHWallet.ImageUrl = string.Format("http://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={0}", member.Wallet.Trim()).Trim();
+                    lblGHWallet.Text = "Address: " + member.Wallet;
+                }
+                else
+                {
+                    lblGHWallet.Text = string.Empty;
+                    btnConfirmPH.Enabled = false;
+                    TNotify.Alerts.Warning("GH account have to update wallet address on profile information", true);
+                }
+
+                txtTotalAmount.Text = ((decimal)cmdDetail.Amount).ToString("0.#####");
             }
         }
 
@@ -80,7 +92,7 @@ namespace BIT.WebUI.Admin
 
                 // check so luong PIn it nhat 1 moi dc confirm
                 var oWallet = Singleton<WALLET_BC>.Inst.SelectItemByCodeId(codeId);
-                if (oWallet.PIN_Wallet >= 1)
+                if (oWallet.PIN_Wallet > 1)
                 {
                     string passPIN = txtPasswordPIN.Text;
                     if (ctlMember.CheckPasswordPIN(codeId, passPIN))

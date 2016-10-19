@@ -55,8 +55,9 @@ namespace BIT.WebUI.Admin
 
                 imgGHWallet.ImageUrl = string.Format("http://chart.googleapis.com/chart?chs=200x200&cht=qr&chl={0}", member.Wallet.Trim()).Trim();
                 lblGHWallet.Text = "Address: " + member.Wallet;
-                txtTotalAmount.Text = cmdDetail.Amount.ToString();
-                linkTransaction.NavigateUrl = "https://blockchain.info/tx/" + cmdDetail.TransactionId.Trim();
+                txtTotalAmount.Text = ((decimal)cmdDetail.Amount).ToString("0.#####");
+                //linkTransaction.NavigateUrl = "https://blockchain.info/tx/" + cmdDetail.TransactionId.Trim();
+                linkTransaction.NavigateUrl = cmdDetail.TransactionId.Trim();
                 linkTransaction.Text = cmdDetail.TransactionId;
             }
         }

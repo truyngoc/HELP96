@@ -170,6 +170,11 @@ namespace BIT.WebUI.Admin
             }
         }
 
+        public string formatAmount(decimal amount)
+        {
+            return amount.ToString("0.#####");
+        }
+
         //protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         //{
         //    grdPH.PageIndex = e.NewPageIndex;

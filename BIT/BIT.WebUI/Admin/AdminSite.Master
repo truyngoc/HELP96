@@ -1,6 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminSite.master.cs" Inherits="BIT.WebUI.Admin.AdminSite" %>
-<%--<%@ Register Src="_Alerts.ascx" TagName="alert" TagPrefix="t" %>
-<%@ Register Src="_Notify.ascx" TagName="notify" TagPrefix="t" %>--%>
+
+<%@ Register Src="_Alerts.ascx" TagName="alert" TagPrefix="t" %>
+<%@ Register Src="_Notify.ascx" TagName="notify" TagPrefix="t" %>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -26,8 +27,8 @@
     <!-- Custom styles for this template -->
     <link href="../Content/AdminStyle.css" rel="stylesheet" />
     <link href="../Content/style-responsive.css" rel="stylesheet" />
-    
 
+    <link rel="stylesheet" href="../Content/toastr.min.css" type="text/css" />
 
     <!-- Start Alexa Certify Javascript -->
     <script type="text/javascript">
@@ -279,6 +280,8 @@
                 <section id="main-content">
                     <section class="wrapper" style="margin-top: 120px;">
                         <div>
+                            <t:alert ID="talerts" runat="server" />
+                            <t:notify ID="tnotifys" runat="server" />
                             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                             </asp:ContentPlaceHolder>
                         </div>

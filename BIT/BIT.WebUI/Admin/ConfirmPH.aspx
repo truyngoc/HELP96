@@ -18,7 +18,7 @@
                                     <asp:Image ID="imgGHWallet" Width="200" Height="200" runat="server" />
                                 </span>
                                 <br />
-                                <asp:Label runat="server" ID="lblGHWallet" Text="Address: 3MNyn34uN1cCBmwvcswfTaeiFAkdqtaMA2"></asp:Label>
+                                <asp:Label runat="server" ID="lblGHWallet"></asp:Label>
                             </div>
                     </div>
                     

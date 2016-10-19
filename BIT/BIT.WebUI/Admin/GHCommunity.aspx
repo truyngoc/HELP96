@@ -73,7 +73,7 @@
                                     <asp:Label ID="lblCreateDate" runat="server" Text='<%# Eval("CreateDate" , "{0:dd/MM/yyyy HH:mm}") %>' />
                                 </td>
                                 <td>
-                                    <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("Amount").ToString().Substring(0,5) %>' />
+                                    <asp:Label ID="lblAmount" runat="server" Text='<%# formatAmount((decimal)Eval("Amount")) %>' />
                                 </td>
                                 <td>
                                     <asp:Label ID="lblStatus" runat="server" Text='<%# StatusToString((int)Eval("Status")) %>' CssClass='<%# CssStatus((int)Eval("Status")) %>' />

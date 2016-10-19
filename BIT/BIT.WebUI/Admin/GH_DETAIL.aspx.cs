@@ -118,7 +118,8 @@ namespace BIT.WebUI.Admin
             string transLink = string.Empty;
             if (transactionId != null && !string.IsNullOrEmpty(transactionId.ToString()))
             {
-                transLink = "https://blockchain.info/tx/" + transactionId;
+                //transLink = "https://blockchain.info/tx/" + transactionId;
+                transLink = transactionId.ToString();
             }
 
             return transLink;
@@ -190,6 +191,11 @@ namespace BIT.WebUI.Admin
                 return string.Empty;
             }
            
+        }
+
+        public string formatAmount(decimal amount)
+        {
+            return amount.ToString("0.#####");
         }
         #endregion
 

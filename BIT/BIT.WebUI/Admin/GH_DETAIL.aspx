@@ -102,7 +102,7 @@
 
                                 <asp:TemplateField HeaderText="Amount" ItemStyle-HorizontalAlign="Left">
                                     <ItemTemplate>
-                                        <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("Amount") %>' />
+                                        <asp:Label ID="lblAmount" runat="server" Text='<%# formatAmount((decimal)Eval("Amount")) %>' />
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
