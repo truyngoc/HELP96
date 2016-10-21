@@ -479,7 +479,7 @@ namespace BIT.WebUI.Admin
 
         protected void grdGH_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            grdPH.PageIndex = e.NewPageIndex;
+            grdGH.PageIndex = e.NewPageIndex;
             LoadListGH();
         }
 
@@ -700,7 +700,7 @@ namespace BIT.WebUI.Admin
                                 if (g.CurrentAmount == 0)
                                 {
                                     // duyet lan dau
-                                    if (p.CurrentAmount - g.Amount <= 0)
+                                    if (p.CurrentAmount - g.Amount < 0)
                                     {
                                         // TH: PH thieu cho GH                                                                      
                                         // ----------------- //
@@ -746,6 +746,36 @@ namespace BIT.WebUI.Admin
 
                                         break;
 
+                                    }
+                                    else if (p.CurrentAmount - g.Amount == 0)   // PH du cho GH 1 lan
+                                    {
+                                        // ----------------- //
+                                        cmd_detail = new COMMAND_DETAIL
+                                        {
+                                            CodeId_From = p.CodeId
+                                            ,
+                                            CodeId_To = g.CodeId
+                                            ,
+                                            DateCreate = _datecreate
+                                            ,
+                                            Amount = p.CurrentAmount
+                                            ,
+                                            Status = (int)Constants.COMMAND_STATUS.Pending
+                                            ,
+                                            PH_ID = p.ID
+                                            ,
+                                            GH_ID = g.ID
+                                            ,
+                                            ConfirmGH = false
+                                            ,
+                                            ConfirmPH = false
+                                        };
+                                        // ----------------- //                                    
+                                        _ListCommand.Add(cmd_detail);
+
+                                        g.CurrentAmount = g.Amount;
+                                        p.CurrentAmount = 0;
+                                        break;
                                     }
                                     else
                                     {
@@ -818,6 +848,37 @@ namespace BIT.WebUI.Admin
 
                                         break;
                                     }
+                                    else if (p.CurrentAmount - g.CurrentAmount == 0)
+                                    {
+                                        // ----------------- //
+                                        cmd_detail = new COMMAND_DETAIL
+                                        {
+                                            CodeId_From = p.CodeId
+                                            ,
+                                            CodeId_To = g.CodeId
+                                            ,
+                                            DateCreate = _datecreate
+                                            ,
+                                            Amount = p.CurrentAmount
+                                            ,
+                                            Status = (int)Constants.COMMAND_STATUS.Pending
+                                            ,
+                                            PH_ID = p.ID
+                                            ,
+                                            GH_ID = g.ID
+                                            ,
+                                            ConfirmGH = false
+                                            ,
+                                            ConfirmPH = false
+                                        };
+                                        // ----------------- //
+                                        _ListCommand.Add(cmd_detail);
+
+                                        p.CurrentAmount = 0;
+                                        g.CurrentAmount = g.Amount;
+
+                                        break;
+                                    }
                                     else
                                     {
                                         // du roi
@@ -876,40 +937,71 @@ namespace BIT.WebUI.Admin
             var userFrom = ctlMem.SelectItem(command.CodeId_From);
             var userTo = ctlMem.SelectItem(command.CodeId_To);
 
-            string sSubject = "BITQUICK24 PH-GH";
+            string sSubject = "HELP96.GLOBAL PH-GH";
 
             // PH
             StringBuilder strBuilder = new StringBuilder();
+
+            //strBuilder.Append("<html>");
+            //strBuilder.Append("<head></head>");
+            //strBuilder.Append("<body>");
+            //strBuilder.Append("<table>");
+            //strBuilder.AppendLine("<tr><td><b>Hello  " + userFrom.Username + "</b><br/></td></tr>");
+            //strBuilder.AppendLine("<tr><td><b>You have PH with: " + userTo.Username + "/" + userTo.Phone + "</b><br/></td></tr>");
+            //strBuilder.AppendLine("<tr><td><b>Amount: " + command.Amount.ToString() + " USD </b><br/></td></tr>");
+            //strBuilder.AppendLine("<b><a href='http://help96.org'>http://help96.org </a></b><br/>");
+            //strBuilder.AppendLine("<tr><td><b>Please contact to your upline or  HELP96's support to support you everything. </b><br/></td></tr>");
+            //strBuilder.AppendLine("<tr><td><b><br/><br/><br/>Thanks & Best regards</b><br/></td></tr>");
+            //strBuilder.AppendLine("<tr><td><b><br/>HELP96.GLOBAL</b><br/></td></tr>");
+            //strBuilder.Append("</table>");
+            //strBuilder.Append("</body>");
+            //strBuilder.Append("</html>");
 
             strBuilder.Append("<html>");
             strBuilder.Append("<head></head>");
             strBuilder.Append("<body>");
             strBuilder.Append("<table>");
-            strBuilder.AppendLine("<tr><td><b>Hello  " + userFrom.Username + "</b><br/></td></tr>");
-            strBuilder.AppendLine("<tr><td><b>You have PH with: " + userTo.Username + "/" + userTo.Phone + "</b><br/></td></tr>");
-            strBuilder.AppendLine("<tr><td><b>Amount: " + command.Amount.ToString() + " USD </b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b>Xin chào  " + userFrom.Username + "</b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b>Bạn có lệnh PH tới tài khoản: " + userTo.Username + "/" + userTo.Phone + "</b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b>Tổng số tiền: " + command.Amount.ToString() + " USD </b><br/></td></tr>");
             strBuilder.AppendLine("<b><a href='http://help96.org'>http://help96.org </a></b><br/>");
-            strBuilder.AppendLine("<tr><td><b>Please contact to your upline or  HELP96's support to support you everything. </b><br/></td></tr>");
+            strBuilder.AppendLine("<tr><td><b>Liên hệ với tài khoản cấp trên hoặc bộ phận hỗ trợ của HELP96 để được giải đáp mọi thắc mắc. </b><br/></td></tr>");
             strBuilder.AppendLine("<tr><td><b><br/><br/><br/>Thanks & Best regards</b><br/></td></tr>");
             strBuilder.AppendLine("<tr><td><b><br/>HELP96.GLOBAL</b><br/></td></tr>");
             strBuilder.Append("</table>");
             strBuilder.Append("</body>");
             strBuilder.Append("</html>");
 
+
             Mail.Send(userFrom.Email, sSubject, strBuilder.ToString());
 
             // GH
             StringBuilder strGH = new StringBuilder();
 
+            //strGH.Append("<html>");
+            //strGH.Append("<head></head>");
+            //strGH.Append("<body>");
+            //strGH.Append("<table>");
+            //strGH.AppendLine("<tr><td><b>Hello  " + userTo.Username + "</b><br/></td></tr>");
+            //strGH.AppendLine("<tr><td><b>you will get GH from account: " + userFrom.Username + "/" + userFrom.Phone + "</b><br/></td></tr>");
+            //strGH.AppendLine("<tr><td><b>Amount: " + command.Amount.ToString() + " USD </b><br/></td></tr>");
+            //strGH.AppendLine("<b><a href='http://help96.org'>http://help96.org </a></b><br/>");
+            //strGH.AppendLine("<tr><td><b>Please contact to your upline or  HELP96's support to support you everything. </b><br/></td></tr>");
+            //strGH.AppendLine("<tr><td><b><br/><br/><br/>Thanks & Best regards</b><br/></td></tr>");
+            //strGH.AppendLine("<tr><td><b><br/>HELP96.GLOBAL</b><br/></td></tr>");
+            //strGH.Append("</table>");
+            //strGH.Append("</body>");
+            //strGH.Append("</html>");
+
             strGH.Append("<html>");
             strGH.Append("<head></head>");
             strGH.Append("<body>");
             strGH.Append("<table>");
-            strGH.AppendLine("<tr><td><b>Hello  " + userTo.Username + "</b><br/></td></tr>");
-            strGH.AppendLine("<tr><td><b>you will get GH from account: " + userFrom.Username + "/" + userFrom.Phone + "</b><br/></td></tr>");
-            strGH.AppendLine("<tr><td><b>Amount: " + command.Amount.ToString() + " USD </b><br/></td></tr>");
+            strGH.AppendLine("<tr><td><b>Xin chào  " + userTo.Username + "</b><br/></td></tr>");
+            strGH.AppendLine("<tr><td><b>Bạn sẽ nhận GH từ tài khoản: " + userFrom.Username + "/" + userFrom.Phone + "</b><br/></td></tr>");
+            strGH.AppendLine("<tr><td><b>Tổng số tiền: " + command.Amount.ToString() + " USD </b><br/></td></tr>");
             strGH.AppendLine("<b><a href='http://help96.org'>http://help96.org </a></b><br/>");
-            strGH.AppendLine("<tr><td><b>Please contact to your upline or  HELP96's support to support you everything. </b><br/></td></tr>");
+            strGH.AppendLine("<tr><td><b>Liên hệ với tài khoản cấp trên hoặc bộ phận hỗ trợ của HELP96 để được giải đáp mọi thắc mắc. </b><br/></td></tr>");
             strGH.AppendLine("<tr><td><b><br/><br/><br/>Thanks & Best regards</b><br/></td></tr>");
             strGH.AppendLine("<tr><td><b><br/>HELP96.GLOBAL</b><br/></td></tr>");
             strGH.Append("</table>");
