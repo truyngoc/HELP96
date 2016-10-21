@@ -29,7 +29,7 @@
 
                 </div>
                 <section class="panel">                   
-                    <div class="table-responsive">
+                    <%--<div class="table-responsive">--%>
                         <asp:GridView ID="grdCommandDetails" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="50"
                             OnPageIndexChanging="grdCommandDetails_OnPageIndexChanging" CssClass="table table-hover p-table" UseAccessibleHeader="true" GridLines="None"
                             OnRowCommand="grdCommandDetails_OnRowCommand">
@@ -90,7 +90,7 @@
 
                             </Columns>
                         </asp:GridView>
-                    </div>
+                    <%--</div>--%>
                 </section>
             </div>
         </section>
