@@ -146,7 +146,7 @@ namespace BIT.WebUI.Admin
 
         public bool visibleConfirmButton(object confirmGH, object confirmPH, object status)
         {
-            if ((confirmGH != null && confirmPH != null && (!Convert.ToBoolean(confirmPH) || Convert.ToBoolean(confirmGH))) 
+            if ((confirmGH != null && confirmPH != null && (!Convert.ToBoolean(confirmPH) || Convert.ToBoolean(confirmGH)))
                 || (Convert.ToInt32(status) == (int)Constants.COMMAND_STATUS.Expired))
             {
                 return false;
@@ -156,22 +156,22 @@ namespace BIT.WebUI.Admin
 
         public string showTimeRemaining(DateTime timeremain, int status)
         {
-                if (status == (int)Constants.COMMAND_STATUS.PH_Success)
-                {
-                    var currentDate = DateTime.Now;
-                    var expiredDate = timeremain.AddHours(48);
+            //if (status == (int)Constants.COMMAND_STATUS.PH_Success)
+            //{
+            var currentDate = DateTime.Now;
+            var expiredDate = timeremain.AddHours(48);
 
-                    if (currentDate > expiredDate)
-                        return "Expired";
-                    else
-                    {
-                        var remainDate = expiredDate - currentDate;
-                        var hours = (remainDate.Days * 24) + remainDate.Hours;
-                        string ret = hours.ToString("00") + ":" + remainDate.Minutes.ToString("00") + ":" + remainDate.Seconds.ToString("00");
-                        return ret;
-                    }
-                }
-                return string.Empty;
+            if (currentDate > expiredDate)
+                return "Expired";
+            else
+            {
+                var remainDate = expiredDate - currentDate;
+                var hours = (remainDate.Days * 24) + remainDate.Hours;
+                string ret = hours.ToString("00") + ":" + remainDate.Minutes.ToString("00") + ":" + remainDate.Seconds.ToString("00");
+                return ret;
+            }
+            //}
+            //return string.Empty;
         }
 
         public string showTimeRemaining_TUNG(String StrTimeremain, int status)
@@ -200,7 +200,7 @@ namespace BIT.WebUI.Admin
 
                 return string.Empty;
             }
-           
+
         }
 
         public string formatAmount(decimal amount)
