@@ -786,7 +786,7 @@ namespace BIT.WebUI.Admin
                                 else
                                 {
                                     // duyet tiep neu chua gh du?
-                                    if (p.CurrentAmount - g.CurrentAmount <= 0)
+                                    if (p.CurrentAmount - g.CurrentAmount < 0)
                                     {
                                         // van chua du
                                         // ----------------- //
