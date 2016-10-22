@@ -28,7 +28,7 @@
 
 
                     <div class="table-responsive">
-                        <asp:GridView ID="grdCommandDetails" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="100"
+                        <asp:GridView ID="grdCommandDetails" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="100000"
                             OnPageIndexChanging="grdCommandDetails_OnPageIndexChanging" CssClass="table table-hover p-table" UseAccessibleHeader="true" GridLines="None">
                             <Columns>
                                 <asp:TemplateField HeaderText="No." ItemStyle-HorizontalAlign="Center">
@@ -57,7 +57,13 @@
 
                                 <asp:TemplateField HeaderText="Amount" ItemStyle-HorizontalAlign="Left">
                                     <ItemTemplate>
-                                        <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("Amount").ToString().Substring(0,5) %>' />
+                                        <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("Amount").ToString().Substring(0,3) %>' />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+
+                                <asp:TemplateField HeaderText="Waitting" ItemStyle-HorizontalAlign="Left">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblWaitting" runat="server" Text='<%# showTimeRemaining((DateTime)Eval("DateCreate"), (int)Eval("Status")) %>' />
                                     </ItemTemplate>
                                 </asp:TemplateField>
 

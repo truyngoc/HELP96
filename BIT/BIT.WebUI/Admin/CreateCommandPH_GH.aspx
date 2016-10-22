@@ -27,7 +27,7 @@
                 <div class="col-md-6">
                     <h4>GH list</h4>
                     <div class="col-md-2">
-                        <asp:TextBox ID="txtNumberGH" runat="server" placeholder="Number GH" CssClass="form-control col-md-1" Text="100"></asp:TextBox>
+                        <asp:TextBox ID="txtNumberGH" runat="server" placeholder="Number GH" CssClass="form-control col-md-1" Text="500"></asp:TextBox>
                     </div>
                     <div class="col-md-3">
                         <asp:TextBox ID="txtUserName" runat="server" placeholder="UserName" CssClass="form-control col-md-1" Text=""></asp:TextBox>

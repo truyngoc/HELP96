@@ -98,7 +98,7 @@ namespace BIT.WebUI.Admin
                 else
                 {
                     // thong bao password pin ko dung
-                    TNotify.Alerts.Warning("Password PIN is not valid", true);
+                    TNotify.Alerts.Danger("Password PIN is not valid", true);
                 }
                 //}
                 //else

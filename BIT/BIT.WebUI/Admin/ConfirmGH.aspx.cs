@@ -57,7 +57,14 @@ namespace BIT.WebUI.Admin
                 lblGHWallet.Text = "Address: " + member.Wallet;
                 txtTotalAmount.Text = ((decimal)cmdDetail.Amount).ToString("0.#####");
                 //linkTransaction.NavigateUrl = "https://blockchain.info/tx/" + cmdDetail.TransactionId.Trim();
-                linkTransaction.NavigateUrl = cmdDetail.TransactionId.Trim();
+                if (linkTransaction.NavigateUrl.IndexOf("blockchain.info") >= 0)
+                {
+                    linkTransaction.NavigateUrl = cmdDetail.TransactionId.Trim();
+                }
+                else
+                {
+                    linkTransaction.NavigateUrl = "https://blockchain.info/tx/" + cmdDetail.TransactionId.Trim();
+                }
                 linkTransaction.Text = cmdDetail.TransactionId;
             }
         }

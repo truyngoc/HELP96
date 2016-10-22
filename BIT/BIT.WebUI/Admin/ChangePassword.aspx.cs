@@ -68,6 +68,7 @@ namespace BIT.WebUI.Admin
                 }
                 catch (Exception ex)
                 {
+
                     ShowMessageError(lblMessage, ex.ToString(), true);
                 }
             }

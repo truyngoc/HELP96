@@ -59,19 +59,19 @@ namespace BIT.WebUI.Admin
                 //btnUpdateAdmin.Visible = true;
                 //btnUpdate.Visible = false;
                 //divBlockChain.Visible = false;
-                //txtFullName.Attributes.Remove("readonly");
-                //txtEmail.Attributes.Remove("readonly");
-                //txtPhone.Attributes.Remove("readonly");
-                //txtWallet.Attributes.Remove("readonly");
+                txtFullName.Attributes.Remove("readonly");
+                txtEmail.Attributes.Remove("readonly");
+                txtPhone.Attributes.Remove("readonly");
+                txtWallet.Attributes.Remove("readonly");
             }
             else
             {
                 Id = Singleton<BITCurrentSession>.Inst.SessionMember.ID;
                 //getAdminWallet();
-                //txtFullName.Attributes.Add("readonly", "readonly");
-                //txtEmail.Attributes.Add("readonly", "readonly");
-                //txtPhone.Attributes.Add("readonly", "readonly");
-                //txtWallet.Attributes.Add("readonly", "readonly");
+                txtFullName.Attributes.Add("readonly", "readonly");
+                txtEmail.Attributes.Add("readonly", "readonly");
+                txtPhone.Attributes.Add("readonly", "readonly");
+                txtWallet.Attributes.Add("readonly", "readonly");
             }
 
 
@@ -164,10 +164,15 @@ namespace BIT.WebUI.Admin
                 try
                 {
                     MEMBERS obj = GetDataOnForm();
-                    Singleton<MEMBERS_BC>.Inst.UpdateItem(obj);
-                    Singleton<BITCurrentSession>.Inst.SessionMember = Singleton<MEMBERS_BC>.Inst.SelectItem(obj.CodeId);
-                    //Singleton<MEMBERS_BC>.Inst.InsertEditItem(obj);
-                    TNotify.Alerts.Success("Edit account information success.", true);
+                    if (Singleton<WALLET_BC>.Inst.SelectItemByCodeId(obj.CodeId).PIN_Wallet > 2)
+                    {
+                        Singleton<MEMBERS_BC>.Inst.UpdateItem(obj);
+                        Singleton<BITCurrentSession>.Inst.SessionMember = Singleton<MEMBERS_BC>.Inst.SelectItem(obj.CodeId);
+                        //Singleton<MEMBERS_BC>.Inst.InsertEditItem(obj);
+                        TNotify.Alerts.Success("Edit account information success.", true);
+                    }
+                    else
+                        TNotify.Alerts.Danger("Edit account information will lost 1 PIN, and you have not enough 3 PIN");
                     //Response.Redirect("OrderChangeInfo.aspx");
                 }
                 catch (Exception ex)

@@ -90,9 +90,9 @@ namespace BIT.WebUI.Admin
                 string codeId = Singleton<BITCurrentSession>.Inst.SessionMember.CodeId;
 
 
-                // check so luong PIn it nhat 1 moi dc confirm
+                // TungND:check so luong PIn it nhat 2 moi dc confirm
                 var oWallet = Singleton<WALLET_BC>.Inst.SelectItemByCodeId(codeId);
-                if (oWallet.PIN_Wallet > 1)
+                if (oWallet.PIN_Wallet >= 2)
                 {
                     string passPIN = txtPasswordPIN.Text;
                     if (ctlMember.CheckPasswordPIN(codeId, passPIN))
@@ -121,13 +121,13 @@ namespace BIT.WebUI.Admin
                     else
                     {
                         // thong bao password pin ko dung
-                        TNotify.Alerts.Warning("Password PIN is not valid", true);
+                        TNotify.Alerts.Danger("Password PIN is not valid", true);
                     }
                 }
                 else
                 {
                     btnConfirmPH.Enabled = false;
-                    TNotify.Alerts.Warning("You not enough PIN for confirm PH (at least 2 PIN)", true);
+                    TNotify.Alerts.Danger("You not enough PIN for confirm PH (at least 2 PIN)", true);
                 }
             }
 
