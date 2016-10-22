@@ -33,12 +33,11 @@ namespace BIT.WebUI.Admin
                 ctlMember.ChangePassword(CodeId, newPassword);
 
                 Reset();
-
-                ShowMessageError(lblMessage, "Change password successful", true);
+                TNotify.Alerts.Success("Change password successful", true);
             }
             else
             {
-                ShowMessageError(lblMessage, "Old password is not valid", true);
+                TNotify.Alerts.Danger("Change password successful", true);
             }
         }
         public void ShowMessageError(Label lblMsgErr, string sMsgErr = "", bool bVisible = false)
