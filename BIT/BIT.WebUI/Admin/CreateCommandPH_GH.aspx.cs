@@ -650,7 +650,7 @@ namespace BIT.WebUI.Admin
                     ctlCommand.InsertWithTransaction(COMMAND, LIST_COMMAND_DETAIL, ListAdminGH_FINAL);
 
                     // Gui mail sau khi tao lenh PH - GH thanh cong
-                    SendMailAfterCreateCommand(LIST_COMMAND_DETAIL);
+                    //SendMailAfterCreateCommand(LIST_COMMAND_DETAIL);
 
                     ResetAllSessionList();
 
@@ -690,227 +690,218 @@ namespace BIT.WebUI.Admin
                 // lap den khi PH cho di het (currentAmount = 0)
                 while (p.CurrentAmount != 0 && iGH_remaining > 0)
                 {
-                    foreach (var g in _ListGH)
+                    foreach (var g in _ListGH.Where(g => g.Amount != g.CurrentAmount && g.CodeId != p.CodeId).ToList())
                     {
-                        if (p.Username != g.Username)
-                        {
-                            // chi duyet tren nhung thang GH chua nhan du                       
-                            if (g.Amount != g.CurrentAmount)
+                        //if (p.CodeId == g.CodeId) continue;
+
+                        // chi duyet tren nhung thang GH chua nhan du                       
+                        if (g.Amount != g.CurrentAmount)
+                        {                            
+                            if (g.CurrentAmount == 0)
                             {
-                                if (g.CurrentAmount == 0)
+                                // duyet lan dau
+                                if (p.CurrentAmount - g.Amount < 0)
                                 {
-                                    // duyet lan dau
-                                    if (p.CurrentAmount - g.Amount < 0)
+                                    // TH: PH thieu cho GH                                                                      
+                                    // ----------------- //
+                                    cmd_detail = new COMMAND_DETAIL
                                     {
-                                        // TH: PH thieu cho GH                                                                      
-                                        // ----------------- //
-                                        cmd_detail = new COMMAND_DETAIL
-                                        {
-                                            CodeId_From = p.CodeId
-                                            ,
-                                            CodeId_To = g.CodeId
-                                            ,
-                                            DateCreate = _datecreate
-                                            ,
-                                            Amount = p.CurrentAmount
-                                            ,
-                                            Status = (int)Constants.COMMAND_STATUS.Pending
-                                            ,
-                                            PH_ID = p.ID
-                                            ,
-                                            GH_ID = g.ID
-                                            ,
-                                            ConfirmGH = false
-                                            ,
-                                            ConfirmPH = false
-                                        };
-                                        // ----------------- //                                    
-                                        _ListCommand.Add(cmd_detail);
+                                        CodeId_From = p.CodeId
+                                        ,
+                                        CodeId_To = g.CodeId
+                                        ,
+                                        DateCreate = _datecreate
+                                        ,
+                                        Amount = p.CurrentAmount
+                                        ,
+                                        Status = (int)Constants.COMMAND_STATUS.Pending
+                                        ,
+                                        PH_ID = p.ID
+                                        ,
+                                        GH_ID = g.ID
+                                        ,
+                                        ConfirmGH = false
+                                        ,
+                                        ConfirmPH = false
+                                    };
+                                    // ----------------- //                                    
+                                    _ListCommand.Add(cmd_detail);
 
 
-                                        if (g.CurrentAmount == 0)
-                                        {
-                                            if (g.Amount - p.CurrentAmount != 0)
-                                            {
-                                                g.CurrentAmount = g.Amount - p.CurrentAmount;   // neu PH voi 1 GH moi
-                                            }
-                                            else
-                                            {
-                                                g.CurrentAmount = g.Amount;
-                                            }
-                                        }
-                                        else
-                                            g.CurrentAmount = g.Amount - p.Amount;  // neu PH het luon 1 lan
 
-                                        p.CurrentAmount = 0;
+                                    g.CurrentAmount = g.Amount - p.CurrentAmount;   // neu PH voi 1 GH moi
 
-                                        break;
 
-                                    }
-                                    else if (p.CurrentAmount - g.Amount == 0)   // PH du cho GH 1 lan
+                                    p.CurrentAmount = 0;
+
+                                    break;
+
+                                }
+                                else if (p.CurrentAmount - g.Amount == 0)   // PH du cho GH 1 lan
+                                {
+                                    // ----------------- //
+                                    cmd_detail = new COMMAND_DETAIL
                                     {
-                                        // ----------------- //
-                                        cmd_detail = new COMMAND_DETAIL
-                                        {
-                                            CodeId_From = p.CodeId
-                                            ,
-                                            CodeId_To = g.CodeId
-                                            ,
-                                            DateCreate = _datecreate
-                                            ,
-                                            Amount = p.CurrentAmount
-                                            ,
-                                            Status = (int)Constants.COMMAND_STATUS.Pending
-                                            ,
-                                            PH_ID = p.ID
-                                            ,
-                                            GH_ID = g.ID
-                                            ,
-                                            ConfirmGH = false
-                                            ,
-                                            ConfirmPH = false
-                                        };
-                                        // ----------------- //                                    
-                                        _ListCommand.Add(cmd_detail);
+                                        CodeId_From = p.CodeId
+                                        ,
+                                        CodeId_To = g.CodeId
+                                        ,
+                                        DateCreate = _datecreate
+                                        ,
+                                        Amount = p.CurrentAmount
+                                        ,
+                                        Status = (int)Constants.COMMAND_STATUS.Pending
+                                        ,
+                                        PH_ID = p.ID
+                                        ,
+                                        GH_ID = g.ID
+                                        ,
+                                        ConfirmGH = false
+                                        ,
+                                        ConfirmPH = false
+                                    };
+                                    // ----------------- //                                    
+                                    _ListCommand.Add(cmd_detail);
 
-                                        g.CurrentAmount = g.Amount;
-                                        p.CurrentAmount = 0;
-                                        break;
-                                    }
-                                    else
-                                    {
-                                        // TH: PH thua cho GH
-                                        // ----------------- //
-                                        cmd_detail = new COMMAND_DETAIL
-                                        {
-                                            CodeId_From = p.CodeId
-                                            ,
-                                            CodeId_To = g.CodeId
-                                            ,
-                                            DateCreate = _datecreate
-                                            ,
-                                            Amount = g.Amount
-                                            ,
-                                            Status = (int)Constants.COMMAND_STATUS.Pending
-                                            ,
-                                            PH_ID = p.ID
-                                            ,
-                                            GH_ID = g.ID
-                                            ,
-                                            ConfirmGH = false
-                                            ,
-                                            ConfirmPH = false
-                                        };
-                                        // ----------------- //                                    
-                                        _ListCommand.Add(cmd_detail);
-
-
-                                        g.CurrentAmount = g.Amount;
-
-                                        if (p.CurrentAmount != p.Amount)
-                                            p.CurrentAmount = p.CurrentAmount - g.Amount;   // neu da PH roi thi lay current - g.amount
-                                        else
-                                            p.CurrentAmount = p.Amount - g.Amount;  // neu chua PH
-                                    }
+                                    g.CurrentAmount = g.Amount;
+                                    p.CurrentAmount = 0;
+                                    break;
                                 }
                                 else
                                 {
-                                    // duyet tiep neu chua gh du?
-                                    if (p.CurrentAmount - g.CurrentAmount < 0)
+                                    // TH: PH thua cho GH
+                                    // ----------------- //
+                                    cmd_detail = new COMMAND_DETAIL
                                     {
-                                        // van chua du
-                                        // ----------------- //
-                                        cmd_detail = new COMMAND_DETAIL
-                                        {
-                                            CodeId_From = p.CodeId
-                                            ,
-                                            CodeId_To = g.CodeId
-                                            ,
-                                            DateCreate = _datecreate
-                                            ,
-                                            Amount = p.CurrentAmount
-                                            ,
-                                            Status = (int)Constants.COMMAND_STATUS.Pending
-                                            ,
-                                            PH_ID = p.ID
-                                            ,
-                                            GH_ID = g.ID
-                                            ,
-                                            ConfirmGH = false
-                                            ,
-                                            ConfirmPH = false
-                                        };
-                                        // ----------------- //
-                                        _ListCommand.Add(cmd_detail);
+                                        CodeId_From = p.CodeId
+                                        ,
+                                        CodeId_To = g.CodeId
+                                        ,
+                                        DateCreate = _datecreate
+                                        ,
+                                        Amount = g.Amount
+                                        ,
+                                        Status = (int)Constants.COMMAND_STATUS.Pending
+                                        ,
+                                        PH_ID = p.ID
+                                        ,
+                                        GH_ID = g.ID
+                                        ,
+                                        ConfirmGH = false
+                                        ,
+                                        ConfirmPH = false
+                                    };
+                                    // ----------------- //                                    
+                                    _ListCommand.Add(cmd_detail);
 
-                                        p.CurrentAmount = 0;
-                                        g.CurrentAmount = g.CurrentAmount - p.Amount;
 
-                                        break;
-                                    }
-                                    else if (p.CurrentAmount - g.CurrentAmount == 0)
-                                    {
-                                        // ----------------- //
-                                        cmd_detail = new COMMAND_DETAIL
-                                        {
-                                            CodeId_From = p.CodeId
-                                            ,
-                                            CodeId_To = g.CodeId
-                                            ,
-                                            DateCreate = _datecreate
-                                            ,
-                                            Amount = p.CurrentAmount
-                                            ,
-                                            Status = (int)Constants.COMMAND_STATUS.Pending
-                                            ,
-                                            PH_ID = p.ID
-                                            ,
-                                            GH_ID = g.ID
-                                            ,
-                                            ConfirmGH = false
-                                            ,
-                                            ConfirmPH = false
-                                        };
-                                        // ----------------- //
-                                        _ListCommand.Add(cmd_detail);
+                                    g.CurrentAmount = g.Amount;
 
-                                        p.CurrentAmount = 0;
-                                        g.CurrentAmount = g.Amount;
-
-                                        break;
-                                    }
+                                    if (p.CurrentAmount != p.Amount)
+                                        p.CurrentAmount = p.CurrentAmount - g.Amount;   // neu da PH roi thi lay current - g.amount
                                     else
+                                        p.CurrentAmount = p.Amount - g.Amount;  // neu chua PH
+
+                                    break;
+                                }
+                            }
+                            else
+                            {
+                                // duyet tiep neu chua gh du?
+                                if (p.CurrentAmount - g.CurrentAmount < 0)
+                                {
+                                    // van chua du
+                                    // ----------------- //
+                                    cmd_detail = new COMMAND_DETAIL
                                     {
-                                        // du roi
-                                        // ----------------- //
-                                        cmd_detail = new COMMAND_DETAIL
-                                        {
-                                            CodeId_From = p.CodeId
-                                            ,
-                                            CodeId_To = g.CodeId
-                                            ,
-                                            DateCreate = _datecreate
-                                            ,
-                                            Amount = g.CurrentAmount
-                                            ,
-                                            Status = (int)Constants.COMMAND_STATUS.Pending
-                                            ,
-                                            PH_ID = p.ID
-                                            ,
-                                            GH_ID = g.ID
-                                            ,
-                                            ConfirmGH = false
-                                            ,
-                                            ConfirmPH = false
-                                        };
-                                        // ----------------- //
-                                        _ListCommand.Add(cmd_detail);
+                                        CodeId_From = p.CodeId
+                                        ,
+                                        CodeId_To = g.CodeId
+                                        ,
+                                        DateCreate = _datecreate
+                                        ,
+                                        Amount = p.CurrentAmount
+                                        ,
+                                        Status = (int)Constants.COMMAND_STATUS.Pending
+                                        ,
+                                        PH_ID = p.ID
+                                        ,
+                                        GH_ID = g.ID
+                                        ,
+                                        ConfirmGH = false
+                                        ,
+                                        ConfirmPH = false
+                                    };
+                                    // ----------------- //
+                                    _ListCommand.Add(cmd_detail);
+                                    
+                                    g.CurrentAmount = g.CurrentAmount - p.CurrentAmount;
+                                    p.CurrentAmount = 0;
 
-                                        p.CurrentAmount = p.Amount - g.CurrentAmount;
-                                        g.CurrentAmount = g.Amount;
+                                    break;
+                                }
+                                else if (p.CurrentAmount - g.CurrentAmount == 0)
+                                {
+                                    // ----------------- //
+                                    cmd_detail = new COMMAND_DETAIL
+                                    {
+                                        CodeId_From = p.CodeId
+                                        ,
+                                        CodeId_To = g.CodeId
+                                        ,
+                                        DateCreate = _datecreate
+                                        ,
+                                        Amount = p.CurrentAmount
+                                        ,
+                                        Status = (int)Constants.COMMAND_STATUS.Pending
+                                        ,
+                                        PH_ID = p.ID
+                                        ,
+                                        GH_ID = g.ID
+                                        ,
+                                        ConfirmGH = false
+                                        ,
+                                        ConfirmPH = false
+                                    };
+                                    // ----------------- //
+                                    _ListCommand.Add(cmd_detail);
 
-                                        break;
-                                    }
+                                    p.CurrentAmount = 0;
+                                    g.CurrentAmount = g.Amount;
+
+                                    break;
+                                }
+                                else
+                                {
+                                    // du roi
+                                    // ----------------- //
+                                    cmd_detail = new COMMAND_DETAIL
+                                    {
+                                        CodeId_From = p.CodeId
+                                        ,
+                                        CodeId_To = g.CodeId
+                                        ,
+                                        DateCreate = _datecreate
+                                        ,
+                                        Amount = g.CurrentAmount
+                                        ,
+                                        Status = (int)Constants.COMMAND_STATUS.Pending
+                                        ,
+                                        PH_ID = p.ID
+                                        ,
+                                        GH_ID = g.ID
+                                        ,
+                                        ConfirmGH = false
+                                        ,
+                                        ConfirmPH = false
+                                    };
+                                    // ----------------- //
+                                    _ListCommand.Add(cmd_detail);
+
+                                    p.CurrentAmount = p.CurrentAmount - g.CurrentAmount;
+                                    g.CurrentAmount = g.Amount;
+
+                                    break;
                                 }
                             }
                         }
