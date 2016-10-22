@@ -70,41 +70,33 @@ namespace BIT.WebUI.Admin
 
         public void LoadCommandDetailByStatus()
         {
-            if (Session["COMMAN_LIST_COMMAND_ID"] != null)
+            var ctlCmdDetail = new COMMAND_DETAIL_BC();
+            //COMMAND_ID = Convert.ToInt32(Session["COMMAN_LIST_COMMAND_ID"]);
+
+            string sStatus = string.Empty;
+
+            if (string.IsNullOrEmpty(cblStatus.SelectedValue))
             {
-                var ctlCmdDetail = new COMMAND_DETAIL_BC();
-                COMMAND_ID = Convert.ToInt32(Session["COMMAN_LIST_COMMAND_ID"]);
-
-                string sStatus = string.Empty;
-
-                if (string.IsNullOrEmpty(cblStatus.SelectedValue))
-                {
-                    sStatus = null;
-                }
-                else
-                {
-                    foreach (ListItem item in cblStatus.Items)
-                    {
-                        if (item.Selected)
-                        {
-                            if (string.IsNullOrEmpty(sStatus))
-                                sStatus = item.Value;
-                            else
-                                sStatus = sStatus + "," + item.Value;
-                        }
-                    }
-                }
-
-                var lstDetail = ctlCmdDetail.SelectCommandDetailAdminByStatus(txtUsername.Text.Trim(), sStatus);
-
-                grdCommandDetails.DataSource = lstDetail;
-                grdCommandDetails.DataBind();
+                sStatus = null;
             }
             else
             {
-                grdCommandDetails.DataSource = null;
-                grdCommandDetails.DataBind();
+                foreach (ListItem item in cblStatus.Items)
+                {
+                    if (item.Selected)
+                    {
+                        if (string.IsNullOrEmpty(sStatus))
+                            sStatus = item.Value;
+                        else
+                            sStatus = sStatus + "," + item.Value;
+                    }
+                }
             }
+
+            var lstDetail = ctlCmdDetail.SelectCommandDetailAdminByStatus(txtUsername.Text.Trim(), sStatus);
+
+            grdCommandDetails.DataSource = lstDetail;
+            grdCommandDetails.DataBind();
         }
 
         public string StatusToString(int status)
