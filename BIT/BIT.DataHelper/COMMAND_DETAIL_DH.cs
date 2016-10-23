@@ -125,7 +125,7 @@ namespace BIT.DataHelper
 
         public void GH_CONFIRM(COMMAND_DETAIL obj)
         {
-            defaultDB.ExecuteNonQuery("sp_COMMAND_DETAIL_GH_CONFIRM"
+            defaultDB.ExecuteNonQuery("sp_COMMAND_DETAIL_GH_CONFIRM_TUNGND"
                 , obj.ID, obj.CommandID, obj.CodeId_From, obj.CodeId_To, obj.TransactionId, obj.DateCreate, obj.ConfirmGH, obj.DateConfirmGH, obj.ConfirmPH, obj.DateConfirmPH, obj.Amount, obj.Status, obj.PH_ID, obj.GH_ID);
         }
 	}

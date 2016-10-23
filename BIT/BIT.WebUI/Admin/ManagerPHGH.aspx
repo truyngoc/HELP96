@@ -8,7 +8,7 @@
         <!---ss PH-->
         <section class="panel">
             <header class="panel-heading">
-                <h3>List Command</h3>
+                <h3>Danh sách lệnh</h3>
             </header>
             <div class="panel-body">
                 <div class="row">
@@ -21,7 +21,7 @@
                             <asp:ListItem Value="3">&nbsp;&nbsp;EXPIRED&nbsp;&nbsp;</asp:ListItem>
                         </asp:CheckBoxList>
                         <asp:TextBox ID="txtUsername" runat="server" placeholder="Username"></asp:TextBox>
-                        <asp:Button ID="btnSearch" runat="server" Text="SEARCH" OnClick="btnSearch_Click" />
+                        <asp:Button ID="btnSearch" runat="server" Text="Tìm" OnClick="btnSearch_Click" />
                     </div>
                 </div>
                 <section class="panel">
@@ -31,43 +31,43 @@
                         <asp:GridView ID="grdCommandDetails" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="100000"
                             OnPageIndexChanging="grdCommandDetails_OnPageIndexChanging" CssClass="table table-hover p-table" UseAccessibleHeader="true" GridLines="None">
                             <Columns>
-                                <asp:TemplateField HeaderText="No." ItemStyle-HorizontalAlign="Center">
+                                <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                                     <ItemTemplate>
                                         <%# Container.DataItemIndex + 1 %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-                                <asp:TemplateField HeaderText="Sender" ItemStyle-HorizontalAlign="Left">
+                                <asp:TemplateField HeaderText="PH" ItemStyle-HorizontalAlign="Left">
                                     <ItemTemplate>
                                         <asp:Label ID="lblSender" runat="server" Text='<%# AccountBriefInfoByCodeId(Eval("CodeId_From").ToString()) %>' />
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-                                <asp:TemplateField HeaderText="Receiver" ItemStyle-HorizontalAlign="Left">
+                                <asp:TemplateField HeaderText="GH" ItemStyle-HorizontalAlign="Left">
                                     <ItemTemplate>
                                         <asp:Label ID="Label1" runat="server" Text='<%# AccountBriefInfoByCodeId(Eval("CodeId_To").ToString()) %>' />
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-                                <asp:TemplateField HeaderText="Create date" ItemStyle-HorizontalAlign="Left">
+                                <asp:TemplateField HeaderText="Ngày tạo" ItemStyle-HorizontalAlign="Left">
                                     <ItemTemplate>
                                         <asp:Label ID="lblCreateDate" runat="server" Text='<%# Eval("DateCreate" , "{0:dd/MM/yyyy HH:mm}") %>' />
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-                                <asp:TemplateField HeaderText="Amount" ItemStyle-HorizontalAlign="Left">
+                                <asp:TemplateField HeaderText="USD" ItemStyle-HorizontalAlign="Left">
                                     <ItemTemplate>
                                         <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("Amount").ToString().Substring(0,3) %>' />
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-                                <asp:TemplateField HeaderText="Waitting" ItemStyle-HorizontalAlign="Left">
+                                <asp:TemplateField HeaderText="Còn lại" ItemStyle-HorizontalAlign="Left">
                                     <ItemTemplate>
-                                        <asp:Label ID="lblWaitting" runat="server" Text='<%# showTimeRemaining((DateTime)Eval("DateCreate"), (int)Eval("Status")) %>' />
+                                        <asp:Label ID="lblWaitting" runat="server" Text='<%# showTimeRemaining((DateTime)Eval("DateCreate"),(int)Eval("Status")) %>' />
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-                                <asp:TemplateField HeaderText="Status" ItemStyle-HorizontalAlign="Left">
+                                <asp:TemplateField HeaderText="Trạng thái" ItemStyle-HorizontalAlign="Left">
                                     <ItemTemplate>
                                         <asp:Label ID="lblStatus" runat="server" Text='<%# StatusToString((int)Eval("Status")) %>' CssClass='<%# CssStatus((int)Eval("Status")) %>' />
                                     </ItemTemplate>

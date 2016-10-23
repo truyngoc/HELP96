@@ -44,7 +44,7 @@ namespace BIT.WebUI.Admin
                     //QUAN LY NGUOI DUNG
                     liCommission.Visible = false;
                     liWithdraw.Visible = false;
-                    liSignUp.Visible = false;
+                    liSignUp.Visible = true;
                     liPin.Visible = false;
                     liAdministrator.Visible = true;
                     liMember.Visible = true;
@@ -60,9 +60,9 @@ namespace BIT.WebUI.Admin
                     liCommission.Visible = false;
                     liWithdraw.Visible = false;
                     liSignUp.Visible = false;
-                    liPin.Visible = false;
+                    liPin.Visible = true;
                     liAdministrator.Visible = true;
-                    liMember.Visible = false;
+                    liMember.Visible = true;
                     liWithDrawMgr.Visible = false;
                     liCreatePHGH.Visible = false;
                     liCommandList.Visible = true;

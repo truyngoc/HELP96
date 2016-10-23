@@ -6,12 +6,12 @@
     <section class="wrapper">
         <br />
         <header class="panel-heading">
-            <h3>Create command PH - GH</h3>
+            <h3>Tạo lệnh PH - GH</h3>
         </header>
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-6">
-                    <h4>PH list</h4>
+                    <h4>Danh sách PH cũ</h4>
                     <div class="col-md-2">
                         <asp:TextBox ID="txtNumberPH" runat="server" placeholder="Number PH" CssClass="form-control col-md-1"></asp:TextBox>
                     </div>
@@ -43,13 +43,13 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="text-right">
-                        <b>Total amount PH:  </b>
+                        <b>Tổng PH (USD):  </b>
                         <asp:Label ID="lblTotalAmountPH" runat="server" CssClass="control-label" Text="5" ForeColor="Blue"></asp:Label>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="text-right">
-                        <b>Total amount GH:  </b>
+                        <b>Tổng GH (USD):  </b>
                         <asp:Label ID="lblTotalAmountGH" runat="server" CssClass="control-label" Text="5" ForeColor="Blue"></asp:Label>
                     </div>
                 </div>
@@ -143,7 +143,7 @@
             <div class="row">
                 
                 <div class="col-md-6">
-                    <h4>PH first</h4>
+                    <h4>PH lần đầu</h4>
                     <div class="col-md-2">
                         <asp:TextBox ID="txtNumberPH_First" runat="server" placeholder="Number PH" CssClass="form-control col-md-1"></asp:TextBox>
                     </div>
@@ -164,7 +164,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="text-right">
-                        <b>Total amount PH First:  </b>
+                        <b>Tổng PH mới (USD):  </b>
                         <asp:Label ID="lblTotalAmountPH_First" runat="server" CssClass="control-label" Text="5" ForeColor="Blue"></asp:Label>
                     </div>
                 </div>
@@ -221,7 +221,7 @@
                     
                 </div>
                 <div class="col-md-6">
-                    <h4>Admin account list</h4>
+                    <h4>Danh sách mã lót</h4>
                     <!--ss Gridview admin GH-->
                     <section class="panel">
                         <div class="table-responsive">
@@ -269,25 +269,25 @@
 
             <div class="row">
                 <div class="col-md-6">
-                    <asp:Button ID="btnTranferToPHList" runat="server" Text="UP TO PH LIST" CssClass="btn btn-primary" OnClick="btnTranferToPHList_Click" />
+                    <asp:Button ID="btnTranferToPHList" runat="server" Text="Đưa PH mới lên danh sách" CssClass="btn btn-primary" OnClick="btnTranferToPHList_Click" />
                     &nbsp;&nbsp;
                    
-                    <asp:Button ID="btnResetAllPHList" runat="server" Text="RESET PH LIST" CssClass="btn btn-primary" OnClick="btnResetAllPHList_Click" />
+                    <asp:Button ID="btnResetAllPHList" runat="server" Text="Khôi phục danh sách PH" CssClass="btn btn-primary" OnClick="btnResetAllPHList_Click" />
                 </div>
                 <div class="col-md-6">
-                    <asp:Button ID="btnTranferToGHList" runat="server" Text="UP TO GH LIST" CssClass="btn btn-primary" OnClick="btnTranferToGHList_Click" />
+                    <asp:Button ID="btnTranferToGHList" runat="server" Text="Đưa mã lót lên danh sách GH" CssClass="btn btn-primary" OnClick="btnTranferToGHList_Click" />
                     &nbsp;&nbsp;
                    
-                    <asp:Button ID="btnResetAllList" runat="server" Text="RESET GH LIST" CssClass="btn btn-primary" OnClick="btnResetAllList_Click" />
+                    <asp:Button ID="btnResetAllList" runat="server" Text="Khôi phục danh sách GH" CssClass="btn btn-primary" OnClick="btnResetAllList_Click" />
                 </div>
             </div>
 
             <br />
             <div>
-                <asp:Button ID="btnCreateCommand" runat="server" Text="CREATE COMMAND" CssClass="btn btn-primary" OnClick="btnCreateCommand_Click" OnClientClick="javascript:return confirm('Are you absolutely sure you want to create command?')" />
+                <asp:Button ID="btnCreateCommand" runat="server" Text="Tạo danh sách lệnh" CssClass="btn btn-primary" OnClick="btnCreateCommand_Click" OnClientClick="javascript:return confirm('Are you absolutely sure you want to create command?')" />
                 &nbsp;&nbsp;
                
-                <asp:Button ID="btnSaveCommand" runat="server" Text="SAVE COMMAND" CssClass="btn btn-primary" OnClick="btnSaveCommand_Click" OnClientClick="javascript:return confirm('Are you absolutely sure you want to save command?')" />
+                <asp:Button ID="btnSaveCommand" runat="server" Text="Lưu danh sách lệnh" CssClass="btn btn-primary" OnClick="btnSaveCommand_Click" OnClientClick="javascript:return confirm('Are you absolutely sure you want to save command?')" />
             </div>
 
             <div class="row">
@@ -305,25 +305,25 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
-                                    <asp:TemplateField HeaderText="Sender" ItemStyle-HorizontalAlign="Left">
+                                    <asp:TemplateField HeaderText="PH" ItemStyle-HorizontalAlign="Left">
                                         <ItemTemplate>
                                             <asp:Label ID="lblSender" runat="server" Text='<%# AccountBriefInfoByCodeId(Eval("CodeId_From").ToString()) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
-                                    <asp:TemplateField HeaderText="Receiver" ItemStyle-HorizontalAlign="Left">
+                                    <asp:TemplateField HeaderText="GH" ItemStyle-HorizontalAlign="Left">
                                         <ItemTemplate>
                                             <asp:Label ID="lblSender" runat="server" Text='<%# AccountBriefInfoByCodeId(Eval("CodeId_To").ToString()) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
-                                    <asp:TemplateField HeaderText="Create date" ItemStyle-HorizontalAlign="Left">
+                                    <asp:TemplateField HeaderText="Ngày tạo" ItemStyle-HorizontalAlign="Left">
                                         <ItemTemplate>
                                             <asp:Label ID="lblCreateDate" runat="server" Text='<%# Eval("DateCreate" , "{0:dd/MM/yyyy HH:mm}") %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
-                                    <asp:TemplateField HeaderText="Amount" ItemStyle-HorizontalAlign="Left">
+                                    <asp:TemplateField HeaderText="USD" ItemStyle-HorizontalAlign="Left">
                                         <ItemTemplate>
                                             <asp:Label ID="lblAmount" runat="server" Text='<%# formatAmount((decimal)Eval("Amount")) %>' />
                                         </ItemTemplate>

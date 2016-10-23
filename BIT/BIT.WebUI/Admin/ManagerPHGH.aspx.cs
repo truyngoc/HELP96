@@ -16,7 +16,7 @@ namespace BIT.WebUI.Admin
         {
             if (!IsPostBack)
             {
-                if ((Singleton<BITCurrentSession>.Inst.SessionMember.CodeId == "0") || (Singleton<BITCurrentSession>.Inst.SessionMember.CodeId == "010"))
+                if ((Singleton<BITCurrentSession>.Inst.SessionMember.CodeId == "0") || (Singleton<BITCurrentSession>.Inst.SessionMember.CodeId.IndexOf("010") == 0))
                 {
                     LIST_MEMBERS = null;
 
@@ -159,24 +159,24 @@ namespace BIT.WebUI.Admin
         {
             LoadCommandDetailByStatus();
         }
-        public string showTimeRemaining(DateTime timeremain)
+        public string showTimeRemaining(DateTime timeremain, int status)
         {
-            //if (status == (int)Constants.COMMAND_STATUS.PH_Success)
-            //{
-            var currentDate = DateTime.Now;
-            var expiredDate = timeremain.AddHours(48);
-
-            if (currentDate > expiredDate)
-                return "Expired";
-            else
+            if (status != (int)Constants.COMMAND_STATUS.Success)
             {
-                var remainDate = expiredDate - currentDate;
-                var hours = (remainDate.Days * 24) + remainDate.Hours;
-                string ret = hours.ToString("00") + " giờ " + remainDate.Minutes.ToString("00") + " phút";
-                return ret;
+                var currentDate = DateTime.Now;
+                var expiredDate = timeremain.AddHours(48);
+
+                if (currentDate > expiredDate)
+                    return "Expired";
+                else
+                {
+                    var remainDate = expiredDate - currentDate;
+                    var hours = (remainDate.Days * 24) + remainDate.Hours;
+                    string ret = hours.ToString("00") + " giờ " + remainDate.Minutes.ToString("00") + " phút";
+                    return ret;
+                }
             }
-            //}
-            //return string.Empty;
+            return string.Empty;
         }
     }
 }
