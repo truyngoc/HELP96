@@ -134,6 +134,13 @@
                                             OnClientClick="return confirm('Are you sure you want lock account ?');" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:ImageButton ID="imgbtnUnLock" runat="server" CausesValidation="false" CommandName="cmdUnLock"
+                                            CommandArgument='<%# Eval("ID") %>' ImageUrl="/Images/Icon_key.png" ToolTip="UnLock account" Width="16" Height="16"
+                                            OnClientClick="return confirm('Are you sure you want unlock account ?');" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
                     </div>

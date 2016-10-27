@@ -113,7 +113,7 @@ namespace BIT.DataHelper
 
         public void ConfirmPH(COMMAND_DETAIL obj)
         {
-            defaultDB.ExecuteNonQuery("sp_COMMAND_DETAIL_ConfirmPH"
+            defaultDB.ExecuteNonQuery("sp_COMMAND_DETAIL_ConfirmPH_TUNGND"
                 , obj.ID, obj.TransactionId, obj.ConfirmPH, obj.DateConfirmPH, obj.Status);
         }
 

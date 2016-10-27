@@ -66,17 +66,17 @@ namespace BIT.WebUI.Admin
 
                 if (login_info != null)
                 {
-                    //if (login_info.Status == 3)
-                    //{
-                    //    lblMessage.Text = "Account is locked.";
-                    //    lblMessage.Visible = true;
-                    //}
-                    //else
-                    //{
-                    Singleton<BITCurrentSession>.Inst.SessionMember = login_info;
-                    lblMessage.Visible = false;
-                    Response.Redirect("~/Admin/Dashboard.aspx");
-                    //}
+                    if (login_info.Status == 3)
+                    {
+                        lblMessage.Text = "Account is locked.";
+                        lblMessage.Visible = true;
+                    }
+                    else
+                    {
+                        Singleton<BITCurrentSession>.Inst.SessionMember = login_info;
+                        lblMessage.Visible = false;
+                        Response.Redirect("~/Admin/Dashboard.aspx");
+                    }
                 }
                 else
                 {

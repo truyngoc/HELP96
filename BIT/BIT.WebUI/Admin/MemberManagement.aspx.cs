@@ -86,6 +86,11 @@ namespace BIT.WebUI.Admin
                     ctlMem.LockAccount(Convert.ToInt32(e.CommandArgument));
                     LoadAllAcc();
                     break;
+
+                case "cmdUnLock":
+                    ctlMem.UnLockAccount(Convert.ToInt32(e.CommandArgument));
+                    LoadAllAcc();
+                    break;
             }
         }
 
@@ -106,7 +111,7 @@ namespace BIT.WebUI.Admin
                 case 2:
                     return "Running";
                 case 3:
-                    return "Blocked";
+                    return "Lock";
                 default:
                     return "";
             }

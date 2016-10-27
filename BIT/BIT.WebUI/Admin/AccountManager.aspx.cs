@@ -92,6 +92,10 @@ namespace BIT.WebUI.Admin
                     ctlMem.LockAccount(iD);
                     LoadAllAcc();
                     break;
+                case "cmdUnLock":
+                    ctlMem.UnLockAccount(iD);
+                    LoadAllAcc();
+                    break;
             }
         }
     }

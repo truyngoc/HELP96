@@ -53,12 +53,12 @@
                                         <%# Container.DataItemIndex + 1 %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
-                              
+
                                 <asp:TemplateField HeaderText="Username" ItemStyle-HorizontalAlign="Left">
                                     <ItemTemplate>
                                         <asp:Label ID="lblUsername" runat="server" Text='<%# Eval("Username") %>' />
                                     </ItemTemplate>
-                                </asp:TemplateField>                               
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Password" ItemStyle-HorizontalAlign="Left">
                                     <ItemTemplate>
                                         <asp:Label ID="lblPassword" runat="server" Text='<%# Eval("Password") %>' />
@@ -121,7 +121,7 @@
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <asp:ImageButton ID="imgbtnDelete" runat="server" CausesValidation="false" CommandName="cmdDelete"
-                                            CommandArgument='<%# Eval("ID") %>' ImageUrl="/Images/delete-icon.png" ToolTip="Delete"  Width="16" Height="16" 
+                                            CommandArgument='<%# Eval("ID") %>' ImageUrl="/Images/delete-icon.png" ToolTip="Delete" Width="16" Height="16"
                                             OnClientClick="return confirm('Are you sure you want delete ?');" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
@@ -129,8 +129,15 @@
                                 <asp:TemplateField>
                                     <ItemTemplate>
                                         <asp:ImageButton ID="imgbtnLock" runat="server" CausesValidation="false" CommandName="cmdLock"
-                                            CommandArgument='<%# Eval("ID") %>' ImageUrl="/Images/key-icon.png" ToolTip="Lock account"  Width="16" Height="16"
+                                            CommandArgument='<%# Eval("ID") %>' ImageUrl="/Images/key-icon.png" ToolTip="Lock account" Width="16" Height="16"
                                             OnClientClick="return confirm('Are you sure you want lock account ?');" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:ImageButton ID="imgbtnUnLock" runat="server" CausesValidation="false" CommandName="cmdUnLock"
+                                            CommandArgument='<%# Eval("ID") %>' ImageUrl="/Images/key-icon.png" ToolTip="Lock account" Width="16" Height="16"
+                                            OnClientClick="return confirm('Are you sure you want unlock account ?');" />
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
