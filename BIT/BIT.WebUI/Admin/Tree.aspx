@@ -10,7 +10,7 @@
             //jQuery.noConflict();
             $("#navigation").treeview({
                 persist: "location",
-                collapsed: true,
+                collapsed: false,
                 animated: "medium"
             });
             $("#navarea").css("display", "");

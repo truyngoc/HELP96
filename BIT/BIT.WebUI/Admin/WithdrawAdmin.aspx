@@ -39,7 +39,8 @@
                             </td>
 
                             <td>
-                                <asp:LinkButton ID="lnkBlockchain" runat="server" Font-Bold="true" ForeColor="#2d3fda"></asp:LinkButton>
+                                <asp:LinkButton ID="lnkBlockchain" runat="server" Font-Bold="true" ForeColor="#2d3fda" Text='<%# Eval("Wallet") %>'></asp:LinkButton>
+                                <%--<asp:Image runat="server" ID="imgWallet" ImageUrl='http://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=<%# Eval("Wallet") %>' />--%>
                             </td>
                             <td>
                                 <asp:Label runat="server" ID="lblAm" Text='<%# Eval("Amount").ToString().Substring(0,Eval("Amount").ToString().Length -4) %>' Font-Bold="true" ForeColor="Red"></asp:Label>
