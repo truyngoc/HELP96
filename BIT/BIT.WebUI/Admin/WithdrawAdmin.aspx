@@ -43,14 +43,14 @@
                                 <%--<asp:Image runat="server" ID="imgWallet" ImageUrl='http://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=<%# Eval("Wallet") %>' />--%>
                             </td>
                             <td>
-                                <asp:Label runat="server" ID="lblAm" Text='<%# Eval("Amount").ToString().Substring(0,Eval("Amount").ToString().Length -4) %>' Font-Bold="true" ForeColor="Red"></asp:Label>
+                                <asp:Label runat="server" ID="lblAm" Text='<%# Eval("Amount").ToString().Substring(0,Eval("Amount").ToString().IndexOf(".")) %>' Font-Bold="true" ForeColor="Red"></asp:Label>
                             </td>
                             <td><span class="label label-primary">
                                 <%# getStatus(Eval("Status")) %>
                             </span>
                                 </td>
                             <td>
-                                <asp:LinkButton ID="lbkBtnConfirm" runat="server" Visible='<%# getConfirmVisible(Eval("Status")) %>' Text="Select" CommandArgument='<%# Eval("ID") %>' class="btn btn-info" OnClick="lbkBtnConfirm_Click"></asp:LinkButton>
+                                <asp:LinkButton ID="lbkBtnConfirm" runat="server" Visible='<%# getConfirmVisible(Eval("Status")) %>' Text="Duyệt" CommandArgument='<%# Eval("ID") %>' class="btn btn-info" OnClick="lbkBtnConfirm_Click"  OnClientClick="javascript:return confirm('Bạn có chắc chắn duyệt lệnh rút tiền ?')" ></asp:LinkButton>
                             </td>
                         </tr>
                     </tbody>

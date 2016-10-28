@@ -45,7 +45,7 @@ namespace BIT.WebUI.Admin
         public void LoadUserInfor()
         {
             int Id;
-            if ((Singleton<BITCurrentSession>.Inst.SessionMember.CodeId == "0")||(Singleton<BITCurrentSession>.Inst.SessionMember.CodeId == "009"))
+            if ((Singleton<BITCurrentSession>.Inst.SessionMember.CodeId == "0") || (Singleton<BITCurrentSession>.Inst.SessionMember.CodeId == "009"))
             {
                 if (Convert.ToInt32(HttpContext.Current.Session["BIT_MemberID_Edit"]) == 0)
                 {
@@ -164,16 +164,31 @@ namespace BIT.WebUI.Admin
                 try
                 {
                     MEMBERS obj = GetDataOnForm();
-                    if (Singleton<WALLET_BC>.Inst.SelectItemByCodeId(obj.CodeId).PIN_Wallet > 2)
+                    if ((Singleton<BITCurrentSession>.Inst.SessionMember.CodeId == "0") || (Singleton<BITCurrentSession>.Inst.SessionMember.CodeId == "009"))
                     {
-                        Singleton<MEMBERS_BC>.Inst.UpdateItem(obj);
-                        Singleton<BITCurrentSession>.Inst.SessionMember = Singleton<MEMBERS_BC>.Inst.SelectItem(obj.CodeId);
-                        //Singleton<MEMBERS_BC>.Inst.InsertEditItem(obj);
-                        TNotify.Alerts.Success("Edit account information success.", true);
+                        if (Singleton<WALLET_BC>.Inst.SelectItemByCodeId(obj.CodeId).PIN_Wallet > 2)
+                        {
+                            Singleton<MEMBERS_BC>.Inst.UpdateItem(obj);
+                            //Singleton<BITCurrentSession>.Inst.SessionMember = Singleton<MEMBERS_BC>.Inst.SelectItem(obj.CodeId);
+                            //Singleton<MEMBERS_BC>.Inst.InsertEditItem(obj);
+                            TNotify.Alerts.Success("Edit account information success.", true);
+                        }
+                        else
+                            TNotify.Alerts.Danger("Edit account information will lost 1 PIN, and you have not enough 3 PIN");
                     }
                     else
-                        TNotify.Alerts.Danger("Edit account information will lost 1 PIN, and you have not enough 3 PIN");
-                    //Response.Redirect("OrderChangeInfo.aspx");
+                    {
+                        if (Singleton<WALLET_BC>.Inst.SelectItemByCodeId(obj.CodeId).PIN_Wallet > 2)
+                        {
+                            Singleton<MEMBERS_BC>.Inst.UpdateItem(obj);
+                            Singleton<BITCurrentSession>.Inst.SessionMember = Singleton<MEMBERS_BC>.Inst.SelectItem(obj.CodeId);
+                            //Singleton<MEMBERS_BC>.Inst.InsertEditItem(obj);
+                            TNotify.Alerts.Success("Edit account information success.", true);
+                        }
+                        else
+                            TNotify.Alerts.Danger("Edit account information will lost 1 PIN, and you have not enough 3 PIN");
+                        //Response.Redirect("OrderChangeInfo.aspx");
+                    }
                 }
                 catch (Exception ex)
                 {

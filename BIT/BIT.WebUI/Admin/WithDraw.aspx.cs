@@ -42,37 +42,83 @@ namespace BIT.WebUI.Admin
         public void LoadAmountWithDraw()
         {
             int Quota = Singleton<WITHDRAW_BC>.Inst.GetQuotaWithDraw(Singleton<BITCurrentSession>.Inst.SessionMember.CodeId);
-            switch (Singleton<BITCurrentSession>.Inst.SessionMember.Level)
-            {
-                case "0": 
-                    txtAmount.Text = "0.3";
-                    lblQuota.Text = (1.5 - Quota).ToString();
-                    break;
-                case "1":
-                    txtAmount.Text = "0.3";
-                    lblQuota.Text = (1.5 - Quota).ToString();
-                    break;
-                case "2":
-                    txtAmount.Text = "0.5";
-                    lblQuota.Text = (15 - Quota).ToString();
-                    break;
-                case "3":
-                    txtAmount.Text = "1";
-                    lblQuota.Text = (30 - Quota).ToString();
-                    break;
-                case "4":
-                    txtAmount.Text = "1.3";
-                    lblQuota.Text = (40 - Quota).ToString();
-                    break;
-                case "5":
-                    txtAmount.Text = "1.5";
-                    lblQuota.Text = (50 - Quota).ToString();
-                    break;
-                default:
-                    break;
-            }
-            
 
+            if (Quota < 0)
+            {
+                TNotify.Alerts.Success("Bạn không đủ F1 mới để rút tiền hoa hồng hệ thống", true);
+            }
+            else
+            {
+                switch (Singleton<BITCurrentSession>.Inst.SessionMember.Level)
+                {
+                    case "0":
+                        {
+                            TNotify.Alerts.Danger("Bạn phải đạt cấp V1 để rút hoa hồng hệ thống", true);
+                            break;
+                        }
+                    case "1":
+                        if (Quota >= 240)
+                        {
+                            lblQuota.Text = "0";
+                            break;
+                        }
+                        else
+                        {
+                            lblQuota.Text = (240 - Quota).ToString();
+                            break;
+                        }
+                    case "2":
+                        if (Quota >= 480)
+                        {
+                            lblQuota.Text = "0";
+                            break;
+                        }
+                        else
+                        {
+                            lblQuota.Text = (480 - Quota).ToString();
+                            break;
+                        }
+                    case "3":
+                        if (Quota >= 960)
+                        {
+                            lblQuota.Text = "0";
+                            break;
+                        }
+                        else
+                        {
+                            lblQuota.Text = (960 - Quota).ToString();
+                            break;
+                        }
+                    case "4":
+                        if (Quota >= 4800)
+                        {
+                            lblQuota.Text = "0";
+                            break;
+                        }
+                        else
+                        {
+                            lblQuota.Text = (4800 - Quota).ToString();
+                            break;
+                        }
+                    case "5":
+                        if (Quota >= 9600)
+                        {
+                            lblQuota.Text = "0";
+                            break;
+                        }
+                        else
+                        {
+                            lblQuota.Text = (9600 - Quota).ToString();
+                            break;
+                        }
+                    default:
+                        {
+                            lblQuota.Text = "0";
+                            break;
+                        }
+                }
+
+            }
         }
         public string getGHStatus(object status)
         {
@@ -87,7 +133,16 @@ namespace BIT.WebUI.Admin
         public void getCWalletAmount()
         {
             WALLET userWallet = Singleton<WALLET_BC>.Inst.SelectItemByCodeId(Singleton<BITCurrentSession>.Inst.SessionMember.CodeId);
-            lblCWalletAmt.Text = userWallet.C_Wallet.ToString();
+            try
+            {
+                lblCWalletAmt.Text = userWallet.C_Wallet.ToString().Substring(0,userWallet.C_Wallet.ToString().IndexOf("."));
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            
         }
 
         public void bindDataList()
@@ -101,25 +156,71 @@ namespace BIT.WebUI.Admin
         {
             try
             {
+                //CHECK PIN
+                
+                decimal pin = Decimal.Parse(Singleton<WALLET_BC>.Inst.SelectItemByCodeId(Singleton<BITCurrentSession>.Inst.SessionMember.CodeId).PIN_Wallet.ToString());
+                switch (Singleton<BITCurrentSession>.Inst.SessionMember.Level)
+                {
+                    case "1":
+                        {
+                            if (pin<3)
+                            {
+                                TNotify.Toastr.Error("Rút tiền mất 1 PIN, bạn cần ít nhất 3 PIN trong tài khoản.");
+                                return;
+                            }
+                            break;
+                        }
+                    case "2":
+                        if (pin<4)
+                            {
+                                TNotify.Toastr.Error("Rút tiền mất 2 PIN, bạn cần ít nhất 4 PIN.");
+                                return;
+                            }
+                            break;
+                    case "3":
+                        if (pin<5)
+                            {
+                                TNotify.Toastr.Error("Rút tiền mất 3 PIN, bạn cần ít nhất 5 PIN.");
+                                return;
+                            }
+                            break;
+                    case "4":
+                        if (pin<8)
+                            {
+                                TNotify.Toastr.Error("Rút tiền mất 6 PIN, bạn cần ít nhất 8 PIN.");
+                                return;
+                            }
+                            break;
+                    case "5":
+                        if (pin<12)
+                            {
+                                TNotify.Toastr.Error("Rút tiền mất 10 PIN, bạn cần ít nhất 12 PIN.");
+                                return;
+                            }
+                            break;
+
+                    default:
+                        break;
+                }
                 decimal withdrawAmount = 0;
                 //check dieu kien
                 if (txtAmount.Text != string.Empty)
                 {
-                    withdrawAmount = Convert.ToDecimal(txtAmount.Text);
-                    if (withdrawAmount > Convert.ToDecimal(lblCWalletAmt.Text))
+                    withdrawAmount = decimal.Parse(txtAmount.Text);
+                    if (withdrawAmount > decimal.Parse(lblCWalletAmt.Text))
                     {
-                        TNotify.Toastr.Warning("Not enought USD to withdraw !", "Completed", TNotify.NotifyPositions.toast_top_full_width, true);
+                        TNotify.Toastr.Error("Bạn không còn đủ " + lblCWalletAmt.Text + " USD để rút.");
                         return;
                     }
                 }
                 else
                 {
-                    TNotify.Toastr.Warning("Please input amount withdraw !", "Completed", TNotify.NotifyPositions.toast_top_full_width, true);
+                    TNotify.Toastr.Error("Số tiền rút không hợp lệ");
                     return;
                 }
                 if (txtPin2.Text != Singleton<BITCurrentSession>.Inst.SessionMember.Password_PIN)
                 {
-                    TNotify.Toastr.Warning("Wrong transaction password", "Completed", TNotify.NotifyPositions.toast_top_full_width, true);
+                    TNotify.Toastr.Error("Mật khẩu giao dịch không đúng.");
                     return;
                 }
 
@@ -134,10 +235,13 @@ namespace BIT.WebUI.Admin
 
                 //insert
                 Singleton<WITHDRAW_BC>.Inst.InsertItem(objWD);
-                TNotify.Toastr.Success("Withdraw Completed ", "Completed", TNotify.NotifyPositions.toast_top_full_width, true);
+                TNotify.Toastr.Success("Đặt lệnh rút tiền thành công");
                 Response.Redirect("../Admin/Withdraw.aspx");
             }
-            catch { }
+            catch 
+            {
+                TNotify.Toastr.Error("Số tiền rút phải là số nguyên");
+            }
         }
     }
 }

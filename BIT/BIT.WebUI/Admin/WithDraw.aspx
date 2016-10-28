@@ -31,7 +31,7 @@
                         <div class="col-md-12 col-md-offset-3">
                             <label class="control-label col-lg-2" for="firstname">Withdraw Amount </label>
                             <div class="col-lg-5">
-                                <asp:TextBox runat="server" ID="txtAmount" readonly="true"></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtAmount" type="Number"></asp:TextBox>
                             </div>
                         </div>
                         
