@@ -59,7 +59,7 @@ namespace BIT.WebUI.Admin
                     //QUAN LY PH GH
                     liCommission.Visible = false;
                     liWithdraw.Visible = false;
-                    liSignUp.Visible = false;
+                    liSignUp.Visible = true;
                     liPin.Visible = true;
                     liAdministrator.Visible = true;
                     liMember.Visible = true;
