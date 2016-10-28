@@ -25,58 +25,54 @@
                     </div>
                 </div>
                 <section class="panel">
+                    <%--<div class="table-responsive">--%>
+                    <asp:GridView ID="grdCommandDetails" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="100000"
+                        OnPageIndexChanging="grdCommandDetails_OnPageIndexChanging" CssClass="table table-hover p-table" UseAccessibleHeader="true" GridLines="None">
+                        <Columns>
+                            <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
+                                <ItemTemplate>
+                                    <%# Container.DataItemIndex + 1 %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
+                            <asp:TemplateField HeaderText="PH" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblSender" runat="server" Text='<%# AccountBriefInfoByCodeId(Eval("CodeId_From").ToString()) %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                    <div class="table-responsive">
-                        <asp:GridView ID="grdCommandDetails" runat="server" AutoGenerateColumns="false" AllowPaging="true" PageSize="100000"
-                            OnPageIndexChanging="grdCommandDetails_OnPageIndexChanging" CssClass="table table-hover p-table" UseAccessibleHeader="true" GridLines="None">
-                            <Columns>
-                                <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
-                                    <ItemTemplate>
-                                        <%# Container.DataItemIndex + 1 %>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
+                            <asp:TemplateField HeaderText="GH" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="Label1" runat="server" Text='<%# AccountBriefInfoByCodeId(Eval("CodeId_To").ToString()) %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                                <asp:TemplateField HeaderText="PH" ItemStyle-HorizontalAlign="Left">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblSender" runat="server" Text='<%# AccountBriefInfoByCodeId(Eval("CodeId_From").ToString()) %>' />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Ngày tạo" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblCreateDate" runat="server" Text='<%# Eval("DateCreate" , "{0:dd/MM/yyyy HH:mm}") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                                <asp:TemplateField HeaderText="GH" ItemStyle-HorizontalAlign="Left">
-                                    <ItemTemplate>
-                                        <asp:Label ID="Label1" runat="server" Text='<%# AccountBriefInfoByCodeId(Eval("CodeId_To").ToString()) %>' />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
+                            <asp:TemplateField HeaderText="USD" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("Amount").ToString().Substring(0,3) %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                                <asp:TemplateField HeaderText="Ngày tạo" ItemStyle-HorizontalAlign="Left">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblCreateDate" runat="server" Text='<%# Eval("DateCreate" , "{0:dd/MM/yyyy HH:mm}") %>' />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Còn lại" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblWaitting" runat="server" Text='<%# showTimeRemaining((DateTime)Eval("DateCreate"),(int)Eval("Status")) %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-                                <asp:TemplateField HeaderText="USD" ItemStyle-HorizontalAlign="Left">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("Amount").ToString().Substring(0,3) %>' />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-
-                                <asp:TemplateField HeaderText="Còn lại" ItemStyle-HorizontalAlign="Left">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblWaitting" runat="server" Text='<%# showTimeRemaining((DateTime)Eval("DateCreate"),(int)Eval("Status")) %>' />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-
-                                <asp:TemplateField HeaderText="Trạng thái" ItemStyle-HorizontalAlign="Left">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblStatus" runat="server" Text='<%# StatusToString((int)Eval("Status")) %>' CssClass='<%# CssStatus((int)Eval("Status")) %>' />
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-
-                            </Columns>
-                        </asp:GridView>
-                    </div>
-
+                            <asp:TemplateField HeaderText="Trạng thái" ItemStyle-HorizontalAlign="Left">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblStatus" runat="server" Text='<%# StatusToString((int)Eval("Status")) %>' CssClass='<%# CssStatus((int)Eval("Status")) %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
+                    <%--</div>--%>
                 </section>
             </div>
         </section>
