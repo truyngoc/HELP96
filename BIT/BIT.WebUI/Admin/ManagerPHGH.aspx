@@ -55,7 +55,7 @@
 
                             <asp:TemplateField HeaderText="USD" ItemStyle-HorizontalAlign="Left">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("Amount").ToString().Substring(0,3) %>' />
+                                    <asp:Label ID="lblAmount" runat="server" Text='<%# Eval("Amount").ToString().Substring(0,Eval("Amount").ToString().IndexOf(".")) %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
 
