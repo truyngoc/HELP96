@@ -135,14 +135,14 @@ namespace BIT.WebUI.Admin
             WALLET userWallet = Singleton<WALLET_BC>.Inst.SelectItemByCodeId(Singleton<BITCurrentSession>.Inst.SessionMember.CodeId);
             try
             {
-                lblCWalletAmt.Text = userWallet.C_Wallet.ToString().Substring(0,userWallet.C_Wallet.ToString().IndexOf("."));
+                lblCWalletAmt.Text = userWallet.C_Wallet.ToString().Substring(0, userWallet.C_Wallet.ToString().IndexOf("."));
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
-            
+
         }
 
         public void bindDataList()
@@ -163,64 +163,71 @@ namespace BIT.WebUI.Admin
                 {
                     case "1":
                         {
-                            if (pin<3)
+                            if (pin < 3)
                             {
-                                TNotify.Toastr.Error("Rút tiền mất 1 PIN, bạn cần ít nhất 3 PIN trong tài khoản.");
+                                TNotify.Alerts.Danger("Rút tiền mất 1 PIN, bạn cần ít nhất 3 PIN trong tài khoản.",true);
                                 return;
                             }
                             break;
                         }
                     case "2":
-                        if (pin<4)
-                            {
-                                TNotify.Toastr.Error("Rút tiền mất 2 PIN, bạn cần ít nhất 4 PIN.");
-                                return;
-                            }
-                            break;
+                        if (pin < 4)
+                        {
+                            TNotify.Alerts.Danger("Rút tiền mất 2 PIN, bạn cần ít nhất 4 PIN.",true);
+                            return;
+                        }
+                        break;
                     case "3":
-                        if (pin<5)
-                            {
-                                TNotify.Toastr.Error("Rút tiền mất 3 PIN, bạn cần ít nhất 5 PIN.");
-                                return;
-                            }
-                            break;
+                        if (pin < 5)
+                        {
+                            TNotify.Alerts.Danger("Rút tiền mất 3 PIN, bạn cần ít nhất 5 PIN.",true);
+                            return;
+                        }
+                        break;
                     case "4":
-                        if (pin<8)
-                            {
-                                TNotify.Toastr.Error("Rút tiền mất 6 PIN, bạn cần ít nhất 8 PIN.");
-                                return;
-                            }
-                            break;
+                        if (pin < 8)
+                        {
+                            TNotify.Alerts.Danger("Rút tiền mất 6 PIN, bạn cần ít nhất 8 PIN.",true);
+                            return;
+                        }
+                        break;
                     case "5":
-                        if (pin<12)
-                            {
-                                TNotify.Toastr.Error("Rút tiền mất 10 PIN, bạn cần ít nhất 12 PIN.");
-                                return;
-                            }
-                            break;
+                        if (pin < 12)
+                        {
+                            TNotify.Alerts.Danger("Rút tiền mất 10 PIN, bạn cần ít nhất 12 PIN.",true);
+                            return;
+                        }
+                        break;
 
                     default:
                         break;
                 }
                 decimal withdrawAmount = 0;
-                //check dieu kien
-                if (txtAmount.Text != string.Empty)
+
+                withdrawAmount = decimal.Parse(lstAmount.SelectedValue);
+                decimal QuotaAmount = decimal.Parse(lblQuota.Text);
+
+                if (lblQuota.Text.Trim() =="0")
                 {
-                    withdrawAmount = decimal.Parse(txtAmount.Text);
-                    if (withdrawAmount > decimal.Parse(lblCWalletAmt.Text))
-                    {
-                        TNotify.Toastr.Error("Bạn không còn đủ " + lblCWalletAmt.Text + " USD để rút.");
-                        return;
-                    }
-                }
-                else
-                {
-                    TNotify.Toastr.Error("Số tiền rút không hợp lệ");
+                    TNotify.Alerts.Danger("Bạn đã rút đủ giới hạn hoa hồng tháng này.", true);
                     return;
                 }
+
+                if (withdrawAmount>QuotaAmount)
+                {
+                    TNotify.Alerts.Danger("Bạn đã rút đủ giới hạn hoa hồng tháng này.", true);
+                    return;
+                }
+
+                if (withdrawAmount > decimal.Parse(lblCWalletAmt.Text))
+                {
+                    TNotify.Alerts.Danger("Bạn không còn đủ " + withdrawAmount + " USD để rút.");
+                    return;
+                }
+
                 if (txtPin2.Text != Singleton<BITCurrentSession>.Inst.SessionMember.Password_PIN)
                 {
-                    TNotify.Toastr.Error("Mật khẩu giao dịch không đúng.");
+                    TNotify.Alerts.Danger("Mật khẩu giao dịch không đúng.");
                     return;
                 }
 
@@ -238,7 +245,7 @@ namespace BIT.WebUI.Admin
                 TNotify.Toastr.Success("Đặt lệnh rút tiền thành công");
                 Response.Redirect("../Admin/Withdraw.aspx");
             }
-            catch 
+            catch
             {
                 TNotify.Toastr.Error("Số tiền rút phải là số nguyên");
             }

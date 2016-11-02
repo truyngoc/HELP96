@@ -27,18 +27,25 @@
                                 <asp:Label runat="server" ID="lblQuota"></asp:Label>
                             </div>
                         </div>
-                                                
+
                         <div class="col-md-12 col-md-offset-3">
                             <label class="control-label col-lg-2" for="firstname">Withdraw Amount </label>
                             <div class="col-lg-5">
-                                <asp:TextBox runat="server" ID="txtAmount" type="Number"></asp:TextBox>
+                                <%--<asp:TextBox runat="server" ID="txtAmount" type="Number" ReadOnly="true"></asp:TextBox>--%>
+                                <asp:DropDownList runat="server" ID="lstAmount">
+                                    <asp:ListItem Text="240" Value="240" Selected="True"></asp:ListItem>
+                                    <asp:ListItem Text="480" Value="480"></asp:ListItem>
+                                    <asp:ListItem Text="960" Value="960"></asp:ListItem>
+                                    <asp:ListItem Text="4800" Value="4800"></asp:ListItem>
+                                    <asp:ListItem Text="9600" Value="9600"></asp:ListItem>
+                                </asp:DropDownList> USD
                             </div>
                         </div>
-                        
+
                         <div class="col-md-12 col-md-offset-3">
                             <label class="control-label col-lg-2" for="firstname">Enter PIN 2 </label>
                             <div class="col-lg-2">
-                                <asp:TextBox runat="server" ID="txtPin2" TextMode="Password" ></asp:TextBox>
+                                <asp:TextBox runat="server" ID="txtPin2" TextMode="Password"></asp:TextBox>
                             </div>
                         </div>
 
@@ -86,7 +93,7 @@
                             </td>
                             <td>
                                 <a href='https://blockchain.info/tx/<%# Eval("TransactionId") %>' target='_blank'>
-                                <span class="label label-success"><%# Eval("TransactionId") %></span>
+                                    <span class="label label-success"><%# Eval("TransactionId") %></span>
                                 </a>
                             </td>
                         </tr>
@@ -94,6 +101,7 @@
                 </ItemTemplate>
                 <FooterTemplate>
                     </table>
+               
                 </FooterTemplate>
             </asp:DataList>
         </section>
